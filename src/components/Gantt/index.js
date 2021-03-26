@@ -106,6 +106,9 @@ const custom_popup_html = (event) => {
           </div>
         </form>
       </div>
+      <div className="gantt-select">
+        <h3>selection du lancement</h3>
+      </div>
     </div>
   )
 }

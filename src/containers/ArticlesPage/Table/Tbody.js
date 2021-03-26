@@ -3,7 +3,7 @@ import Tbody from '../../../components/ArticlesPage/Tbody';
 
 
 import { changeValue} from '../../../actions';
-import {saveId} from '../../../actions/article';
+import {saveId, searchInfo} from '../../../actions/article';
 
 const mapStateToProps = (state) => ({
   articles: state.articles.articles,
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   saveId: (id) => {
     dispatch(saveId(id));
   },
+  searchInfo:(id,article_name,level,machine_id,operating_time,description,dependencies) => {
+    dispatch(searchInfo(id,article_name,level,machine_id,operating_time,description,dependencies));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tbody);

@@ -1,11 +1,12 @@
-export const SAVE_TASKS = 'SAVE_TASKS';
-export const SaveTasks = (id,name,start,end, progress,dependencies) => ({
-  type: SAVE_TASKS,
+export const ADD_ARTICLE = 'ADD_ARTICLE';
+export const addArticle = (id,article_name,level,machine_id,operating_time,description,dependencies) => ({
+  type: ADD_ARTICLE,
   id,
-  name,
-  start,
-  end,
-  progress,
+  article_name,
+  level,
+  machine_id,
+  operating_time,
+  description,
   dependencies,
 });
 
@@ -16,7 +17,31 @@ export const saveId = (id) => ({
 });
 
 export const SEARCH_INFO = 'SEARCH_INFO';
-export const searchInfo = (id) => ({
+export const searchInfo = (id,article_name,level,machine_id,operating_time,description,dependencies) => ({
   type: SEARCH_INFO,
+  id,
+  article_name,
+  level,
+  machine_id,
+  operating_time,
+  description,
+  dependencies,
+});
+
+export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
+export const updateArticle = (id,article_name,level,machine_id,operating_time,description,dependencies) => ({
+  type: UPDATE_ARTICLE,
+  id,
+  article_name,
+  level,
+  machine_id,
+  operating_time,
+  description,
+  dependencies,
+});
+
+export const DELETE_ARTICLE = 'DELETE_ARTICLE';
+export const deleteArticle = (id) => ({
+  type: DELETE_ARTICLE,
   id,
 });

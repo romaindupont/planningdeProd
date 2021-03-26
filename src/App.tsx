@@ -18,10 +18,7 @@ const Hello = () => {
           rel="noreferrer"
         >
           <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
+            Base Articles
           </button>
         </Link>
         <Link
@@ -29,10 +26,7 @@ const Hello = () => {
           rel="noreferrer"
         >
           <button type="button">
-            <span role="img" aria-label="books">
-              🙏
-            </span>
-            gantt
+            Planning Gantt
           </button>
         </Link>
       </div>

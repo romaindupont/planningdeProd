@@ -8,9 +8,12 @@ const mapStateToProps = (state,ownProps) => ({
     currentValue: state.articles[ownProps.name],
   });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch,ownProps) => ({
   saveId: (id) => {
     dispatch(saveId(id));
+  },
+  changeField: (newValue) => {
+    dispatch(changeValue(newValue, ownProps.name));
   },
 });
 

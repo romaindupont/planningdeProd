@@ -1,10 +1,29 @@
 import React from 'react';
 import Field from '../../containers/ArticlesPage/FieldArticle';
+import {generateId} from '../../Utils';
 
-const FormArticle = ()=> {
+const FormArticle = ({id,articleList, addArticle,updateArticle, deleteArticle})=> {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newId = String(generateId(articleList));
+    if (event.target.id.value==='') {
+    addArticle(newId,event.target.article_name.value,event.target.level.value,event.target.machine_id.value,event.target.operating_time.value,event.target.description.value,event.target.dependencies.value);
+    }
+    else {
+      const UpdateArticle = articleList.filter((article)=> {
+        if (article.id ==event.target.id.value){
+          updateArticle(article.id,event.target.article_name.value,event.target.level.value,event.target.machine_id.value,event.target.operating_time.value,event.target.description.value,event.target.dependencies.value);
+        }
+      })
+    }
+  };
+  const handleDelete = (event) => {
+    event.preventDefault();
+    deleteArticle(id);
+  };
 
   return (
-          <form className="articlePage-form">
+          <form className="articlePage-form" onSubmit={handleSubmit}>
               <Field
                 type="text"
                 placeholder="id"
@@ -40,6 +59,10 @@ const FormArticle = ()=> {
                 placeholder="dependencies"
                 name="dependencies"
               />
+              <div className="form-button-zones">
+                <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
+                <button className="form-button remove" onClick={handleDelete}>Remove</button>
+              </div>
           </form>
   )
 }

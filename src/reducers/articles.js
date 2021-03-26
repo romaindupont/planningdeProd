@@ -4,6 +4,9 @@ import {
 import {
   SAVE_ID,
   SEARCH_INFO,
+  ADD_ARTICLE,
+  UPDATE_ARTICLE,
+  DELETE_ARTICLE,
 } from '../actions/article';
 
 const initialState = {
@@ -64,6 +67,7 @@ const initialState = {
     },
 
   ],
+  articleList: {},
   id:'',
   article_name:'',
   level:'',
@@ -87,7 +91,69 @@ const reducer = (state = initialState, action = {}) => {
       }
     case SEARCH_INFO:
       return {
-
+        ...state,
+        id: action.id,
+        article_name: action.article_name,
+        level: action.level,
+        machine_id: action.machine_id,
+        operating_time: action.operating_time,
+        description: action.description,
+        dependencies: action.dependencies,
+      }
+    case ADD_ARTICLE:
+      return {
+        ...state,
+       articles:
+         [
+          ...state.articles,
+        {
+          id: action.id,
+          article_name: action.article_name,
+          level: action.level,
+          machine_id: action.machine_id,
+          operating_time: action.operating_time,
+          description: action.description,
+          dependencies: action.dependencies,
+        }
+        ]
+      };
+    case UPDATE_ARTICLE:
+        return {
+          ...state,
+          articles: state.articles.map(article => {
+            if(article.id === action.id) {
+              return {
+                id: article.id,
+                article_name: action.article_name,
+                level: action.level,
+                machine_id: action.machine_id,
+                operating_time: action.operating_time,
+                description: action.description,
+                dependencies: action.dependencies,
+              }
+            }
+            else {
+              return article;
+            }
+          }),
+          id:'',
+          article_name:'',
+          level:'',
+          machine_id:'',
+          operating_time:'',
+          description: '',
+          dependencies:'',
+      }
+    case DELETE_ARTICLE:
+      return {
+        articles: state.articles.filter((article)=> {return action.id !== article.id;}),
+        id:'',
+        article_name:'',
+        level:'',
+        machine_id:'',
+        operating_time:'',
+        description: '',
+        dependencies:'',
       }
     default:
       return state;

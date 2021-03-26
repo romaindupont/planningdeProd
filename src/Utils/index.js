@@ -16,3 +16,7 @@
 export function generateTaskId(state){
   return generateId(state.tasks)
 }
+
+export function generateArticleId(state){
+  return generateId(state.articles)
+}

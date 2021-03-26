@@ -191,6 +191,7 @@ button:focus {
 
 .articlePage-list {
   display: flex;
+
 }
 .articlePage-title {
   color: black;
@@ -202,7 +203,7 @@ table {
   border-collapse: collapse;
   background: #fff;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   width: 60%;
 }
 thead {
@@ -215,7 +216,10 @@ tr {
 tbody tr:nth-child(even){
   background-color: #f5f5f5;
 }
-
+tbody {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .checked {
   background-color: #a1cae2 !important;
 }
@@ -231,4 +235,20 @@ tr:hover td{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 400px;
+}
+
+tbody, thead tr { display: block; }
+tbody {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+tbody td, thead th {
+  width: 150px;
+}
+.gantt-select {
+  color: black;
+  height: 160px;
 }

@@ -1,14 +1,17 @@
 import React from 'react';
 
-const Tbody = ({ articles, saveId})=> {
-  const handleCheckBox = (e) => {
+const Tbody = ({ articles, saveId, searchInfo})=> {
+  const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
-      saveId(e.target.value);
+      await saveId(e.target.value);
+      const essai = articles.find((article)=> article.id==e.target.value);
+      searchInfo(essai.id,essai.article_name,essai.level,essai.machine_id,essai.operating_time,essai.description,essai.dependencies);
     }
     if (!e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.remove("checked");
       saveId('');
+      searchInfo('','','','','','','');
     }
 
 
