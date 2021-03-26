@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, HashRouter, Link } from 'react-router-dom';
 import icon from '../assets/icon.svg';
-import './App.global.css';
+import './App.global.scss';
+import Gantt from './containers/Gantt';
+import ArticlesPage from './components/ArticlesPage';
 
 const Hello = () => {
   return (
@@ -10,10 +12,9 @@ const Hello = () => {
         <img width="200px" alt="icon" src={icon} />
       </div>
       <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
+      <div className="Base Articles">
+        <Link
+          to="/articles"
           rel="noreferrer"
         >
           <button type="button">
@@ -22,19 +23,18 @@ const Hello = () => {
             </span>
             Read our docs
           </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
+        </Link>
+        <Link
+          to="/gantt"
           rel="noreferrer"
         >
           <button type="button">
             <span role="img" aria-label="books">
               🙏
             </span>
-            Donate
+            gantt
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -42,10 +42,12 @@ const Hello = () => {
 
 export default function App() {
   return (
-    <Router>
+    <HashRouter>
       <Switch>
-        <Route path="/" component={Hello} />
+        <Route path="/" exact component={Hello} />
+        <Route path="/gantt" component={Gantt} />
+        <Route path="/articles" component={ArticlesPage} />
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }

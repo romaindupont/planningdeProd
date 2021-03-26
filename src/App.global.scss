@@ -1,0 +1,223 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+body {
+  position: relative;
+  color: white;
+  height: 100vh;
+  /* background: linear-gradient(
+    200.96deg,
+    #fedc2a -29.09%,
+    #dd5789 51.77%,
+    #7a2c9e 129.35%
+  ); */
+  font-family: sans-serif;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  appearance: none;
+  font-size: 1.3rem;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  transition: transform ease-in 0.1s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.gantt-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: black;
+  text-align: center;
+
+  }
+
+  .gantt .bar-progress {
+    fill:green;
+  }
+  .gantt .bar-wrapper:hover .bar-progress {
+    fill:blue;
+  }
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.gantt .bar-wrapper.active .bar-progress  {
+  fill:red;
+}
+
+.gantt-container .popup-wrapper .title {
+  border-bottom: 3px solid red;
+  text-align: center;
+}
+
+.gantt-container .popup-wrapper{
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px black;
+}
+.gantt-container {
+  width: 79%;
+  border: 1px solid #c1c1c1;
+}
+
+.gantt-container .popup-wrapper {
+  margin: 0px 0 0 -6px;
+}
+.gantt-graph {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.details-container {
+  width: 200px;
+  color: black;
+  &-title {
+    font-size: 0.8rem;
+    text-align: center;
+    border-bottom: 3px solid red;
+    color: black;
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+  }
+  &-progress {
+    text-align: center;
+    font-weight: 600;
+  }
+  &-date {
+    text-align: center;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  &-input {
+    margin: 0.8rem;
+  }
+  &-label {
+    display: flex;
+    color: black;
+    text-align: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+
+  }
+  &-button {
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: none;
+    width: 40%;
+    border: 0.5px solid black;
+
+    &:active {
+      text-decoration: none;
+    }
+    &:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      background-color: green;
+      color: white;
+      border: 3px solid black;
+      cursor: pointer;
+    }
+  }
+}
+.form-button-zones {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.buttonMode {
+  width: 100%;
+  text-align: center;
+  &--action {
+    width: 10%;
+    font-size: 0.8rem;
+    background-color: #c1c1c1;
+    font-weight: 900;
+    &_select {
+      background-color: green;
+    }
+  }
+
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+.remove:hover {
+  background-color: red;
+}
+
+.articlePage-title {
+  color: black;
+  text-align: center;
+}
+
+table {
+  color: black;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 60%;
+}
+thead {
+  background-color:#36304a ;
+  color: #fff;
+}
+tr {
+  text-align: center;
+}
+tbody tr:nth-child(even){
+  background-color: #f5f5f5;
+}
+
+.checked {
+  background-color: #a1cae2 !important;
+}
+.notChecked {
+  background-color: white;
+}
+tr:hover td{
+  background-color: #eae3c8;
+}
