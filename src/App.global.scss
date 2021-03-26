@@ -188,6 +188,10 @@ button:focus {
   background-color: red;
 }
 
+
+.articlePage-list {
+  display: flex;
+}
 .articlePage-title {
   color: black;
   text-align: center;
@@ -220,4 +224,11 @@ tbody tr:nth-child(even){
 }
 tr:hover td{
   background-color: #eae3c8;
+}
+.articlePage-form {
+  color: black;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

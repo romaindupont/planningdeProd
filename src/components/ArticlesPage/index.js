@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import classnames from 'classnames';
-import Table from './Table';
+import Table from '../../containers/ArticlesPage/Table/Table';
+import FormArticle from '../ArticlesPage/FormArticle';
 import './style.scss';
 
 const ArticlesPage = ()=> {
@@ -20,6 +21,7 @@ const ArticlesPage = ()=> {
       <h1 className="articlePage-title">Base Articles</h1>
       <div className="articlePage-list">
         <Table />
+        <FormArticle />
       </div>
     </div>
   )

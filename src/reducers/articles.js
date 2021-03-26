@@ -1,10 +1,18 @@
+import {
+  CHANGE_VALUE,
+} from '../actions';
+import {
+  SAVE_ID,
+  SEARCH_INFO,
+} from '../actions/article';
+
 const initialState = {
   articles : [
     {
       id:1,
       article_name:'805B0054',
       level:1,
-      machine:,
+      machine:null,
       operating_time:0,
       description: 'Commande déportée 7+1BP POM',
       dependencies:'',
@@ -55,17 +63,32 @@ const initialState = {
       dependencies:1,
     },
 
-  ]
+  ],
+  id:'',
+  article_name:'',
+  level:'',
+  machine_id:'',
+  operating_time:'',
+  description: '',
+  dependencies:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-/*     case CHANGE_VIEW_SIDE_BAR:
+    case CHANGE_VALUE:
+      return {
+          ...state,
+          [action.key]: action.newValue,
+      }
+    case SAVE_ID:
       return {
         ...state,
-        hide: false,
-      }; */
+        id:action.id,
+      }
+    case SEARCH_INFO:
+      return {
 
+      }
     default:
       return state;
   }

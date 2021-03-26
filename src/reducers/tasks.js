@@ -1,8 +1,8 @@
 import moment from 'moment';
 import {
-  SAVE_TASKS, 
+  SAVE_TASKS,
   SEND_TASKS,
-  CHANGE_VALUE, 
+  CHANGE_VALUE,
   CLICK_TASKS,
   UPDATE_TASKS,
   DELETE_TASKS
@@ -19,7 +19,7 @@ const initialState = {
       progress: 100,
       dependencies: '',
     },
-    {   
+    {
       id: '2',
       name: 'lab1',
       start: '2021-03-18 12:00:00',
@@ -37,14 +37,14 @@ const initialState = {
    task: {},
    ModeView: '',
 };
-  
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_TASKS:
       return {
         ...state,
-       tasks: 
-         [ 
+       tasks:
+         [
           ...state.tasks,
         {
           id: action.id,
@@ -93,7 +93,7 @@ const reducer = (state = initialState, action = {}) => {
             }
             else {
               return task;
-            }   
+            }
           }),
           id: '',
           name: '',

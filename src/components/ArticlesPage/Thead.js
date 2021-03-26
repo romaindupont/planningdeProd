@@ -10,6 +10,7 @@ const Thead = ()=> {
               <th>Machine</th>
               <th>Tps Op. en min</th>
               <th>liaison</th>
+              <th>niveau nom.</th>
             </tr>
           </thead>
   )
