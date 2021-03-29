@@ -6,6 +6,7 @@ import Field from '../../containers/Field';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import ButtonMode from '../ButtonMode';
+import SelectProd from '../SelectProd';
 import {generateId} from '../../Utils';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
@@ -108,6 +109,7 @@ const custom_popup_html = (event) => {
       </div>
       <div className="gantt-select">
         <h3>selection du lancement</h3>
+        <SelectProd />
       </div>
     </div>
   )

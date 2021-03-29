@@ -2,6 +2,8 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
+ @import "../node_modules/react-day-picker/lib/style";
+ @import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
 body {
   position: relative;
   color: white;
@@ -251,4 +253,104 @@ tbody td, thead th {
 .gantt-select {
   color: black;
   height: 160px;
+}
+
+.dateModal {
+  position: relative;
+  height: 250px;
+  width: 300px;
+  border: 0.2px solid #265D7D;
+  text-align: center;
+  background: #a1cae2;
+  color:#265D7D;
+  font-size: 1rem;
+  font-family: 'Chango', cursive;
+  box-shadow: 10px 8px 11px 3px;
+  &-title {
+    margin: 0.5rem;
+    color: white;
+
+  }
+  &-picker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'Chango', cursive;
+  }
+}
+.dateModal--previous,.dateModal--next {
+  margin: 0 auto;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: white;
+  font-weight: 600;
+  user-select:none;
+  color: #a1cae2;
+  border: 2px solid white;
+&:hover {
+  color: white;
+  background: #a1cae2;
+  border: 2px solid white;
+}
+&:active {
+  color: white;
+  background: #265D7D;
+  border: 2px solid white;
+}
+
+}
+.dateModal-li {
+width: 50px;
+color:#265D7D;
+}
+.dateModal-button {
+  font-family: 'Chango', cursive;
+  color:#a1cae2;
+  background: white;
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.8rem;
+  border-radius: 30%;
+  &:hover {
+    color:white;
+    background: #a1cae2;
+    border: 2px solid white;
+  }
+  &:active {
+    color: white;
+    background: #265D7D;
+    border: 2px solid white;
+  }
+}
+.dateModal--close {
+  position: absolute;
+  top: -8px;
+  right: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+.background-Modal {
+/*     width: 100vw;
+    height: 100vh; */
+}
+.selectProd {
+  display: flex;
+}
+.select {
+  margin: 1.5rem;
+  width: 150px;
+  height: 20px;
+}
+
+.DayPickerInput {
+  margin: 1.5rem;
+}
+.background-Modal {
+  margin: 1.5rem;
 }
