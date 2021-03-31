@@ -7,11 +7,18 @@ import MomentLocaleUtils, {
 } from 'react-day-picker/moment';
 import dateFnsFormat from 'date-fns/format';
 
-const DatePicker = ()=> {
+const DatePicker = ({changeField,name})=> {
+  const changeDay = (day, modifiers) => {
+    const newDate = day.toLocaleString();
+    const modifierDate = newDate.slice(0,10);
+    //console.log(modifierDate)
+    changeField(modifierDate)
+  }
   const FORMAT = 'DD/MM/yyyy';
   return (
     <DayPickerInput
-      onDayChange={day => console.log(day)}
+      inputProps={{ name: name }}
+      onDayChange={changeDay}
       format={FORMAT}
       formatDate={formatDate}
       parseDate={parseDate}

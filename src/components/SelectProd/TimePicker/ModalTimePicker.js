@@ -74,21 +74,21 @@ const handleClose = () => {
         <span className="dateModal--close" onClick={handleClose}>x</span>
         <h3 className="dateModal-title">Heure</h3>
           <div className="dateModal-picker">
-            <a class="dateModal--previous" onClick={previousClick} >&#8249;</a>
+            <a className="dateModal--previous" onClick={previousClick} >&#8249;</a>
               <li className="dateModal-li">
                 <a>{hourTime}</a>
               </li>
-            <a onClick={nextClick} class="dateModal--next">&#8250;</a>
+            <a onClick={nextClick} className="dateModal--next">&#8250;</a>
           </div>
         <h3 className="dateModal-title">Minutes</h3>
           <div className="dateModal-picker">
-            <a class="dateModal--previous" onClick={previousClickMinTen} >&#8249;&#8249;</a>
-            <a class="dateModal--previous" onClick={previousClickMin} >&#8249;</a>
+            <a className="dateModal--previous" onClick={previousClickMinTen} >&#8249;&#8249;</a>
+            <a className="dateModal--previous" onClick={previousClickMin} >&#8249;</a>
               <li className="dateModal-li">
                 <a>{minTime}</a>
               </li>
-              <a onClick={nextClickMin} class="dateModal--next">&#8250;</a>
-              <a onClick={nextClickMinTen} class="dateModal--next">&#8250;&#8250;</a>
+              <a onClick={nextClickMin} className="dateModal--next">&#8250;</a>
+              <a onClick={nextClickMinTen} className="dateModal--next">&#8250;&#8250;</a>
             </div>
         <div className="dateModal-button">
           <a className="dateModal-button--valid"  onClick={dateChoice}>Valider</a>

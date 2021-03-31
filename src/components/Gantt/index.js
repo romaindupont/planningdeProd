@@ -6,7 +6,7 @@ import Field from '../../containers/Field';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import ButtonMode from '../ButtonMode';
-import SelectProd from '../SelectProd';
+import SelectProd from '../../containers/SelectProd/SelectProd';
 import {generateId} from '../../Utils';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
@@ -59,7 +59,7 @@ const custom_popup_html = (event) => {
 };
   return (
     <div className="gantt">
-      <Link exact to="/"><button>revenir au menu</button></Link>
+      <Link to="/"><button>revenir au menu</button></Link>
       <h1 className="gantt-title">Planning de production</h1>
       <div className="gantt-graph">
         <ReactGantt

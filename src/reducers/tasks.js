@@ -31,7 +31,7 @@ const initialState = {
    id: '',
    name: '',
    start: aujourdhui,
-   end: '2021-03-19 12:00:00',
+   end: aujourdhui,
    progress: 10,
    dependencies: '',
    task: {},
