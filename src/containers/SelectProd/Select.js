@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   saveSearchRef: (lancement) => {
     dispatch(saveSearchRef(lancement));
   },
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Select);

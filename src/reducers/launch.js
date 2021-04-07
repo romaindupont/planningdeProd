@@ -1,7 +1,7 @@
 import {
   CHANGE_VALUE,
 } from '../actions';
-import {SAVE_OPERATING_TIME,SAVE_SEARCH_REF} from '../actions/launch';
+import {SAVE_OPERATING_TIME,SAVE_SEARCH_REF,SAVE_CALCUL_START} from '../actions/launch';
 
 const initialState = {
   reference:'',
@@ -12,6 +12,7 @@ const initialState = {
   start:'',
   operating_time:0,
   lancement: [{}],
+  calculStart: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +32,11 @@ const reducer = (state = initialState, action = {}) => {
       ...state,
       lancement: action.lancement,
     }
+    case SAVE_CALCUL_START:
+      return {
+        ...state,
+        calculStart: action.calculStart,
+      }
     default:
       return state;
   }

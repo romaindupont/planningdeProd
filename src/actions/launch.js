@@ -9,3 +9,10 @@ export const saveSearchRef = (lancement) => ({
   type: SAVE_SEARCH_REF,
   lancement,
 });
+
+
+export const SAVE_CALCUL_START = 'SAVE_CALCUL_START';
+export const saveCalculStart = (calculStart) => ({
+  type: SAVE_CALCUL_START,
+  calculStart,
+});

@@ -16,7 +16,7 @@ const initialState = {
       article_name:'805B0054',
       level:1,
       machine:null,
-      operating_time:24.5,
+      operating_time:20.26,
       description: 'Commande déportée 7+1BP POM',
       dependencies:'',
     },
