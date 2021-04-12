@@ -10419,7 +10419,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@3.0.4, minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -10530,6 +10530,14 @@ moment-business-days@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/moment-business-days/-/moment-business-days-1.2.0.tgz#6172f9f38dbf443c2f859baabeabbd2935f63d65"
   integrity sha512-QJlceLfMSxy/jZSOgJYCKeKw+qGYHj8W0jMa/fYruyoJ85+bJuLRiYv5DIaflyuRipmYRfD4kDlSwVYteLN+Jw==
+
+moment-business-time@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/moment-business-time/-/moment-business-time-1.1.0.tgz#79e3d8d0064d57dcd45b3b28300ef215608d71e1"
+  integrity sha512-/8MPAHZ+ZpOuzSdX2t1Mty5cHqgXM/tVVfBv53EA/1GfDG/PMoE2VsIwZ+N29xX8AOwhu55tqVnJCXIQyMuAWQ==
+  dependencies:
+    minimatch "^3.0.3"
+    moment "^2.24.0"
 
 moment@^2.24.0:
   version "2.29.1"

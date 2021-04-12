@@ -11,8 +11,9 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
     list.map((article)=> {
       if(article.article_name===e.target.value){
         saveOperatingTime(article.operating_time);
-        ensembleFab = listArticles.filter((articles)=> articles.dependencies===article.id)
-        //console.log(ensembleFab)
+        ensembleFab = listArticles.filter((articles)=> articles.dependencies == article.id);
+        //ensembleFab = listArticles.find((articles)=> articles.dependencies=article.id)
+        console.log(article)
         saveSearchRef(ensembleFab);
       }
     })
@@ -21,14 +22,14 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
   return (
     <div className="selection">
       <select className="select" name="reference" id="ref-select" onChange={changeSelect} value={nameArticleSelect}>
-        {list.map((article)=>
-        <option key={article.id} value={article.article_name}>{article.article_name}</option>
+        {list.map((article,i)=>
+        <option key={i} value={article.article_name}>{article.article_name}</option>
         )}
       </select>
       <table className="select-table">
         <tbody className="select-table-tbody">
-              {lancement.map((article)=>
-                <tr id={article.id}>
+              {lancement.map((article,i)=>
+                <tr key={i} id={article.id}>
                   <td >{article.id}</td>
                   <td >{article.article_name}</td>
                   <td >{article.machine_id}</td>

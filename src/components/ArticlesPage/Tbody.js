@@ -18,9 +18,9 @@ const Tbody = ({ articles, saveId, searchInfo})=> {
   }
   return (
           <tbody>
-            {articles.map((article)=>
+            {articles.map((article, i)=>
 
-              <tr id={article.id}>
+              <tr key={i} id={article.id}>
                 <td ><input onChange={handleCheckBox}  value={article.id} type="checkbox"></input></td>
                 <td >{article.id}</td>
                 <td >{article.article_name}</td>

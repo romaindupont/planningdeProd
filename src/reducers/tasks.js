@@ -14,16 +14,16 @@ const initialState = {
     {
       id: '1',
       name: 'lab',
-      start: '2021-03-18 12:00:00',
-      end: '2021-03-19 12:00:00',
+      start: '2021-04-18 12:00:00',
+      end: '2021-04-19 12:00:00',
       progress: 100,
       dependencies: '',
     },
     {
       id: '2',
       name: 'lab1',
-      start: '2021-03-18 12:00:00',
-      end: '2021-03-19 12:00:00',
+      start: '2021-04-18 12:00:00',
+      end: '2021-04-19 12:00:00',
       progress: 50,
       dependencies: '',
     }
