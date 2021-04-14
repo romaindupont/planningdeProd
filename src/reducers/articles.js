@@ -7,6 +7,7 @@ import {
   ADD_ARTICLE,
   UPDATE_ARTICLE,
   DELETE_ARTICLE,
+  SAVE_ARTICLE,
 } from '../actions/article';
 
 const initialState = {
@@ -86,13 +87,15 @@ const initialState = {
 
   ],
   articleList: {},
+  list: [],
   id:'',
   article_name:'',
-  level:'',
-  machine_id:'',
-  operating_time:'',
+  level:null,
+  machine_id:null,
+  operating_time:null,
   description: '',
-  dependencies:'',
+  dependencies:null,
+  waitArticle:true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -173,6 +176,12 @@ const reducer = (state = initialState, action = {}) => {
         description: '',
         dependencies:'',
       }
+      case SAVE_ARTICLE:
+        return {
+          ...state,
+          list: action.articles,
+          waitArticle: false,
+        }
     default:
       return state;
   }

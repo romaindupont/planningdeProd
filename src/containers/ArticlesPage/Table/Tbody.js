@@ -3,11 +3,12 @@ import Tbody from '../../../components/ArticlesPage/Tbody';
 
 
 import { changeValue} from '../../../actions';
-import {saveId, searchInfo} from '../../../actions/article';
+import {saveId, searchInfo,fetchArticle} from '../../../actions/article';
 
 const mapStateToProps = (state) => ({
-  articles: state.articles.articles,
   id: state.articles.id,
+  articlesList: state.articles.list,
+  waitArticle: state.articles.waitArticle,
 
   });
 
@@ -20,6 +21,9 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   },
   searchInfo:(id,article_name,level,machine_id,operating_time,description,dependencies) => {
     dispatch(searchInfo(id,article_name,level,machine_id,operating_time,description,dependencies));
+  },
+  fetchArticle:() => {
+    dispatch(fetchArticle());
   }
 });
 

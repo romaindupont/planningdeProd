@@ -5,7 +5,6 @@ import Table from '../../../components/ArticlesPage/Table';
 import { changeValue} from '../../../actions';
 
 const mapStateToProps = (state) => ({
-  articles: state.articles.articles,
   });
 
 const mapDispatchToProps = (dispatch,ownProps) => ({

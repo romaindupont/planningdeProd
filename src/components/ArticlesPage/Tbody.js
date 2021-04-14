@@ -1,35 +1,40 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-const Tbody = ({ articles, saveId, searchInfo})=> {
+const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
       await saveId(e.target.value);
-      const essai = articles.find((article)=> article.id==e.target.value);
-      searchInfo(essai.id,essai.article_name,essai.level,essai.machine_id,essai.operating_time,essai.description,essai.dependencies);
+      const oneArticle = articlesList.articlesList.find((article)=> article.id==e.target.value);
+      searchInfo(oneArticle.id,oneArticle.reference,oneArticle.niveau,oneArticle.machine_id,oneArticle.tempsop,oneArticle.description,oneArticle.liaison);
     }
     if (!e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.remove("checked");
       saveId('');
       searchInfo('','','','','','','');
     }
-
-
-  }
+  };
+  useEffect(() => {
+    fetchArticle();
+  }, []);
   return (
           <tbody>
-            {articles.map((article, i)=>
+            {waitArticle && (<div className="app-load">Veuillez patienter</div>)}
+            {!waitArticle && (
+              articlesList.articlesList.map((article, i)=>
+                <tr key={i} id={article.id}>
+                  <td ><input onChange={handleCheckBox}  value={article.id} type="checkbox"></input></td>
+                  <td >{article.id}</td>
+                  <td >{article.reference}</td>
+                  <td >{article.machine_id}</td>
+                  <td >{article.tempsop}</td>
+                  <td >{article.liaison}</td>
+                  <td >{article.niveau}</td>
+                </tr>
+              )
+            )
+            }
 
-              <tr key={i} id={article.id}>
-                <td ><input onChange={handleCheckBox}  value={article.id} type="checkbox"></input></td>
-                <td >{article.id}</td>
-                <td >{article.article_name}</td>
-                <td >{article.machine_id}</td>
-                <td >{article.operating_time}</td>
-                <td >{article.dependencies}</td>
-                <td >{article.level}</td>
-              </tr>
-            )}
           </tbody>
   )
 }

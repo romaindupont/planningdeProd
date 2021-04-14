@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Thead from './Thead';
 import Tbody from '../../containers/ArticlesPage/Table/Tbody';
 
-const Table = ({articles})=> {
+const Table = ()=> {
 
   const handleChange = (e) => {
 

@@ -45,3 +45,14 @@ export const deleteArticle = (id) => ({
   type: DELETE_ARTICLE,
   id,
 });
+
+export const FETCH_ARTICLE = 'FETCH_ARTICLE';
+export const fetchArticle = () => ({
+  type: FETCH_ARTICLE,
+});
+
+export const SAVE_ARTICLE = 'SAVE_ARTICLE';
+export const saveArticle = (articles) => ({
+  type: SAVE_ARTICLE,
+  articles,
+});
