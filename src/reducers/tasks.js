@@ -36,6 +36,7 @@ const initialState = {
    dependencies: '',
    task: {},
    ModeView: '',
+   tempsOp:null,
 };
 
 const reducer = (state = initialState, action = {}) => {

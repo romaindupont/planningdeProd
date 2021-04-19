@@ -5,9 +5,9 @@ import {generateId} from '../../Utils';
 const FormArticle = ({id,articleList, addArticle,updateArticle, deleteArticle})=> {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newId = String(generateId(articleList));
+    //const newId = String(generateId(articleList));
     if (event.target.id.value==='') {
-    addArticle(newId,event.target.article_name.value,event.target.level.value,event.target.machine_id.value,event.target.operating_time.value,event.target.description.value,event.target.dependencies.value);
+      addArticle(event.target.article_name.value,event.target.level.value,event.target.machine_id.value,event.target.operating_time.value,event.target.description.value,event.target.dependencies.value);
     }
     else {
       const UpdateArticle = articleList.filter((article)=> {

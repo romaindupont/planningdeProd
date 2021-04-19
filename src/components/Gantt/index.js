@@ -7,6 +7,7 @@ import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import ButtonMode from '../ButtonMode';
 import SelectProd from '../../containers/SelectProd/SelectProd';
+import Recalcul from '../Recalcul';
 import {generateId} from '../../Utils';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
@@ -57,9 +58,12 @@ const custom_popup_html = (event) => {
   `
   )
 };
+const handleRecalculate = (e) => {
+  e.preventDefault();
+};
   return (
     <div className="gantt">
-      <Link to="/"><button>revenir au menu</button></Link>
+      <Link exact="true" to="/"><button>revenir au menu</button></Link>
       <h1 className="gantt-title">Planning de production</h1>
       <div className="gantt-graph">
         <ReactGantt
@@ -107,6 +111,7 @@ const custom_popup_html = (event) => {
           </div>
         </form>
       </div>
+      <Recalcul />
       <div className="gantt-select">
         <h3>selection du lancement</h3>
         <SelectProd />

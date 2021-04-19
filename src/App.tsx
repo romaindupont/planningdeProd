@@ -38,7 +38,7 @@ export default function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route path="/" exact component={Hello} />
+        <Route exact path="/" component={Hello} />
         <Route path="/gantt" component={Gantt} />
         <Route path="/articles" component={ArticlesPage} />
       </Switch>

@@ -19,7 +19,7 @@ const ArticlesPage = ()=> {
   }
   return (
     <div className="articlePage">
-       <Link exact to="/"><button>revenir au menu</button></Link>
+       <Link exact="true" to="/"><button>revenir au menu</button></Link>
       <h1 className="articlePage-title">Base Articles</h1>
       <div className="articlePage-list">
         <Table />

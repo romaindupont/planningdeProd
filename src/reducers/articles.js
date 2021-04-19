@@ -86,7 +86,7 @@ const initialState = {
     },
 
   ],
-  articleList: {},
+  articleList:{},
   list: [],
   id:'',
   article_name:'',
@@ -108,7 +108,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_ID:
       return {
         ...state,
-        id:action.id,
+        id: action.id,
       }
     case SEARCH_INFO:
       return {
@@ -124,24 +124,15 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_ARTICLE:
       return {
         ...state,
-       articles:
-         [
-          ...state.articles,
-        {
-          id: action.id,
-          article_name: action.article_name,
-          level: action.level,
-          machine_id: action.machine_id,
-          operating_time: action.operating_time,
-          description: action.description,
-          dependencies: action.dependencies,
-        }
-        ]
+        list: [
+          ...state.list,
+          action.newarticle,
+        ],
       };
     case UPDATE_ARTICLE:
         return {
           ...state,
-          articles: state.articles.map(article => {
+          list: state.list.map(article => {
             if(article.id === action.id) {
               return {
                 id: article.id,
@@ -167,7 +158,7 @@ const reducer = (state = initialState, action = {}) => {
       }
     case DELETE_ARTICLE:
       return {
-        articles: state.articles.filter((article)=> {return action.id !== article.id;}),
+        list: state.list.filter((article)=> {return action.id !== article.id;}),
         id:'',
         article_name:'',
         level:'',

@@ -47,7 +47,7 @@ const dataArticles = {
     return result.rows[0];
   },
   articlesList: async () => {
-    const sql ='SELECT * FROM articles;';
+    const sql ='SELECT * FROM articles ORDER BY id;';
     const result = await pool.pool.query(sql);
     const ListOfArticles = result.rows;
     return ListOfArticles;

@@ -35,8 +35,6 @@ const SelectProd = ({
     addTasks(newId,e.target.reference.value,g,r,10,'');
     lancement.forEach(lct => {
       const calcul = e.target.quantity.value*lct.operating_time;
-      /* const dayTime= Math.floor(((calcul/60)/7.8)/0.4);
-      const timeHours = Math.ceil(((((calcul/60)/7.8)/0.4) - Math.floor(((calcul/60)/7.8)/0.4))*7.8); */
       let customId=lct.id+String(moment().unix());
       const c = (e.target.datepicker.value + ' ' + e.target.timepicker.value);
       const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');

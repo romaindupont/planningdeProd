@@ -12,8 +12,6 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
       if(article.article_name===e.target.value){
         saveOperatingTime(article.operating_time);
         ensembleFab = listArticles.filter((articles)=> articles.dependencies == article.id);
-        //ensembleFab = listArticles.find((articles)=> articles.dependencies=article.id)
-        console.log(article)
         saveSearchRef(ensembleFab);
       }
     })

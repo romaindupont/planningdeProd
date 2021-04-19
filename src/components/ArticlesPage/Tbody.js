@@ -5,7 +5,7 @@ const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
       await saveId(e.target.value);
-      const oneArticle = articlesList.articlesList.find((article)=> article.id==e.target.value);
+      const oneArticle = articlesList.find((article)=> article.id==e.target.value);
       searchInfo(oneArticle.id,oneArticle.reference,oneArticle.niveau,oneArticle.machine_id,oneArticle.tempsop,oneArticle.description,oneArticle.liaison);
     }
     if (!e.target.checked) {
@@ -19,9 +19,9 @@ const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
   }, []);
   return (
           <tbody>
-            {waitArticle && (<div className="app-load">Veuillez patienter</div>)}
+            {waitArticle && (<tr key="patience" className="app-load"><td value="">Veuillez patienter</td></tr>)}
             {!waitArticle && (
-              articlesList.articlesList.map((article, i)=>
+              articlesList.map((article, i)=>
                 <tr key={i} id={article.id}>
                   <td ><input onChange={handleCheckBox}  value={article.id} type="checkbox"></input></td>
                   <td >{article.id}</td>
@@ -34,7 +34,6 @@ const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
               )
             )
             }
-
           </tbody>
   )
 }

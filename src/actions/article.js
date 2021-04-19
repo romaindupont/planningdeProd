@@ -1,7 +1,12 @@
 export const ADD_ARTICLE = 'ADD_ARTICLE';
-export const addArticle = (id,article_name,level,machine_id,operating_time,description,dependencies) => ({
+export const addArticle = (newarticle) => ({
   type: ADD_ARTICLE,
-  id,
+  newarticle
+});
+
+export const ADD_ARTICLE_IN_DB = 'ADD_ARTICLE_IN_DB';
+export const addArticleInDb = (article_name,level,machine_id,operating_time,description,dependencies) => ({
+  type: ADD_ARTICLE_IN_DB,
   article_name,
   level,
   machine_id,
@@ -29,20 +34,36 @@ export const searchInfo = (id,article_name,level,machine_id,operating_time,descr
 });
 
 export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
-export const updateArticle = (id,article_name,level,machine_id,operating_time,description,dependencies) => ({
+export const updateArticle = (id,article_name,level,machine_id,operating_time,dependencies) => ({
   type: UPDATE_ARTICLE,
   id,
   article_name,
   level,
   machine_id,
   operating_time,
-  description,
+  dependencies,
+});
+
+export const UPDATE_ARTICLE_IN_DB = 'UPDATE_ARTICLE_IN_DB';
+export const updateArticleInDb = (id,article_name,level,machine_id,operating_time,dependencies) => ({
+  type: UPDATE_ARTICLE_IN_DB,
+  id,
+  article_name,
+  level,
+  machine_id,
+  operating_time,
   dependencies,
 });
 
 export const DELETE_ARTICLE = 'DELETE_ARTICLE';
 export const deleteArticle = (id) => ({
   type: DELETE_ARTICLE,
+  id,
+});
+
+export const DELETE_ARTICLE_IN_DB = 'DELETE_ARTICLE_IN_DB';
+export const deleteArticleInDb = (id) => ({
+  type: DELETE_ARTICLE_IN_DB,
   id,
 });
 

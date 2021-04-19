@@ -16,7 +16,7 @@ const FieldArticle = ({
         type={type}
         placeholder={placeholder}
         name={name}
-        value={currentValue}
+        value={currentValue || ""}
         onChange={(event) => {
           changeField(event.target.value);
       }}></input>
