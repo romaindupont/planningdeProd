@@ -50,7 +50,7 @@ const SelectProd = ({
         <DatePicker name="datepicker"/>
         <TimePicker name="timepicker"/>
         <Quantity name="quantity"/>
-      <button type="submit">Créer</button>
+      <button className="selectProd--button" type="submit">Créer</button>
       </form>
     </div>
   )

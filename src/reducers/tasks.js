@@ -1,12 +1,13 @@
 import moment from 'moment';
 import {
-  SAVE_TASKS,
+  ADD_TASKS,
   SEND_TASKS,
   CHANGE_VALUE,
   CLICK_TASKS,
   UPDATE_TASKS,
-  DELETE_TASKS
+  DELETE_TASKS,
 } from '../actions';
+import {  SAVE_PLANNING } from '../actions/launch';
 
 const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
 const initialState = {
@@ -41,7 +42,7 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_TASKS:
+    case ADD_TASKS:
       return {
         ...state,
        tasks:
@@ -108,6 +109,11 @@ const reducer = (state = initialState, action = {}) => {
             name: '',
             progress: 10,
             dependencies: '',
+          }
+        case SAVE_PLANNING:
+          return {
+            ...state,
+            tasks: action.planning,
           }
     default:
       return state;

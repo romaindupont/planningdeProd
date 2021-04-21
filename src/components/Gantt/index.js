@@ -20,7 +20,8 @@ const GanttField = ({
   name,
   clickTasks,
   updateTasks,
-  deleteTasks
+  deleteTasks,
+  fetchPlanning
 }) => {
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
@@ -61,17 +62,20 @@ const custom_popup_html = (event) => {
 const handleRecalculate = (e) => {
   e.preventDefault();
 };
+useEffect(() => {
+  fetchPlanning();
+}, []);
   return (
     <div className="gantt">
       <Link exact="true" to="/"><button>revenir au menu</button></Link>
       <h1 className="gantt-title">Planning de production</h1>
       <div className="gantt-graph">
         <ReactGantt
-                    tasks={tasks}
-                    viewMode={modeView}
-                    onDateChange={(task, start, end) => console.log(task, start, end)}
-                    onClick={handleClickOnTask}
-                    customPopupHtml={custom_popup_html}
+          tasks={tasks}
+          viewMode={modeView}
+          onDateChange={(task, start, end) => console.log(task, start, end)}
+          onClick={handleClickOnTask}
+          customPopupHtml={custom_popup_html}
         />
         <ButtonMode setModeView={setModeView} />
         <form className="form" onSubmit={handleSubmit}>
@@ -113,7 +117,7 @@ const handleRecalculate = (e) => {
       </div>
       <Recalcul />
       <div className="gantt-select">
-        <h3>selection du lancement</h3>
+        <h3>Sélection du lancement</h3>
         <SelectProd />
       </div>
     </div>

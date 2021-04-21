@@ -252,9 +252,13 @@ tbody {
 tbody td, thead th {
   width: 150px;
 }
+
+.gantt {
+
+}
 .gantt-select {
   color: black;
-  height: 160px;
+  height: 250px;
 
 }
 .gantt-select > h3 {
@@ -345,6 +349,7 @@ color:#265D7D;
 
 .selectProd {
   text-align: center;
+  overflow-y: scroll;
 }
 .select {
   margin: 0.5rem;
@@ -361,6 +366,13 @@ color:#265D7D;
 .background-Modal {
   margin: 1.5rem;
   display: inline-block;
+}
+.selectProd--button {
+
+  &:hover {
+    color: white;
+    background: green;
+  }
 }
 .selectProd-quantity {
   display: inline-block;
@@ -391,4 +403,16 @@ color:#265D7D;
 
 .recalcul {
   color: black;
+  text-align: center;
+
+  &-submit {
+
+    &--button {
+
+      &:hover {
+        color: white;
+        background: green;
+      }
+    }
+  }
 }

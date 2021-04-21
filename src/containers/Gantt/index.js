@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import Gantt from '../../components/Gantt';
 
-import { 
+import {
   changeValue,
-  SaveTasks,
+  addTasks,
   clickTasks,
   updateTasks,
   deleteTasks
 } from '../../actions';
+import { fetchPlanning, addPlanningInDb } from '../../actions/launch';
 
-const mapStateToProps = (state) => ({ 
+const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,
     id: state.tasks.id,
     name: state.tasks.name,
@@ -21,7 +22,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addTasks:(id,name, start, end, progress,dependencies) => {
-    dispatch(SaveTasks(id,name, start, end, progress,dependencies));
+    dispatch(addPlanningInDb(id,name, start, end, progress,dependencies));
   },
   clickTasks:(id,name, start, end, progress,dependencies) => {
     dispatch(clickTasks(id,name, start, end, progress,dependencies));
@@ -31,6 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteTasks:(id) => {
     dispatch(deleteTasks(id));
+  },
+  fetchPlanning:() => {
+    dispatch(fetchPlanning());
   }
 });
 

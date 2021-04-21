@@ -3,13 +3,13 @@ export const fetchTasks = () => ({
   type: FETCH_TASKS,
 });
 
-export const SAVE_TASKS = 'SAVE_TASKS';
-export const SaveTasks = (id,name,start,end, progress,dependencies) => ({
-  type: SAVE_TASKS,
+export const ADD_TASKS = 'ADD_TASKS';
+export const addTasks = (id,name,start,end, progress,dependencies) => ({
+  type: ADD_TASKS,
   id,
   name,
   start,
-  end, 
+  end,
   progress,
   dependencies,
 });
@@ -34,7 +34,7 @@ export const clickTasks = (id,name,start,end, progress,dependencies) => ({
   id,
   name,
   start,
-  end, 
+  end,
   progress,
   dependencies,
 });
@@ -45,7 +45,7 @@ export const updateTasks = (id,name,start,end, progress,dependencies) => ({
   id,
   name,
   start,
-  end, 
+  end,
   progress,
   dependencies,
 });
