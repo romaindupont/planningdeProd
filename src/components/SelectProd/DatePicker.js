@@ -11,7 +11,6 @@ const DatePicker = ({changeField,name})=> {
   const changeDay = (day, modifiers) => {
     const newDate = day.toLocaleString();
     const modifierDate = newDate.slice(0,10);
-    //console.log(modifierDate)
     changeField(modifierDate)
   }
   const FORMAT = 'DD/MM/yyyy';

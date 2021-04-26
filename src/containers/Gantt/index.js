@@ -8,7 +8,7 @@ import {
   updateTasks,
   deleteTasks
 } from '../../actions';
-import { fetchPlanning, addPlanningInDb } from '../../actions/launch';
+import { fetchPlanning, addPlanningInDb,updatedPlanning,deletePlanning } from '../../actions/launch';
 
 const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,
@@ -27,11 +27,11 @@ const mapDispatchToProps = (dispatch) => ({
   clickTasks:(id,name, start, end, progress,dependencies) => {
     dispatch(clickTasks(id,name, start, end, progress,dependencies));
   },
-  updateTasks:(id,name, start, end, progress,dependencies) => {
-    dispatch(updateTasks(id,name, start, end, progress,dependencies));
+  updatedPlanning:(id,name, start, end, progress,dependencies) => {
+    dispatch(updatedPlanning(id,name, start, end, progress,dependencies));
   },
-  deleteTasks:(id) => {
-    dispatch(deleteTasks(id));
+  deletePlanning:(id) => {
+    dispatch(deletePlanning(id));
   },
   fetchPlanning:() => {
     dispatch(fetchPlanning());

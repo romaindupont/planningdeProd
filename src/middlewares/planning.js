@@ -1,8 +1,20 @@
 import axios from 'axios';
-import { FETCH_PLANNING, savePlanning, ADD_PLANNING_IN_DB } from '../actions/launch';
+import {
+  FETCH_PLANNING,
+  savePlanning,
+  ADD_PLANNING_IN_DB,
+  UPDATED_PLANNING,
+  DELETE_PLANNING,
+  ADD_SEVERAL_LINE_IN_DB
+} from '../actions/launch';
 import {
   addTasks,
+  updateTasks,
+  deleteTasks,
 } from '../actions';
+import moment from 'moment';
+import momentBusinessDays from 'moment-business-days';
+import momentBusinessTime from 'moment-business-time';
 
 const planning = (store) => (next) => (action) => {
   switch (action.type) {
@@ -21,7 +33,6 @@ const planning = (store) => (next) => (action) => {
           baseURL: 'http://localhost:5000',
         })
         .then((response) => {
-          console.log(response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies);
           store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
         })
         .catch((error) => {
@@ -36,15 +47,87 @@ const planning = (store) => (next) => (action) => {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            console.log(response.data.planningList)
-            store.dispatch(savePlanning(response.data.planningList))
+            for(let i =0; i<response.data.planningList.length; i++ ){
+              let m =response.data.planningList[i].id.toString();
+              store.dispatch(savePlanning(m,response.data.planningList[i].name,response.data.planningList[i].start,response.data.planningList[i]._end,parseInt(response.data.planningList[i].progress),response.data.planningList[i].dependencies))}
           })
           .catch((error) => {
             console.error('Error', error);
           });
         break;
       }
+    case UPDATED_PLANNING:
+      {
+        const state = store.getState();
+        axios.put(`planning/update/${state.tasks.id}`,
+          {
+            name: state.tasks.name,
+            start: state.tasks.start,
+            _end: state.tasks.end,
+            progress: state.tasks.progress,
+            dependencies: state.tasks.dependencies
+          },
+          {
+            baseURL: 'http://localhost:5000',
+          })
+          .then((response) => {
+            store.dispatch(updateTasks(state.tasks.id,state.tasks.name,state.tasks.start,state.tasks.end,state.tasks.progress,state.tasks.dependencies))
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case DELETE_PLANNING:
+      {
+        const state = store.getState();
+        axios.delete(`planning/delete/${state.tasks.id}`,
+            {
+              baseURL: 'http://localhost:5000',
+            })
+            .then((response) => {
+              store.dispatch(deleteTasks(state.tasks.id))
+            })
+            .catch((error) => {
+              console.error('Error', error);
+            });
+          break;
+      }
+      case ADD_SEVERAL_LINE_IN_DB:
+        {
+          const state = store.getState();
+          //console.log(state)
+          //console.log(state.launch.lancement)
+          for(let i= 0; i<state.launch.lancement.length;i++){
+           const calcul = state.launch.lancement[i].operating_time*parseInt(state.articles.quantity);
 
+
+           console.log(state.launch.lancement[i],state.launch.datepicker,state.launch.start_hours);
+          const c = (state.launch.datepicker + ' ' + '08:00:00');
+          const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
+          const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
+          const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+          //console.log( state.launch.lancement.article_name,state.tasks.progress)
+          axios.post('/planning/add/several',
+          {
+              name: state.launch.lancement[i].article_name,
+              start: g,
+              _end: r,
+              progress: state.tasks.progress,
+              dependencies: '',
+          },
+            {
+              baseURL: 'http://localhost:5000',
+            })
+            .then((response) => {
+              store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
+            })
+            .catch((error) => {
+              console.error('Error', error);
+            });
+          }
+          break;
+        }
     default:
       next(action);
   }

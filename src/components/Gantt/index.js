@@ -19,9 +19,9 @@ const GanttField = ({
   id,
   name,
   clickTasks,
-  updateTasks,
-  deleteTasks,
-  fetchPlanning
+  deletePlanning,
+  fetchPlanning,
+  updatedPlanning
 }) => {
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
@@ -33,14 +33,14 @@ const GanttField = ({
     else {
       const UpdateTask = tasks.filter((task)=> {
         if (task.id ===event.target.id.value){
-          updateTasks(task.id,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value)
+          updatedPlanning(task.id,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value)
         }
       })
     }
   };
 const handleDelete = (event) => {
   event.preventDefault();
-  deleteTasks(id)
+  deletePlanning(id)
 };
 const handleClickOnTask = (e) => {
   clickTasks(e.id,e.name,e.start,e.end,e.progress,e.dependencies);

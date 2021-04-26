@@ -6,6 +6,7 @@ const TimePicker = ({changeField,start_hours, name})=> {
   const [hourTime, setHourTime] = useState(8);
   const [minTime, setMinTime] = useState(0);
   const [show,setShow] = useState(false);
+  console.log(start_hours)
   const timeFocus = () => {
     setShow(true);
   };
@@ -17,10 +18,14 @@ const TimePicker = ({changeField,start_hours, name})=> {
     e.preventDefault();
     setShow(false)
   };
+  const changeInput =()=> {
+    changeField(valueinput)
+    console.log(valueinput)
+  }
    return (
     <>
     <div className="background-Modal">
-    <input name={name} type="text" placeholder="Heure départ HH:MM:SS" onChange={()=>changeField(valueinput)} onFocus={timeFocus} value={start_hours=valueinput} />
+    <input name={name} type="text" placeholder="Heure départ HH:MM:SS" onChange={changeInput} onFocus={timeFocus} value={valueinput} />
       <ModalTimePicker
         show={show}
         setShow={setShow}

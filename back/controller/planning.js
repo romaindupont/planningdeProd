@@ -3,7 +3,6 @@ const planning_model = require('../models/planning_model');
 const planningController = {
   add: async (req, res) => {
     try {
-      console.log(req.body)
       const newPlanning = await planning_model.dataPlanning.addPlanning(req.body);
       return res.status(201).json({
           logging: true,
@@ -27,28 +26,27 @@ const planningController = {
     }
   },
   delete: async(req,res) => {
-    /* try {
-      await articles_model.dataArticles.deleteArticles(req.params.id);
+    try {
+      await planning_model.dataPlanning.deletePlanning(req.params.id);
       return res.status(201).json({
-        message: "Votre article est supprimé"
+        message: "Votre tâche est supprimée"
       });
 
     } catch (error) {
       console.log(error)
       res.status(500).send(error);
-    } */
-
+    }
   },
   update: async(req,res) => {
-   /*  try {
-      await articles_model.dataArticles.updateArticles(req.body,req.params.id);
+    try {
+      await planning_model.dataPlanning.updatePlanning(req.body,req.params.id);
       return res.status(201).json({
-        message: "Votre article est mis à jour"
+        message: "Votre tâche est mise à jour"
       });
     } catch (error) {
       console.log(error)
       res.status(500).send(error);
-    }*/
+    }
   },
 };
 

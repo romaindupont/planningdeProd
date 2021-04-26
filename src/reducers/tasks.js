@@ -13,7 +13,7 @@ const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
 const initialState = {
    tasks: [
     {
-      id: '1',
+      id: 'essai1',
       name: 'lab',
       start: '2021-04-18 12:00:00',
       end: '2021-04-19 12:00:00',
@@ -21,7 +21,7 @@ const initialState = {
       dependencies: '',
     },
     {
-      id: '2',
+      id: 'essai2',
       name: 'lab1',
       start: '2021-04-18 12:00:00',
       end: '2021-04-19 12:00:00',
@@ -113,7 +113,17 @@ const reducer = (state = initialState, action = {}) => {
         case SAVE_PLANNING:
           return {
             ...state,
-            tasks: action.planning,
+            tasks:  [
+              ...state.tasks,
+            {
+              id: action.id,
+              name: action.name,
+              start: action.start,
+              end: action.end,
+              progress: action.progress,
+              dependencies: action.dependencies,
+            }
+            ]
           }
     default:
       return state;

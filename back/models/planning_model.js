@@ -55,22 +55,22 @@ const dataPlanning = {
     return result.rows[0];
   },
   planningList: async () => {
-    const sql ='SELECT * FROM planning;';
+    const sql ='SELECT * FROM planning ORDER BY id;';
     const result = await pool.pool.query(sql);
     const ListOfPlanning = result.rows;
     return ListOfPlanning;
   },
   deletePlanning: async (id) => {
-    /* const sql = 'DELETE FROM articles WHERE id=$1';
+    const sql = 'DELETE FROM planning WHERE id=$1';
     const result = await pool.pool.query(sql, [id]);
-    return result.rows[0]; */
+    return result.rows[0];
   },
   updatePlanning: async (body, id) => {
-    /* const sql = 'UPDATE articles SET reference=$1, machine_id=$2, tempsop=$3, liaison=$4,niveau=$5, updated_at=$6 WHERE id=$7';
+    const sql = 'UPDATE planning SET name=$1, start=$2, _end=$3, progress=$4, dependencies=$5, updated_at=$6 WHERE id=$7';
     const aujourdhui = 'now()';
-    const { reference, machine_id, tempsop,liaison,niveau } = body;
-    const result = await pool.pool.query(sql, [reference, machine_id, tempsop,liaison,niveau, aujourdhui,id]);
-    return result.rows; */
+    const { name, start, _end,progress,dependencies } = body;
+    const result = await pool.pool.query(sql, [name, start, _end, progress, dependencies, aujourdhui,id]);
+    return result.rows;
   },
 
 };

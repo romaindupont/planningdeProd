@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SelectProd from '../../components/SelectProd';
 import {addTasks,changeValue,updateTasks} from '../../actions';
-import {saveCalculStart} from '../../actions/launch';
+import {saveCalculStart,addPlanningInDb,addSeveralLineInDb} from '../../actions/launch';
 
 const mapStateToProps = (state) => (
   {
@@ -17,11 +17,14 @@ const mapStateToProps = (state) => (
   });
 
   const mapDispatchToProps = (dispatch) => ({
-    addTasks:(id,name, start, end, progress,dependencies) => {
-      dispatch(addTasks(id,name, start, end, progress,dependencies));
+    addPlanningInDb:(id,name, start, end, progress,dependencies) => {
+      dispatch(addPlanningInDb(id,name, start, end, progress,dependencies));
     },
     updateTasks:(id,name, start, end, progress,dependencies) => {
       dispatch(updateTasks(id,name, start, end, progress,dependencies));
+    },
+    addSeveralLineInDb:() => {
+      dispatch(addSeveralLineInDb());
     },
   });
 
