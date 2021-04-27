@@ -21,8 +21,10 @@ const GanttField = ({
   clickTasks,
   deletePlanning,
   fetchPlanning,
-  updatedPlanning
+  updatedPlanning,
+  n_lancement
 }) => {
+  console.log(n_lancement)
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();

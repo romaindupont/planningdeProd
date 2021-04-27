@@ -51,7 +51,7 @@ const FormArticle = ({id,articleList, addArticle,updateArticle, deleteArticle})=
               />
               <Field
                 type="text"
-                placeholder="description"
+                placeholder="ordre Fab."
                 name="description"
               />
               <Field

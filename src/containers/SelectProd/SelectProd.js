@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SelectProd from '../../components/SelectProd';
 import {addTasks,changeValue,updateTasks} from '../../actions';
 import {saveCalculStart,addPlanningInDb,addSeveralLineInDb} from '../../actions/launch';
+import {fetchArticle} from '../../actions/article';
 
 const mapStateToProps = (state) => (
   {
@@ -25,6 +26,9 @@ const mapStateToProps = (state) => (
     },
     addSeveralLineInDb:() => {
       dispatch(addSeveralLineInDb());
+    },
+    fetchArticle:() => {
+      dispatch(fetchArticle());
     },
   });
 

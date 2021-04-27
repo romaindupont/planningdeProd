@@ -42,6 +42,7 @@ const articlesController = {
   },
   update: async(req,res) => {
     try {
+      console.log(req.body,req.params.id)
       await articles_model.dataArticles.updateArticles(req.body,req.params.id);
       return res.status(201).json({
         message: "Votre article est mis à jour"

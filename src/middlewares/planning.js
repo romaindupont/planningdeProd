@@ -5,7 +5,8 @@ import {
   ADD_PLANNING_IN_DB,
   UPDATED_PLANNING,
   DELETE_PLANNING,
-  ADD_SEVERAL_LINE_IN_DB
+  ADD_SEVERAL_LINE_IN_DB,
+  saveNumeroLct
 } from '../actions/launch';
 import {
   addTasks,
@@ -96,38 +97,36 @@ const planning = (store) => (next) => (action) => {
       case ADD_SEVERAL_LINE_IN_DB:
         {
           const state = store.getState();
-          //console.log(state)
-          //console.log(state.launch.lancement)
+          const numeroLct = parseInt(state.launch.n_lancement) + 1;
+          saveNumeroLct(numeroLct);
           for(let i= 0; i<state.launch.lancement.length;i++){
-           const calcul = state.launch.lancement[i].operating_time*parseInt(state.articles.quantity);
-
-
-           console.log(state.launch.lancement[i],state.launch.datepicker,state.launch.start_hours);
-          const c = (state.launch.datepicker + ' ' + '08:00:00');
-          const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
-          const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
-          const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-          //console.log( state.launch.lancement.article_name,state.tasks.progress)
-          axios.post('/planning/add/several',
-          {
-              name: state.launch.lancement[i].article_name,
-              start: g,
-              _end: r,
-              progress: state.tasks.progress,
-              dependencies: '',
-          },
+           const calcul = state.launch.lancement[i].tempsop*parseInt(state.articles.quantity);
+            const c = (state.launch.datepicker + ' ' + '08:00:00');
+            const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
+            const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
+            const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+            //console.log( state.launch.lancement.article_name,state.tasks.progress)
+            axios.post('/planning/add/several',
             {
-              baseURL: 'http://localhost:5000',
-            })
-            .then((response) => {
-              store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
-            })
-            .catch((error) => {
-              console.error('Error', error);
-            });
+                name: state.launch.lancement[i].reference,
+                start: g,
+                _end: r,
+                progress: state.tasks.progress,
+                dependencies: '',
+                n_lancement: numeroLct,
+            },
+              {
+                baseURL: 'http://localhost:5000',
+              })
+              .then((response) => {
+                store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
+              })
+              .catch((error) => {
+                console.error('Error', error);
+              });
+            }
+            break;
           }
-          break;
-        }
     default:
       next(action);
   }

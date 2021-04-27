@@ -67,3 +67,9 @@ export const deletePlanning = (id) => ({
   type: DELETE_PLANNING,
   id,
 });
+
+export const SAVE_NUMERO_LCT = 'SAVE_NUMERO_LCT';
+export const saveNumeroLct = (n_lancement) => ({
+  type: SAVE_NUMERO_LCT,
+  n_lancement,
+});

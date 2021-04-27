@@ -12,7 +12,8 @@ const articles = (store) => (next) => (action) => {
           machine_id: state.articles.machine_id,
           tempsop: state.articles.operating_time,
           liaison: state.articles.dependencies,
-          niveau: state.articles.level
+          niveau: state.articles.level,
+          order_n:parseInt(state.articles.description)
       },
         {
           baseURL: 'http://localhost:5000',
@@ -57,13 +58,15 @@ const articles = (store) => (next) => (action) => {
         case UPDATE_ARTICLE_IN_DB:
           {
             const state = store.getState();
-            axios.put(`/update/${state.articles.id}`,
+            console.log(state.articles.id)
+            axios.put(`/articles/update/${state.articles.id}`,
             {
               reference: state.articles.article_name,
               machine_id: state.articles.machine_id,
               tempsop: state.articles.operating_time,
               liaison: state.articles.dependencies,
-              niveau: state.articles.level
+              niveau: state.articles.level,
+              order_n: parseInt(state.articles.description)
             },
             {
               baseURL: 'http://localhost:5000',

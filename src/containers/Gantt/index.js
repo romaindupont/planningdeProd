@@ -18,6 +18,7 @@ const mapStateToProps = (state) => ({
     end: state.tasks.end,
     progress: state.tasks.progress,
     dependencies: state.tasks.dependencies,
+    n_lancement:state.launch.n_lancement,
   });
 
 const mapDispatchToProps = (dispatch) => ({

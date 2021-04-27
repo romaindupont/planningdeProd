@@ -55,7 +55,7 @@ const dataPlanning = {
     return result.rows[0];
   },
   planningList: async () => {
-    const sql ='SELECT * FROM planning ORDER BY id;';
+    const sql ='SELECT * FROM planning ORDER BY id,name;';
     const result = await pool.pool.query(sql);
     const ListOfPlanning = result.rows;
     return ListOfPlanning;

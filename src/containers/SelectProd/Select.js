@@ -5,7 +5,7 @@ import {saveOperatingTime,saveSearchRef} from '../../actions/launch';
 
 
 const mapStateToProps = (state) => ({
-    listArticles: state.articles.articles,
+    listArticles: state.articles.list,
     lancement: state.launch.lancement,
 });
 
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   saveSearchRef: (lancement) => {
     dispatch(saveSearchRef(lancement));
   },
+
 
 });
 

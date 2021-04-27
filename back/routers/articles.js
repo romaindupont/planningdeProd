@@ -8,6 +8,6 @@ const articlesController = require('../controller/articles');
 router.post('/add', articlesController.add);
 router.get('/articles', articlesController.findAll);
 router.delete('/delete/:id', articlesController.delete);
-router.put('update/:id', articlesController.update);
+router.put('/articles/update/:id', articlesController.update);
 
 module.exports = router;

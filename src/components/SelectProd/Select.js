@@ -2,26 +2,26 @@ import React, {useEffect} from 'react';
 
 
 const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,saveSearchRef, lancement})=> {
- const list = listArticles.filter((articles)=> articles.level===1);
+  const list = listArticles.filter((articles)=> articles.niveau===1);
 
- let ensembleFab=listArticles;
+  let ensembleFab=listArticles;
 
   const changeSelect = (e) => {
     changeField(e.target.value);
     list.map((article)=> {
-      if(article.article_name===e.target.value){
-        saveOperatingTime(article.operating_time);
-        ensembleFab = listArticles.filter((articles)=> articles.dependencies == article.id);
+      if(article.reference===e.target.value){
+        saveOperatingTime(article.tempsop);
+        ensembleFab = listArticles.filter((articles)=> articles.liaison == article.id);
         saveSearchRef(ensembleFab);
       }
     })
-  }
+  };
 
   return (
     <div className="selection">
       <select className="select" name="reference" id="ref-select" onChange={changeSelect} value={nameArticleSelect}>
         {list.map((article,i)=>
-        <option key={i} value={article.article_name}>{article.article_name}</option>
+        <option key={i} value={article.reference}>{article.reference}</option>
         )}
       </select>
       <table className="select-table">
@@ -29,11 +29,11 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
               {lancement.map((article,i)=>
                 <tr key={i} id={article.id}>
                   <td >{article.id}</td>
-                  <td >{article.article_name}</td>
+                  <td >{article.reference}</td>
                   <td >{article.machine_id}</td>
-                  <td >{article.operating_time}</td>
-                  <td >{article.dependencies}</td>
-                  <td >{article.level}</td>
+                  <td >{article.tempsop}</td>
+                  <td >{article.liaison}</td>
+                  <td >{article.niveau}</td>
                 </tr>
               )}
             </tbody>

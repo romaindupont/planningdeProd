@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Select from '../../containers/SelectProd/Select';
 import DatePicker from '../../containers/SelectProd/DatePicker';
 import TimePicker from '../../containers/SelectProd/TimePicker';
@@ -22,6 +22,7 @@ const SelectProd = ({
   updateTasks,
   addPlanningInDb,
   addSeveralLineInDb,
+  fetchArticle
 })=> {
  const handleClick = (e) => {
     e.preventDefault();
@@ -34,23 +35,11 @@ const SelectProd = ({
     const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
     const v = momentBusinessDays(a, 'DD/MM/YYYY HH:mm:ss').businessAdd(timeHours, 'hours')._d;
     const r = moment(v).format('YYYY-MM-DD HH:mm:ss');
-    //addPlanningInDb(newId,e.target.reference.value,g,r,10,'');
     addSeveralLineInDb()
-   /*  for(let i= 0; i<lancement.length;i++){
-      addSeveralLineInDb()
-    } */
-    /* lancement.forEach(lct => {
-      const calcul = e.target.quantity.value*lct.operating_time;
-      let customId=lct.id+String(moment().unix());
-      const c = (e.target.datepicker.value + ' ' + e.target.timepicker.value);
-      const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
-      const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
-      const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-      //addPlanningInDb(customId,lct.article_name,g,r,10,newId); */
-
-
-   /*  }) */
-  }
+  };
+  useEffect(() => {
+    fetchArticle();
+  }, []);
   return (
     <div className="selectProd">
       <form onSubmit={handleClick}>
