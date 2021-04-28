@@ -8,7 +8,7 @@ const articlesController = {
       const newArticle = await articles_model.dataArticles.addArticles(newId,req.body);
       return res.status(201).json({
           logging: true,
-          message: "Votre article est enregistrée",
+          message: "Votre article est enregistré",
           newArticle
       });
     } catch (error) {

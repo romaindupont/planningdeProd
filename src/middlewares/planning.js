@@ -6,7 +6,6 @@ import {
   UPDATED_PLANNING,
   DELETE_PLANNING,
   ADD_SEVERAL_LINE_IN_DB,
-  saveNumeroLct
 } from '../actions/launch';
 import {
   addTasks,
@@ -28,13 +27,14 @@ const planning = (store) => (next) => (action) => {
           start: state.tasks.start,
           _end: state.tasks.end,
           progress: state.tasks.progress,
-          dependencies: state.tasks.dependencies
+          dependencies: state.tasks.dependencies,
+          lancement: state.tasks.lancementn
       },
         {
           baseURL: 'http://localhost:5000',
         })
         .then((response) => {
-          store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
+          store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies,response.data.newPlanning.lancement));
         })
         .catch((error) => {
           console.error('Error', error);
@@ -50,7 +50,7 @@ const planning = (store) => (next) => (action) => {
           .then((response) => {
             for(let i =0; i<response.data.planningList.length; i++ ){
               let m =response.data.planningList[i].id.toString();
-              store.dispatch(savePlanning(m,response.data.planningList[i].name,response.data.planningList[i].start,response.data.planningList[i]._end,parseInt(response.data.planningList[i].progress),response.data.planningList[i].dependencies))}
+              store.dispatch(savePlanning(m,response.data.planningList[i].name,response.data.planningList[i].start,response.data.planningList[i]._end,parseInt(response.data.planningList[i].progress),response.data.planningList[i].dependencies,response.data.planningList[i].lancement))}
           })
           .catch((error) => {
             console.error('Error', error);
@@ -66,13 +66,14 @@ const planning = (store) => (next) => (action) => {
             start: state.tasks.start,
             _end: state.tasks.end,
             progress: state.tasks.progress,
-            dependencies: state.tasks.dependencies
+            dependencies: state.tasks.dependencies,
+            lancement: parseInt(state.tasks.lancementn)
           },
           {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            store.dispatch(updateTasks(state.tasks.id,state.tasks.name,state.tasks.start,state.tasks.end,state.tasks.progress,state.tasks.dependencies))
+            store.dispatch(updateTasks(state.tasks.id,state.tasks.name,state.tasks.start,state.tasks.end,state.tasks.progress,state.tasks.dependencies,state.tasks.lancementn))
           })
           .catch((error) => {
             console.error('Error', error);
@@ -97,15 +98,12 @@ const planning = (store) => (next) => (action) => {
       case ADD_SEVERAL_LINE_IN_DB:
         {
           const state = store.getState();
-          const numeroLct = parseInt(state.launch.n_lancement) + 1;
-          saveNumeroLct(numeroLct);
           for(let i= 0; i<state.launch.lancement.length;i++){
            const calcul = state.launch.lancement[i].tempsop*parseInt(state.articles.quantity);
             const c = (state.launch.datepicker + ' ' + '08:00:00');
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
             const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-            //console.log( state.launch.lancement.article_name,state.tasks.progress)
             axios.post('/planning/add/several',
             {
                 name: state.launch.lancement[i].reference,
@@ -113,13 +111,13 @@ const planning = (store) => (next) => (action) => {
                 _end: r,
                 progress: state.tasks.progress,
                 dependencies: '',
-                n_lancement: numeroLct,
+                lancement: state.launch.n_lancement,
             },
               {
                 baseURL: 'http://localhost:5000',
               })
               .then((response) => {
-                store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies));
+                store.dispatch(addTasks(response.data.newPlanning.id,response.data.newPlanning.name,response.data.newPlanning.start,response.data.newPlanning._end,response.data.newPlanning.progress,response.data.newPlanning.dependencies,response.data.newPlanning.lancement));
               })
               .catch((error) => {
                 console.error('Error', error);

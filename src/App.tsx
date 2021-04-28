@@ -4,6 +4,7 @@ import icon from '../assets/icon.svg';
 import './App.global.scss';
 import Gantt from './containers/Gantt';
 import ArticlesPage from './components/ArticlesPage';
+import Lancement from './containers/Lancement';
 
 const Hello = () => {
   return (
@@ -29,6 +30,14 @@ const Hello = () => {
             Planning Gantt
           </button>
         </Link>
+        <Link
+          to="/lancement"
+          rel="noreferrer"
+        >
+          <button type="button">
+            Lancement en prod
+          </button>
+        </Link>
       </div>
     </div>
   );
@@ -41,6 +50,7 @@ export default function App() {
         <Route exact path="/" component={Hello} />
         <Route path="/gantt" component={Gantt} />
         <Route path="/articles" component={ArticlesPage} />
+        <Route path="/lancement" component={Lancement} />
       </Switch>
     </HashRouter>
   );

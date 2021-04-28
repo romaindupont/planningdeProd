@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SelectProd from '../../components/SelectProd';
 import {addTasks,changeValue,updateTasks} from '../../actions';
-import {saveCalculStart,addPlanningInDb,addSeveralLineInDb} from '../../actions/launch';
+import {saveCalculStart,addPlanningInDb,addSeveralLineInDb,saveNumeroLct} from '../../actions/launch';
 import {fetchArticle} from '../../actions/article';
 
 const mapStateToProps = (state) => (
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => (
     start: state.launch.start,
     operating_time: state.launch.operating_time,
     lancement: state.launch.lancement,
+    n_lancement:state.launch.n_lancement,
   });
 
   const mapDispatchToProps = (dispatch) => ({
@@ -30,6 +31,9 @@ const mapStateToProps = (state) => (
     fetchArticle:() => {
       dispatch(fetchArticle());
     },
+    saveNumeroLct:(n_lancement) => {
+      dispatch(saveNumeroLct(n_lancement));
+    }
   });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectProd);

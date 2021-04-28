@@ -6,7 +6,6 @@ const TimePicker = ({changeField,start_hours, name})=> {
   const [hourTime, setHourTime] = useState(8);
   const [minTime, setMinTime] = useState(0);
   const [show,setShow] = useState(false);
-  console.log(start_hours)
   const timeFocus = () => {
     setShow(true);
   };

@@ -13,7 +13,7 @@ const initialState = {
   operating_time:0,
   lancement: [{}],
   calculStart: '',
-  n_lancement:'',
+  n_lancement:1,
 };
 
 const reducer = (state = initialState, action = {}) => {

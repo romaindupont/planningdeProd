@@ -11,12 +11,12 @@ const Field = ({
 
   return (
     <label className="form-label">{name}
-      <input 
+      <input
         className="form-input"
         type={type}
         placeholder={placeholder}
         name={name}
-        value={currentValue}
+        value={currentValue || ""}
         onChange={(event) => {
           changeField(event.target.value);
       }}></input>

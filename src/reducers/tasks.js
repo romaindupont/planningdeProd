@@ -38,6 +38,7 @@ const initialState = {
    task: {},
    ModeView: '',
    tempsOp:null,
+   lancementn:null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -55,6 +56,7 @@ const reducer = (state = initialState, action = {}) => {
           end: action.end,
           progress: action.progress,
           dependencies: action.dependencies,
+          lancementn: action.lancement,
         }
         ]
       };
@@ -78,6 +80,7 @@ const reducer = (state = initialState, action = {}) => {
           end: action.end,
           progress: action.progress,
           dependencies: action.dependencies,
+          lancementn: action.lancement,
         }
       case UPDATE_TASKS:
         return {
@@ -91,6 +94,7 @@ const reducer = (state = initialState, action = {}) => {
                 end: action.end,
                 progress: action.progress,
                 dependencies: action.dependencies,
+                lancementn: action.lancement,
               }
             }
             else {
@@ -101,6 +105,7 @@ const reducer = (state = initialState, action = {}) => {
           name: '',
           progress: 10,
           dependencies: '',
+          lancementn:'',
         }
         case DELETE_TASKS:
           return {
@@ -109,6 +114,7 @@ const reducer = (state = initialState, action = {}) => {
             name: '',
             progress: 10,
             dependencies: '',
+            lancementn: '',
           }
         case SAVE_PLANNING:
           return {
@@ -122,6 +128,7 @@ const reducer = (state = initialState, action = {}) => {
               end: action.end,
               progress: action.progress,
               dependencies: action.dependencies,
+              lancementn: action.lancement,
             }
             ]
           }

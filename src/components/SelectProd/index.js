@@ -22,10 +22,14 @@ const SelectProd = ({
   updateTasks,
   addPlanningInDb,
   addSeveralLineInDb,
-  fetchArticle
+  fetchArticle,
+  saveNumeroLct,
+  n_lancement
 })=> {
  const handleClick = (e) => {
     e.preventDefault();
+    const numeroLct = parseInt(n_lancement) + 1;
+    saveNumeroLct(numeroLct);
     const newId = String(generateId(tasks));
     const calcul = operating_time*parseInt(e.target.quantity.value);
     const dayTime= Math.floor(((calcul/60)/7.8)/0.4);

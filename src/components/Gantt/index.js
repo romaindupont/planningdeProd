@@ -22,20 +22,25 @@ const GanttField = ({
   deletePlanning,
   fetchPlanning,
   updatedPlanning,
-  n_lancement
+  n_lancement,
+  saveNumeroLct,
+  lancementn,
 }) => {
-  console.log(n_lancement)
+
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();
     const newId = String(generateId(tasks));
     if (event.target.id.value==='') {
-      addTasks(newId,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value)
+      const numeroLct = parseInt(n_lancement) + 1;
+      saveNumeroLct(numeroLct);
+      addTasks(newId,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value,event.target.lancementn.value)
     }
     else {
       const UpdateTask = tasks.filter((task)=> {
         if (task.id ===event.target.id.value){
-          updatedPlanning(task.id,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value)
+          console.log(event.target.dependencies.value)
+          updatedPlanning(task.id,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value,event.target.lancementn.value)
         }
       })
     }
@@ -45,7 +50,7 @@ const handleDelete = (event) => {
   deletePlanning(id)
 };
 const handleClickOnTask = (e) => {
-  clickTasks(e.id,e.name,e.start,e.end,e.progress,e.dependencies);
+  clickTasks(e.id,e.name,e.start,e.end,e.progress,e.dependencies,e.lancementn);
 };
 const custom_popup_html = (event) => {
   const end_date = event._end.toLocaleString();
@@ -110,6 +115,11 @@ useEffect(() => {
             type="text"
             placeholder="dependencies"
             name="dependencies"
+          />
+          <Field
+            type="text"
+            placeholder="numero lancement"
+            name="lancementn"
           />
           <div className="form-button-zones">
             <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>

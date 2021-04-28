@@ -4,7 +4,7 @@ export const fetchTasks = () => ({
 });
 
 export const ADD_TASKS = 'ADD_TASKS';
-export const addTasks = (id,name,start,end, progress,dependencies) => ({
+export const addTasks = (id,name,start,end, progress,dependencies,lancement) => ({
   type: ADD_TASKS,
   id,
   name,
@@ -12,6 +12,7 @@ export const addTasks = (id,name,start,end, progress,dependencies) => ({
   end,
   progress,
   dependencies,
+  lancement,
 });
 
 export const CHANGE_VALUE = 'CHANGE_VALUE';
@@ -29,7 +30,7 @@ export const sendTasks = (id, name) => ({
 });
 
 export const CLICK_TASKS = 'CLICK_TASKS';
-export const clickTasks = (id,name,start,end, progress,dependencies) => ({
+export const clickTasks = (id,name,start,end, progress,dependencies,lancement) => ({
   type: CLICK_TASKS,
   id,
   name,
@@ -37,10 +38,11 @@ export const clickTasks = (id,name,start,end, progress,dependencies) => ({
   end,
   progress,
   dependencies,
+  lancement,
 });
 
 export const UPDATE_TASKS = 'UPDATE_TASKS';
-export const updateTasks = (id,name,start,end, progress,dependencies) => ({
+export const updateTasks = (id,name,start,end, progress,dependencies,lancement) => ({
   type: UPDATE_TASKS,
   id,
   name,
@@ -48,6 +50,7 @@ export const updateTasks = (id,name,start,end, progress,dependencies) => ({
   end,
   progress,
   dependencies,
+  lancement,
 });
 
 export const DELETE_TASKS = 'DELETE_TASKS';

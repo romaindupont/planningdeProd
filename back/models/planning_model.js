@@ -8,6 +8,7 @@ class Planning {
   dependencies;
   created_at;
   updated_at;
+  lancement;
 
   constructor(obj) {
     this.id=obj.id;
@@ -18,6 +19,7 @@ class Planning {
     this.dependencies=obj.dependencies;
     this.created_at=obj.created_at;
     this.updated_at=obj.updated_at;
+    this.lancement=obj.lancement;
   }
 }
 const dataPlanning = {
@@ -30,10 +32,10 @@ const dataPlanning = {
     return planningAdd;
   }, */
   addPlanning: async (body) => {
-    const sql = 'INSERT INTO planning(name, start, _end,progress,dependencies,created_at) VALUES ($1, $2, $3, $4, $5,$6) RETURNING *';
+    const sql = 'INSERT INTO planning(name, start, _end,progress,dependencies,created_at,lancement) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
     const aujourdhui = 'now()';
-    const { name, start, _end, progress, dependencies } = body;
-    const result = await pool.pool.query(sql,[name, start, _end,progress,dependencies, aujourdhui]);
+    const { name, start, _end, progress, dependencies,lancement } = body;
+    const result = await pool.pool.query(sql,[name, start, _end,progress,dependencies, aujourdhui,lancement]);
     const planningAdd = new Planning(result.rows[0]);
     return planningAdd;
   },
@@ -55,7 +57,8 @@ const dataPlanning = {
     return result.rows[0];
   },
   planningList: async () => {
-    const sql ='SELECT * FROM planning ORDER BY id,name;';
+    const sql ='SELECT * FROM planning ORDER BY lancement,name;';
+    /* select planning.name,planning.start, planning._end,planning.progress,planning.dependencies,planning.lancement,articles.order_n from planning inner join articles on planning.name=articles.reference order by order_n,lancement,name; */
     const result = await pool.pool.query(sql);
     const ListOfPlanning = result.rows;
     return ListOfPlanning;
@@ -66,10 +69,10 @@ const dataPlanning = {
     return result.rows[0];
   },
   updatePlanning: async (body, id) => {
-    const sql = 'UPDATE planning SET name=$1, start=$2, _end=$3, progress=$4, dependencies=$5, updated_at=$6 WHERE id=$7';
+    const sql = 'UPDATE planning SET name=$1, start=$2, _end=$3, progress=$4, dependencies=$5, updated_at=$6, lancement=$7 WHERE id=$8';
     const aujourdhui = 'now()';
-    const { name, start, _end,progress,dependencies } = body;
-    const result = await pool.pool.query(sql, [name, start, _end, progress, dependencies, aujourdhui,id]);
+    const { name, start, _end,progress,dependencies,lancement } = body;
+    const result = await pool.pool.query(sql, [name, start, _end, progress, dependencies, aujourdhui,lancement,id]);
     return result.rows;
   },
 
