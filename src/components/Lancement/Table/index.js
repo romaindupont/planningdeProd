@@ -2,12 +2,12 @@ import React from 'react';
 import Thead from './thead';
 import Tbody from '../../../containers/Lancement/Tbody';
 
-const Table = ()=> {
+const Table = ({search})=> {
 
   return (
     <table>
           <Thead />
-          <Tbody />
+          <Tbody search={search} />
     </table>
   )
 }

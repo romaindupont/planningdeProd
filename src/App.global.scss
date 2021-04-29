@@ -418,4 +418,128 @@ color:#265D7D;
 }
 .lancement {
   color:black;
+
+
+  &-title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+  &-search {
+    border: 1px solid #8ec0dd;
+    padding: 0.7rem;
+    border-radius: 5px 0px 0px 5px;
+    background: #8ec0dd;
+    color: #265D7D;
+    font-size: 0.8rem;
+    transition: background .3s ease, color .3s ease, border .3s ease;
+  }
+  &-form {
+    width: 60%;
+    text-align: center;
+    margin: 2em 0;
+    &:focus-within > span {
+      border: 2px solid #265D7D;
+      background: #265D7D;
+      color: #8ec0dd;
+    }
+
+    &:focus-within > .lancement-input {
+      border: 2px solid #265D7D;
+    }
+  }
+  &-input {
+    padding: 0.7rem;
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid #8ec0dd;
+    transition: border .3s ease;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.container-lancement {
+  display: flex;
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40%;
+}
+.form-lct {
+  margin: 0 1rem 1rem 1rem;
+
+  &:focus-within > span {
+    border: 2px solid #265D7D;
+    background: #265D7D;
+    color: #8ec0dd;
+  }
+  &:focus-within > input {
+    border: 2px solid #265D7D;
+  }
+}
+.form-title {
+  border: 1px solid #8ec0dd;
+  display: block;
+  font-size: 0.8rem;
+  border-radius: 5px 5px 0 0;
+  padding: 0.5em;
+  text-align: center;
+  color: #265D7D;
+  background: #8ec0dd;
+  transition: background .2s ease, color .2s ease, border .2s ease;
+
+}
+.form-input {
+  border: 1px solid #8ec0dd;
+  padding: 0.5em;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+  margin: 0;
+  transition: border .2s ease;
+  &:focus {
+    outline: none;
+  }
+}
+.popup {
+  position: fixed;
+  background: #8ec0dd;
+  top: 35%;
+  left: 20%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+
+  &-title {
+    color: #265D7D;
+    font-size: 1rem;
+  }
+  &-text {
+    font-size: 0.8rem;
+  }
+  &--oui {
+    color: #265D7D;
+    font-size: 0.8rem;
+    &:hover {
+      color: white;
+      background: #265D7D;
+    }
+    &:active {
+      color: #265D7D;
+      background: white;
+    }
+  }
+  &--non {
+    color: #265D7D;
+    font-size: 0.8rem;
+    &:hover {
+      color: white;
+      background: #265D7D;
+    }
+    &:active {
+      color: #265D7D;
+      background: white;
+    }
+  }
 }

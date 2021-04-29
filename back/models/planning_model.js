@@ -45,11 +45,20 @@ const dataPlanning = {
     const id = result.rows[0];
     return id; */
   },
-  /* getSpecificArticles: async (params) => {
-    const sql ="SELECT row_to_json(quest) as questions FROM (SELECT * ,(SELECT json_agg(alb) FROM ( SELECT * from answers WHERE id_question= a.id) alb)AS answers FROM questions as a WHERE id_category=$1 LIMIT 10 ) quest ORDER BY random();";
-    const result = await pool.pool.query(sql,[params]);
+  updateEndDate: async (body, id) => {
+    const sql ="UPDATE planning SET end=$1, progress=$2, updated_at=$3 WHERE id=$4";
+    const aujourdhui = 'now()';
+    const { _end } = body;
+    const result = await pool.pool.query(sql,[_end,aujourdhui,id]);
     return result.rows;
-  }, */
+  },
+  updateStartDate: async (body, id) => {
+    const sql ="UPDATE planning SET start=$1, progress=$2, updated_at=$3 WHERE id=$4";
+    const aujourdhui = 'now()';
+    const { start } = body;
+    const result = await pool.pool.query(sql,[start,aujourdhui,id]);
+    return result.rows;
+  },
   getPlanning: async (body) => {
     const sql ='SELECT * FROM planning WHERE id=$1';
     const { id } = body;

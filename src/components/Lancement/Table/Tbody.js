@@ -1,17 +1,35 @@
 import React from 'react';
+import moment from 'moment';
 
+const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
+  let filterTasks = tasks.filter((task)=> task.lancementn===parseInt(search));
+  if(filterTasks.length===0){
+    filterTasks=tasks;
+  }
+  const handleCheckBox = async (e) => {
+    if (e.target.checked) {
+      document.getElementById(`${e.target.value}`).classList.add("checked");
+      await saveIdLct(e.target.value);
+      const theLancement = tasks.find((lancement) => lancement.id==e.target.value);
+      saveLct(theLancement.id,theLancement.lancementn,theLancement.name,theLancement.start,theLancement.end);
 
-const Tbody = ({tasks})=> {
-  console.log(tasks)
+    }
+    if (!e.target.checked) {
+      document.getElementById(`${e.target.value}`).classList.remove("checked");
+      saveIdLct('');
+      saveLct('','','','','');
+
+    }
+  }
   return (
     <tbody>
-      {tasks.map((task,i)=>
+      {filterTasks.map((task,i)=>
       <tr key={i} id={task.id}>
-        <td><input value={task.id} type="checkbox"></input></td>
+        <td><input value={task.id} type="checkbox" onChange={handleCheckBox} value={task.id}></input></td>
         <td>{task.lancementn}</td>
         <td>{task.name}</td>
-        <td>{task.start}</td>
-        <td>{task.end}</td>
+        <td>{moment(task.start).format('DD/MM/YYYY HH:mm:ss')}</td>
+        <td>{moment(task.end).format('DD/MM/YYYY HH:mm:ss')}</td>
         <td>{task.id}</td>
       </tr>)}
     </tbody>

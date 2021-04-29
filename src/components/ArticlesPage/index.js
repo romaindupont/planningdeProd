@@ -15,7 +15,6 @@ const ArticlesPage = ()=> {
       document.getElementById(`${e.target.value}`).classList.remove("checked");
     }
     setCheck(e.target.checked)
-    console.log(e.target.checked)
   }
   return (
     <div className="articlePage">

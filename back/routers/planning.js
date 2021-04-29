@@ -8,6 +8,7 @@ router.post('/planning/add/several', planningController.add);
 router.get('/planning', planningController.findAll);
 router.put('/planning/update/:id', planningController.update);
 router.delete('/planning/delete/:id', planningController.delete);
-
+router.patch('/planning/start/:id', planningController.updateStartDate);
+router.patch('/planning/end/:id', planningController.updateEndDate);
 
 module.exports = router;

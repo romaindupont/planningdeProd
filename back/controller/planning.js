@@ -48,6 +48,28 @@ const planningController = {
       res.status(500).send(error);
     }
   },
+  updateStartDate: async(req,res) => {
+    try {
+      await planning_model.dataPlanning.updateStartDate(req.body,req.params.id);
+      return res.status(201).json({
+        message: "Date est mise à jour"
+      });
+    } catch (error) {
+      console.log(error)
+      res.status(500).send(error);
+    }
+  },
+  updateEndDate: async(req,res) => {
+    try {
+      await planning_model.dataPlanning.updateEndDate(req.body,req.params.id);
+      return res.status(201).json({
+        message: "Date est mise à jour"
+      });
+    } catch (error) {
+      console.log(error)
+      res.status(500).send(error);
+    }
+  },
 };
 
 module.exports = planningController;

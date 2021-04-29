@@ -23,47 +23,47 @@ const FormArticle = ({id,articleList, addArticle,updateArticle, deleteArticle})=
   };
 
   return (
-          <form className="articlePage-form" onSubmit={handleSubmit}>
-              <Field
-                type="text"
-                placeholder="id"
-                name="id"
-              />
-              <Field
-                type="text"
-                placeholder="article_name"
-                name="article_name"
-              />
-              <Field
-                type="text"
-                placeholder="level"
-                name="level"
-              />
-              <Field
-                type="text"
-                placeholder="machine_id"
-                name="machine_id"
-              />
-              <Field
-                type="text"
-                placeholder="operating_time"
-                name="operating_time"
-              />
-              <Field
-                type="text"
-                placeholder="ordre Fab."
-                name="description"
-              />
-              <Field
-                type="text"
-                placeholder="dependencies"
-                name="dependencies"
-              />
-              <div className="form-button-zones">
-                <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
-                <button className="form-button remove" onClick={handleDelete}>Remove</button>
-              </div>
-          </form>
+    <form className="articlePage-form" onSubmit={handleSubmit}>
+        <Field
+          type="text"
+          placeholder="id"
+          name="id"
+        />
+        <Field
+          type="text"
+          placeholder="article_name"
+          name="article_name"
+        />
+        <Field
+          type="text"
+          placeholder="level"
+          name="level"
+        />
+        <Field
+          type="text"
+          placeholder="machine_id"
+          name="machine_id"
+        />
+        <Field
+          type="text"
+          placeholder="operating_time"
+          name="operating_time"
+        />
+        <Field
+          type="text"
+          placeholder="ordre Fab."
+          name="description"
+        />
+        <Field
+          type="text"
+          placeholder="dependencies"
+          name="dependencies"
+        />
+        <div className="form-button-zones">
+          <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
+          <button className="form-button remove" onClick={handleDelete}>Remove</button>
+        </div>
+    </form>
   )
 }
 export default FormArticle;
