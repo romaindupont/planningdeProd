@@ -2,8 +2,8 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
- @import "../node_modules/react-day-picker/lib/style";
- @import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+@import '../node_modules/react-day-picker/lib/style';
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
 body {
   position: relative;
   color: white;
@@ -64,24 +64,23 @@ a:hover {
   font-weight: 900;
   color: black;
   text-align: center;
-  margin:0;
+  margin: 0;
+}
 
-  }
-
-  .gantt .bar-progress {
-    fill:green;
-  }
-  .gantt .bar-wrapper:hover .bar-progress {
-    fill:blue;
-  }
+.gantt .bar-progress {
+  fill: green;
+}
+.gantt .bar-wrapper:hover .bar-progress {
+  fill: blue;
+}
 
 #root {
   width: 100%;
   height: 100%;
 }
 
-.gantt .bar-wrapper.active .bar-progress  {
-  fill:red;
+.gantt .bar-wrapper.active .bar-progress {
+  fill: red;
 }
 
 .gantt-container .popup-wrapper .title {
@@ -89,7 +88,7 @@ a:hover {
   text-align: center;
 }
 
-.gantt-container .popup-wrapper{
+.gantt-container .popup-wrapper {
   background-color: white;
   border: 1px solid black;
   box-shadow: 2px 2px 2px 2px black;
@@ -127,7 +126,7 @@ a:hover {
     text-align: center;
   }
 }
-.form {
+.form-field {
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -142,7 +141,6 @@ a:hover {
     flex-direction: column;
     text-transform: uppercase;
     font-size: 0.5rem;
-
   }
   &-button {
     text-align: center;
@@ -155,7 +153,8 @@ a:hover {
       text-decoration: none;
     }
     &:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
       background-color: green;
       color: white;
       border: 3px solid black;
@@ -180,7 +179,6 @@ a:hover {
       background-color: green;
     }
   }
-
 }
 button {
   cursor: pointer;
@@ -192,10 +190,8 @@ button:focus {
   background-color: red;
 }
 
-
 .articlePage-list {
   display: flex;
-
 }
 .articlePage-title {
   color: black;
@@ -211,13 +207,13 @@ table {
   width: 60%;
 }
 thead {
-  background-color:#36304a ;
+  background-color: #36304a;
   color: #fff;
 }
 tr {
   text-align: center;
 }
-tbody tr:nth-child(even){
+tbody tr:nth-child(even) {
   background-color: #f5f5f5;
 }
 tbody {
@@ -230,7 +226,7 @@ tbody {
 .notChecked {
   background-color: white;
 }
-tr:hover td{
+tr:hover td {
   background-color: #eae3c8;
 }
 .articlePage-form {
@@ -242,45 +238,47 @@ tr:hover td{
   height: 400px;
 }
 
-tbody, thead tr { display: block; }
+tbody,
+thead tr {
+  display: block;
+}
 tbody {
   height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-tbody td, thead th {
+tbody td,
+thead th {
   width: 150px;
 }
 
 .gantt {
-
+  overflow-y: scroll;
+  height: 100vh;
 }
 .gantt-select {
   color: black;
   height: 250px;
-
 }
 .gantt-select > h3 {
   margin: 0;
   text-align: center;
-
 }
 .dateModal {
   position: fixed;
   height: 150px;
   width: 300px;
-  border: 0.2px solid #265D7D;
+  border: 0.2px solid #265d7d;
   text-align: center;
   background: #a1cae2;
-  color:#265D7D;
+  color: #265d7d;
   font-size: 0.7rem;
   font-family: 'Chango', cursive;
   box-shadow: 10px 8px 11px 3px;
   &-title {
     margin: 0.5rem;
     color: white;
-
   }
   &-picker {
     display: flex;
@@ -290,48 +288,48 @@ tbody td, thead th {
     font-family: 'Chango', cursive;
   }
 }
-.dateModal--previous,.dateModal--next {
+.dateModal--previous,
+.dateModal--next {
   margin: 0 auto;
   height: 20px;
   width: 20px;
   border-radius: 50%;
   background: white;
   font-weight: 600;
-  user-select:none;
+  user-select: none;
   color: #a1cae2;
   border: 2px solid white;
   font-size: 0.8rem;
-&:hover {
-  color: white;
-  background: #a1cae2;
-  border: 2px solid white;
-}
-&:active {
-  color: white;
-  background: #265D7D;
-  border: 2px solid white;
-}
-
-}
-.dateModal-li {
-width: 50px;
-color:#265D7D;
-}
-.dateModal-button {
-  font-family: 'Chango', cursive;
-  color:#a1cae2;
-  background: white;
-  display: inline-block;
-  padding: 0.3rem;
-  border-radius: 30%;
   &:hover {
-    color:white;
+    color: white;
     background: #a1cae2;
     border: 2px solid white;
   }
   &:active {
     color: white;
-    background: #265D7D;
+    background: #265d7d;
+    border: 2px solid white;
+  }
+}
+.dateModal-li {
+  width: 50px;
+  color: #265d7d;
+}
+.dateModal-button {
+  font-family: 'Chango', cursive;
+  color: #a1cae2;
+  background: white;
+  display: inline-block;
+  padding: 0.3rem;
+  border-radius: 30%;
+  &:hover {
+    color: white;
+    background: #a1cae2;
+    border: 2px solid white;
+  }
+  &:active {
+    color: white;
+    background: #265d7d;
     border: 2px solid white;
   }
 }
@@ -368,7 +366,6 @@ color:#265D7D;
   display: inline-block;
 }
 .selectProd--button {
-
   &:hover {
     color: white;
     background: green;
@@ -377,11 +374,10 @@ color:#265D7D;
 .selectProd-quantity {
   display: inline-block;
 
-  &-label{
+  &-label {
     margin-bottom: 0.4rem;
   }
   &-input {
-
   }
 }
 .selection {
@@ -406,9 +402,7 @@ color:#265D7D;
   text-align: center;
 
   &-submit {
-
     &--button {
-
       &:hover {
         color: white;
         background: green;
@@ -417,8 +411,7 @@ color:#265D7D;
   }
 }
 .lancement {
-  color:black;
-
+  color: black;
 
   &-title {
     text-align: center;
@@ -430,29 +423,29 @@ color:#265D7D;
     padding: 0.7rem;
     border-radius: 5px 0px 0px 5px;
     background: #8ec0dd;
-    color: #265D7D;
+    color: #265d7d;
     font-size: 0.8rem;
-    transition: background .3s ease, color .3s ease, border .3s ease;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
   }
   &-form {
     width: 60%;
     text-align: center;
     margin: 2em 0;
     &:focus-within > span {
-      border: 2px solid #265D7D;
-      background: #265D7D;
+      border: 2px solid #265d7d;
+      background: #265d7d;
       color: #8ec0dd;
     }
 
     &:focus-within > .lancement-input {
-      border: 2px solid #265D7D;
+      border: 2px solid #265d7d;
     }
   }
   &-input {
     padding: 0.7rem;
     border-radius: 0px 5px 5px 0px;
     border: 1px solid #8ec0dd;
-    transition: border .3s ease;
+    transition: border 0.3s ease;
     &:focus {
       outline: none;
     }
@@ -471,12 +464,12 @@ color:#265D7D;
   margin: 0 1rem 1rem 1rem;
 
   &:focus-within > span {
-    border: 2px solid #265D7D;
-    background: #265D7D;
+    border: 2px solid #265d7d;
+    background: #265d7d;
     color: #8ec0dd;
   }
   &:focus-within > input {
-    border: 2px solid #265D7D;
+    border: 2px solid #265d7d;
   }
 }
 .form-title {
@@ -486,10 +479,9 @@ color:#265D7D;
   border-radius: 5px 5px 0 0;
   padding: 0.5em;
   text-align: center;
-  color: #265D7D;
+  color: #265d7d;
   background: #8ec0dd;
-  transition: background .2s ease, color .2s ease, border .2s ease;
-
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
 .form-input {
   border: 1px solid #8ec0dd;
@@ -497,7 +489,7 @@ color:#265D7D;
   border-radius: 0 0 5px 5px;
   text-align: center;
   margin: 0;
-  transition: border .2s ease;
+  transition: border 0.2s ease;
   &:focus {
     outline: none;
   }
@@ -512,33 +504,33 @@ color:#265D7D;
   border-radius: 10px;
 
   &-title {
-    color: #265D7D;
+    color: #265d7d;
     font-size: 1rem;
   }
   &-text {
     font-size: 0.8rem;
   }
   &--oui {
-    color: #265D7D;
+    color: #265d7d;
     font-size: 0.8rem;
     &:hover {
       color: white;
-      background: #265D7D;
+      background: #265d7d;
     }
     &:active {
-      color: #265D7D;
+      color: #265d7d;
       background: white;
     }
   }
   &--non {
-    color: #265D7D;
+    color: #265d7d;
     font-size: 0.8rem;
     &:hover {
       color: white;
-      background: #265D7D;
+      background: #265d7d;
     }
     &:active {
-      color: #265D7D;
+      color: #265d7d;
       background: white;
     }
   }

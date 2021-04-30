@@ -10,7 +10,8 @@ const Field = ({
 })=> {
 
   return (
-    <label className="form-label">{name}
+    <div className="form-lct">
+      <span className="form-title">{name}</span>
       <input
         className="form-input"
         type={type}
@@ -20,7 +21,7 @@ const Field = ({
         onChange={(event) => {
           changeField(event.target.value);
       }}></input>
-    </label>
+    </div>
   )
 }
 export default Field;

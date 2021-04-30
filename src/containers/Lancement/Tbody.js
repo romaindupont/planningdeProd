@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Tbody from '../../components/Lancement/Table/Tbody';
-import { fetchPlanning } from '../../actions/launch';
 import { saveLct, saveIdLct } from '../../actions/lancement';
 
 const mapStateToProps = (state) => ({
@@ -14,9 +13,6 @@ const mapStateToProps = (state) => ({
   });
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
-  fetchPlanning:() => {
-    dispatch(fetchPlanning());
-  },
   saveLct:(id,lancement,name,start,end) => {
     dispatch(saveLct(id,lancement,name,start,end));
   },

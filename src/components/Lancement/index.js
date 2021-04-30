@@ -4,14 +4,11 @@ import Table from './Table';
 import SearchBar from './SearchBar';
 import Form from '../../containers/Lancement/Form';
 
-const Lancement = ({fetchPlanning})=> {
+const Lancement = ()=> {
   const [search,setSearch] = useState('')
   const changeNumber = (e) => {
     setSearch(e.target.value)
   }
-  useEffect(() => {
-    fetchPlanning();
-  }, []);
   return (
     <div className="lancement">
       <Link exact="true" to="/"><button>revenir au menu</button></Link>

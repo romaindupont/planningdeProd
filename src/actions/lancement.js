@@ -20,3 +20,9 @@ export const updatedLancement = (start,end) => ({
   start,
   end
 });
+
+export const UPDATED_END = 'UPDATED_END';
+export const updatedEnd = (end) => ({
+  type:UPDATED_END,
+  end
+});

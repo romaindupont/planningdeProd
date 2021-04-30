@@ -59,9 +59,9 @@ const FormArticle = ({id,articleList, addArticle,updateArticle, deleteArticle})=
           placeholder="dependencies"
           name="dependencies"
         />
-        <div className="form-button-zones">
-          <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
-          <button className="form-button remove" onClick={handleDelete}>Remove</button>
+        <div className="form-field-button-zones">
+          <button className="form-field-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
+          <button className="form-field-button remove" onClick={handleDelete}>Remove</button>
         </div>
     </form>
   )

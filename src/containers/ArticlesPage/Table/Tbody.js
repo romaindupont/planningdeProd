@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 import Tbody from '../../../components/ArticlesPage/Tbody';
-
-
 import { changeValue} from '../../../actions';
 import {saveId, searchInfo,fetchArticle} from '../../../actions/article';
 
@@ -21,9 +19,7 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   searchInfo:(id,article_name,level,machine_id,operating_time,description,dependencies) => {
     dispatch(searchInfo(id,article_name,level,machine_id,operating_time,description,dependencies));
   },
-  fetchArticle:() => {
-    dispatch(fetchArticle());
-  }
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tbody);

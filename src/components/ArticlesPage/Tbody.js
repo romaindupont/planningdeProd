@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
+const Tbody = ({ saveId, searchInfo,articlesList,waitArticle})=> {
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
@@ -14,9 +14,7 @@ const Tbody = ({ saveId, searchInfo,fetchArticle,articlesList,waitArticle})=> {
       searchInfo('','','','','','','');
     }
   };
-  useEffect(() => {
-    fetchArticle();
-  }, []);
+
   return (
           <tbody>
             {waitArticle && (<tr key="patience" className="app-load"><td value="">Veuillez patienter</td></tr>)}

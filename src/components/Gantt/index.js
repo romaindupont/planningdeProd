@@ -20,7 +20,6 @@ const GanttField = ({
   name,
   clickTasks,
   deletePlanning,
-  fetchPlanning,
   updatedPlanning,
   n_lancement,
   saveNumeroLct,
@@ -69,9 +68,7 @@ const custom_popup_html = (event) => {
 const handleRecalculate = (e) => {
   e.preventDefault();
 };
-useEffect(() => {
-  fetchPlanning();
-}, []);
+
   return (
     <div className="gantt">
       <Link exact="true" to="/"><button>revenir au menu</button></Link>
@@ -83,9 +80,10 @@ useEffect(() => {
           onDateChange={(task, start, end) => console.log(task, start, end)}
           onClick={handleClickOnTask}
           customPopupHtml={custom_popup_html}
+          timelineStyle={'position:fixed'}
         />
         <ButtonMode setModeView={setModeView} />
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form-field" onSubmit={handleSubmit}>
           <Field
             type="text"
             placeholder="id"
@@ -121,9 +119,9 @@ useEffect(() => {
             placeholder="numero lancement"
             name="lancementn"
           />
-          <div className="form-button-zones">
-            <button className="form-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
-            <button className="form-button remove" onClick={handleDelete} type="submit">Remove</button>
+          <div className="form-field-button-zones">
+            <button className="form-field-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
+            <button className="form-field-button remove" onClick={handleDelete} type="submit">Remove</button>
           </div>
         </form>
       </div>

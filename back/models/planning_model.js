@@ -48,15 +48,15 @@ const dataPlanning = {
   updateEndDate: async (body, id) => {
     const sql ="UPDATE planning SET end=$1, progress=$2, updated_at=$3 WHERE id=$4";
     const aujourdhui = 'now()';
-    const { _end } = body;
-    const result = await pool.pool.query(sql,[_end,aujourdhui,id]);
+    const { _end,progress } = body;
+    const result = await pool.pool.query(sql,[_end,progress,aujourdhui,id]);
     return result.rows;
   },
   updateStartDate: async (body, id) => {
-    const sql ="UPDATE planning SET start=$1, progress=$2, updated_at=$3 WHERE id=$4";
+    const sql ="UPDATE planning SET start=$1, _end=$2, progress=$3, updated_at=$4 WHERE id=$5";
     const aujourdhui = 'now()';
-    const { start } = body;
-    const result = await pool.pool.query(sql,[start,aujourdhui,id]);
+    const { start, _end, progress } = body;
+    const result = await pool.pool.query(sql,[start, _end, progress, aujourdhui,id]);
     return result.rows;
   },
   getPlanning: async (body) => {

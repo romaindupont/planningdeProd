@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Switch, Route, HashRouter, Link } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import './App.global.scss';
@@ -7,6 +7,8 @@ import ArticlesPage from './components/ArticlesPage';
 import Lancement from './containers/Lancement';
 
 const Hello = () => {
+
+
   return (
     <div>
       <div className="Hello">
@@ -43,7 +45,13 @@ const Hello = () => {
   );
 };
 
-export default function App() {
+export default function App({fetchPlanning,fetchArticle}) {
+  useEffect(() => {
+    fetchPlanning();
+  }, []);
+  useEffect(() => {
+    fetchArticle();
+  }, []);
   return (
     <HashRouter>
       <Switch>

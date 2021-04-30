@@ -10,7 +10,9 @@ const FieldArticle = ({
 })=> {
 
   return (
-    <label className="form-label">{name}
+
+    <div className="form-lct">
+      <span className="form-title">{name}</span>
       <input
         className="form-input"
         type={type}
@@ -20,7 +22,8 @@ const FieldArticle = ({
         onChange={(event) => {
           changeField(event.target.value);
       }}></input>
-    </label>
+    </div>
+
   )
 }
 export default FieldArticle;
