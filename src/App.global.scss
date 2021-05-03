@@ -502,7 +502,7 @@ thead th {
   text-align: center;
   padding: 1em;
   border-radius: 10px;
-
+  box-shadow: 1px 0px 5px 3px black;
   &-title {
     color: #265d7d;
     font-size: 1rem;
@@ -534,4 +534,51 @@ thead th {
       background: white;
     }
   }
+}
+.popupMessage {
+  position: fixed;
+  background: #265d7d;
+  top: 40%;
+  left: 23%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 1px 0px 5px 3px black;
+  &-title {
+    color: #fff;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  &--oui {
+    color: #265d7d;
+    font-size: 0.8rem;
+    &:hover {
+      color: white;
+      background: #8ec0dd;
+    }
+    &:active {
+      color: #8ec0dd;
+      background: white;
+    }
+  }
+}
+.popupMessage-span {
+  /* border: 3px solid red; */
+  display : inline-block;
+  height : 0;
+  width : 0;
+  border-right : 20px solid transparent;
+  border-bottom : 30px solid red;
+  border-left : 20px solid transparent;
+  position: relative;
+  margin: 0.2rem auto;
+}
+.popupMessage-span > span {
+  position: absolute;
+  top: 10px;
+  left: -2px;
+
 }

@@ -1,16 +1,15 @@
 import React from 'react';
 
 
-const Popup = ()=> {
-
+const PopupMessage = ({popupText, openPopup,setOpenPopup,popupWindow,changePopup})=> {
+  const okClick = () => {
+    changePopup(false);
+  }
   return (
-    `
-		<div class="details-container">
-		  <h5>${name}</h5>
-		  <p>Expected to finish by ${end}</p>
-		  <p>${progress}% completed!</p>
-		</div>
-	  `
+    <div className="popupMessage">
+    <h1 className="popupMessage-title"><span className="popupMessage-span"><span>&#33;</span></span>{popupText}<span className="popupMessage-span"><span>&#33;</span></span></h1>
+    <button className="popupMessage--oui" onClick={okClick}>OK</button>
+  </div>
   )
 }
-export default Popup;
+export default PopupMessage;

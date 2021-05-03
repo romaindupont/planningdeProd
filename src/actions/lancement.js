@@ -26,3 +26,10 @@ export const updatedEnd = (end) => ({
   type:UPDATED_END,
   end
 });
+
+export const CHANGE_POPUP = 'CHANGE_POPUP';
+export const changePopup = (open,popupText) => ({
+  type:CHANGE_POPUP,
+  open,
+  popupText,
+});

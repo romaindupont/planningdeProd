@@ -1,4 +1,7 @@
-import {SAVE_LCT, SAVE_ID_LCT} from '../actions/lancement';
+import {SAVE_LCT, SAVE_ID_LCT, CHANGE_POPUP} from '../actions/lancement';
+import {
+  CHANGE_VALUE,
+} from '../actions';
 
 const initialState = {
   id:'',
@@ -6,6 +9,8 @@ const initialState = {
   name:'',
   start:'',
   end:'',
+  popupWindow : false,
+  popupText:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,6 +29,17 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           id: action.id,
         }
+        case CHANGE_VALUE:
+          return {
+              ...state,
+              [action.key]: action.newValue,
+          }
+        case CHANGE_POPUP:
+          return {
+            ...state,
+            popupWindow: action.open,
+            popupText: action.popupText,
+          }
     default:
       return state;
   }

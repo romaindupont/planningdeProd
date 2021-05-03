@@ -46,7 +46,7 @@ const dataPlanning = {
     return id; */
   },
   updateEndDate: async (body, id) => {
-    const sql ="UPDATE planning SET end=$1, progress=$2, updated_at=$3 WHERE id=$4";
+    const sql ="UPDATE planning SET _end=$1, progress=$2, updated_at=$3 WHERE id=$4";
     const aujourdhui = 'now()';
     const { _end,progress } = body;
     const result = await pool.pool.query(sql,[_end,progress,aujourdhui,id]);
