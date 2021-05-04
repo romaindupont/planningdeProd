@@ -582,3 +582,23 @@ thead th {
   left: -2px;
 
 }
+
+.search-name {
+  display: block;
+  padding: 0.7rem 0;
+  &--erase {
+    display: none;
+}
+
+}
+.search-input {
+  display: none;
+  width: 110px;
+ &:focus {
+   outline: none;
+   border: 1px solid #8ec0dd;
+ }
+  &--view {
+    display: block;
+  }
+}

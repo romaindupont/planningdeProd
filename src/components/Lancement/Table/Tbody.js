@@ -25,7 +25,7 @@ const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
     <tbody>
       {filterTasks.map((task,i)=>
       <tr key={i} id={task.id}>
-        <td><input value={task.id} type="checkbox" onChange={handleCheckBox} value={task.id}></input></td>
+        <td><input type="checkbox" onChange={handleCheckBox} value={task.id}></input></td>
         <td>{task.lancementn}</td>
         <td>{task.name}</td>
         <td>{moment(task.start).format('DD/MM/YYYY HH:mm:ss')}</td>

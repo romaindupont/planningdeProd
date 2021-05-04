@@ -7,8 +7,8 @@ const ButtonMode = ({setModeView})=> {
   const [selectD, setSelectD] = useState(false);
   const [selectW, setSelectW] = useState(false);
   const [selectM, setSelectM] = useState(false);
-//Quarter Day, Half Day, Day, Week, Month 
-const handleClick = (e) => { 
+//Quarter Day, Half Day, Day, Week, Month
+const handleClick = (e) => {
   if(e.target.outerText=="Quarter"){
     setModeView('Quarter Day');
     setSelectQ(true);
@@ -57,7 +57,6 @@ const handleClick = (e) => {
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectD})} onClick={handleClick}>Day</button>
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectW})} onClick={handleClick}>Week</button>
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectM})} onClick={handleClick}>Month</button>
-
     </div>
   )
 }

@@ -5,9 +5,9 @@ import SearchBar from './SearchBar';
 import Form from '../../containers/Lancement/Form';
 
 const Lancement = ()=> {
-  const [search,setSearch] = useState('')
+  const [search,setSearch] = useState('');
   const changeNumber = (e) => {
-    setSearch(e.target.value)
+    setSearch(e.target.value);
   }
   return (
     <div className="lancement">
