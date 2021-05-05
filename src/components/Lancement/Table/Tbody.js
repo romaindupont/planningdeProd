@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
-  let filterTasks = tasks.filter((task)=> task.lancementn===parseInt(search));
+  let filterTasks = tasks.filter((task) => task.lancementn===parseInt(search));
   if(filterTasks.length===0){
     filterTasks=tasks;
   }

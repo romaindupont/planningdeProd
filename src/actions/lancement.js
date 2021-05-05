@@ -33,3 +33,11 @@ export const changePopup = (open,popupText) => ({
   open,
   popupText,
 });
+
+
+export const SEARCH_VALUE = 'SEARCH_VALUE';
+export const searchValue = (newValue, key) => ({
+  type: SEARCH_VALUE,
+  newValue,
+  key,
+});

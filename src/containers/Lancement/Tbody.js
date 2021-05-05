@@ -9,8 +9,7 @@ const mapStateToProps = (state) => ({
   name: state.lancement.name,
   start: state.lancement.start,
   end: state.lancement.end,
-
-  });
+});
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
   saveLct:(id,lancement,name,start,end) => {

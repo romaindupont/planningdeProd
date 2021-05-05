@@ -586,6 +586,7 @@ thead th {
 .search-name {
   display: block;
   padding: 0.7rem 0;
+  width: 150px;
   &--erase {
     display: none;
 }
@@ -593,7 +594,8 @@ thead th {
 }
 .search-input {
   display: none;
-  width: 110px;
+  width: 150px;
+  padding: 0.7rem 0;
  &:focus {
    outline: none;
    border: 1px solid #8ec0dd;

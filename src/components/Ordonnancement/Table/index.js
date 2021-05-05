@@ -1,13 +1,14 @@
 import React from 'react';
 import Thead from './thead';
-import Tbody from './tbody';
+import Tbody from '../../../containers/Ordonnancement/Tbody';
 
-const Table = ({search,setSearch})=> {
+const Table = ()=> {
   return (
         <table>
-          <Thead search={search} setSearch={setSearch}/>
-          <Tbody search={search} setSearch={setSearch}/>
+          <Thead />
+          <Tbody />
         </table>
-  )
-}
+  );
+};
+
 export default Table;

@@ -1,7 +1,11 @@
 import {
   CHANGE_VALUE,
 } from '../actions';
-import {SAVE_OPERATING_TIME,SAVE_SEARCH_REF,SAVE_CALCUL_START,SAVE_NUMERO_LCT} from '../actions/launch';
+import {SAVE_OPERATING_TIME,
+  SAVE_SEARCH_REF,
+  SAVE_CALCUL_START,
+  SAVE_NUMERO_LCT
+} from '../actions/launch';
 
 const initialState = {
   reference:'',

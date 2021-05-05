@@ -1,4 +1,8 @@
-import {SAVE_LCT, SAVE_ID_LCT, CHANGE_POPUP} from '../actions/lancement';
+import {SAVE_LCT,
+  SAVE_ID_LCT,
+  CHANGE_POPUP,
+  SEARCH_VALUE
+} from '../actions/lancement';
 import {
   CHANGE_VALUE,
 } from '../actions';
@@ -39,6 +43,11 @@ const reducer = (state = initialState, action = {}) => {
             ...state,
             popupWindow: action.open,
             popupText: action.popupText,
+          }
+        case SEARCH_VALUE:
+          return {
+              ...state,
+              [action.key]: action.newValue,
           }
     default:
       return state;
