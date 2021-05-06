@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Tbody from '../../components/Ordonnancement/Table/Tbody';
-import { searchValue } from '../../actions/lancement';
+import { searchValue, update } from '../../actions/lancement';
 
 const mapStateToProps = (state,ownProps) => ({
     currentValue: state.lancement[ownProps.name],
@@ -12,8 +12,13 @@ const mapStateToProps = (state,ownProps) => ({
     machine: state.lancement.machine,
     progression: state.lancement.progression,
     tasks: state.tasks.tasks,
+    filterList: state.lancement.filterList,
   });
 
-const mapDispatchToProps = {};
+  const mapDispatchToProps = (dispatch,ownProps) => ({
+    update: (list, searchWord) => {
+      dispatch(update(list, searchWord));
+    },
+  });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tbody);

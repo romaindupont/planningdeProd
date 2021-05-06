@@ -6,7 +6,6 @@ const Thead = ()=> {
   return (
           <thead>
             <tr>
-              {/* <th className="search">Sélection</th> */}
               <Th searchName="Sélection" name="selection" type="number" placeholder="filtre indisponible" />
               <Th searchName="Lancement n°" name="numero" type="number" placeholder="Filtre par n°" />
               <Th searchName="Référence" name="reference" type="text" placeholder="Filtre par référence" />

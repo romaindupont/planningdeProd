@@ -1,7 +1,8 @@
 import {SAVE_LCT,
   SAVE_ID_LCT,
   CHANGE_POPUP,
-  SEARCH_VALUE
+  SEARCH_VALUE,
+  UPDATE_LIST,
 } from '../actions/lancement';
 import {
   CHANGE_VALUE,
@@ -15,6 +16,7 @@ const initialState = {
   end:'',
   popupWindow : false,
   popupText:'',
+  filterList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -48,6 +50,11 @@ const reducer = (state = initialState, action = {}) => {
           return {
               ...state,
               [action.key]: action.newValue,
+          }
+        case UPDATE_LIST:
+          return {
+            ...state,
+            filterList: action.filterList,
           }
     default:
       return state;

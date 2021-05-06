@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 
-const Th = ({ searchName, name, placeholder, type, searchValue,currentValue })=> {
-  const [viewInput, setViewInput] = useState(false);
+const Th = ({ searchName, name, placeholder, type, searchValue, currentValue, update, tasks, numero })=> {
+  const [ viewInput, setViewInput ] = useState(false);
+  const [ wordSearch, setWordSearch ] = useState({
+    category : '',
+    searchText: '',
+  });
+
   const searchClick = () => {
     setViewInput(true);
   };
@@ -12,7 +17,12 @@ const Th = ({ searchName, name, placeholder, type, searchValue,currentValue })=>
   };
   const handleChange = (e) => {
     searchValue(e.target.value,e.target.name);
+    setWordSearch({ category : e.target.value , searchText : e.target.name});
+
   };
+  useEffect(() => {
+    update(tasks,wordSearch);
+  }, [handleChange]);
   return (
     <th className="search" onClick={searchClick}>
       <span className={classNames("search-name", {"search-name--erase":viewInput})}>{searchName}</span>

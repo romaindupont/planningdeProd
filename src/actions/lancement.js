@@ -1,3 +1,5 @@
+import { searchTask } from '../Utils/tri';
+
 export const SAVE_LCT = 'SAVE_LCT';
 export const saveLct = (id,lancementn,name,start,end) => ({
   type: SAVE_LCT,
@@ -41,3 +43,12 @@ export const searchValue = (newValue, key) => ({
   newValue,
   key,
 });
+
+export const UPDATE_LIST = 'UPDATE_LIST';
+export const update = (list, searchWord) => {
+  const updateList = searchTask(list, searchWord);
+  return ({
+  type: UPDATE_LIST,
+  filterList: updateList,
+});
+};
