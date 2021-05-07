@@ -12,7 +12,7 @@ const articlesController = {
           newArticle
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -23,7 +23,7 @@ const articlesController = {
         articlesList
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -35,7 +35,7 @@ const articlesController = {
       });
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
 
@@ -48,7 +48,7 @@ const articlesController = {
         message: "Votre article est mis à jour"
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },

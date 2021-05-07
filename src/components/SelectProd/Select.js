@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react';
 
-
-const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,saveSearchRef, lancement})=> {
+const Select = ({
+  listArticles,
+  changeField,
+  nameArticleSelect,
+  saveOperatingTime,
+  saveSearchRef,
+  lancement
+}) => {
   const list = listArticles.filter((articles)=> articles.niveau===1);
-
   let ensembleFab=listArticles;
-
   const changeSelect = (e) => {
     changeField(e.target.value);
     list.map((article)=> {
@@ -16,7 +20,6 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
       }
     })
   };
-
   return (
     <div className="selection">
       <select className="select" name="reference" id="ref-select" onChange={changeSelect} value={nameArticleSelect}>
@@ -39,6 +42,7 @@ const Select = ({listArticles, changeField,nameArticleSelect, saveOperatingTime,
             </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
+
 export default Select;

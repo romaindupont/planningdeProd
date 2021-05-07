@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Select from '../../components/SelectProd/Select';
 import { changeValue } from '../../actions';
-import {saveOperatingTime,saveSearchRef} from '../../actions/launch';
+import { saveOperatingTime, saveSearchRef } from '../../actions/launch';
 
 
 const mapStateToProps = (state) => ({
@@ -18,9 +18,7 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
   },
   saveSearchRef: (lancement) => {
     dispatch(saveSearchRef(lancement));
-  },
-
-
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Select);

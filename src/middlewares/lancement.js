@@ -1,11 +1,9 @@
 import axios from 'axios';
-import { UPDATED_LANCEMENT,UPDATED_END } from '../actions/lancement';
-
+import { UPDATED_LANCEMENT, UPDATED_END, UPDATED_QUANTITY } from '../actions/lancement';
+import { updateTasks } from '../actions';
 import moment from 'moment';
 import momentBusinessDays from 'moment-business-days';
 import momentBusinessTime from 'moment-business-time';
-
-
 
 const lancement = (store) => (next) => (action) => {
   switch (action.type) {
@@ -23,8 +21,16 @@ const lancement = (store) => (next) => (action) => {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            console.log(response);
-            /* store.dispatch(updateTasks(state.tasks.id,state.tasks.name,state.tasks.start,state.tasks.end,state.tasks.progress,state.tasks.dependencies,state.tasks.lancementn)) */
+            store.dispatch(updateTasks(
+              state.lancement.id,
+              state.lancement.name,
+              action.start,
+              action.end,
+              50,
+              '',
+              state.lancement.lctNumber,
+              state.lancement.quantity
+            ))
           })
           .catch((error) => {
             console.error('Error', error);
@@ -44,8 +50,45 @@ const lancement = (store) => (next) => (action) => {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            console.log(response);
-            /* store.dispatch(updateTasks(state.tasks.id,state.tasks.name,state.tasks.start,state.tasks.end,state.tasks.progress,state.tasks.dependencies,state.tasks.lancementn)) */
+            store.dispatch(updateTasks(
+              state.lancement.id,
+              state.lancement.name,
+              state.lancement.start,
+              action.end,
+              100,
+              '',
+              state.lancement.lctNumber,
+              state.lancement.quantity
+            ))
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case UPDATED_QUANTITY :
+      {
+        const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
+        const state = store.getState();
+        console.log(state)
+        axios.patch(`planning/quantity/${state.lancement.id}`,
+          {
+            quantity: action.quantity
+          },
+          {
+            baseURL: 'http://localhost:5000',
+          })
+          .then((response) => {
+            store.dispatch(updateTasks(
+              state.lancement.id,
+              state.lancement.name,
+              state.lancement.start,
+              state.lancement.end,
+              state.lancement.progression,
+              '',
+              state.lancement.lctNumber,
+              state.lancement.quantity
+            ))
           })
           .catch((error) => {
             console.error('Error', error);

@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import classNames from 'classnames';
 
-const ButtonMode = ({setModeView})=> {
+const ButtonMode = ({ setModeView })=> {
   const [selectH, setSelectH] = useState(false);
   const [selectQ, setSelectQ] = useState(false);
   const [selectD, setSelectD] = useState(false);
   const [selectW, setSelectW] = useState(false);
   const [selectM, setSelectM] = useState(false);
-//Quarter Day, Half Day, Day, Week, Month
 const handleClick = (e) => {
-  if(e.target.outerText=="Quarter"){
+  if (e.target.outerText=="Quarter") {
     setModeView('Quarter Day');
     setSelectQ(true);
     setSelectH(false);
@@ -17,7 +16,7 @@ const handleClick = (e) => {
     setSelectW(false);
     setSelectM(false);
   }
-  if(e.target.outerText==="Half"){
+  if (e.target.outerText==="Half") {
     setModeView('Half Day');
     setSelectH(true);
     setSelectQ(false);
@@ -25,7 +24,7 @@ const handleClick = (e) => {
     setSelectW(false);
     setSelectM(false);
   }
-  if(e.target.outerText==="Day"){
+  if (e.target.outerText==="Day") {
     setModeView('Day');
     setSelectH(false);
     setSelectQ(false);
@@ -33,7 +32,7 @@ const handleClick = (e) => {
     setSelectW(false);
     setSelectM(false);
   }
-  if(e.target.outerText==="Week"){
+  if (e.target.outerText==="Week") {
     setModeView('Week');
     setSelectH(false);
     setSelectQ(false);
@@ -41,7 +40,7 @@ const handleClick = (e) => {
     setSelectW(true);
     setSelectM(false);
   }
-  if(e.target.outerText==="Month"){
+  if (e.target.outerText==="Month") {
     setModeView('Month');
     setSelectH(false);
     setSelectQ(false);
@@ -49,7 +48,7 @@ const handleClick = (e) => {
     setSelectW(false);
     setSelectM(true);
   }
-}
+};
   return (
     <div className="buttonMode">
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectQ})} onClick={handleClick}>Quarter</button>
@@ -58,6 +57,7 @@ const handleClick = (e) => {
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectW})} onClick={handleClick}>Week</button>
       <button className={classNames("buttonMode--action", {"buttonMode--action_select":selectM})} onClick={handleClick}>Month</button>
     </div>
-  )
-}
+  );
+};
+
 export default ButtonMode;

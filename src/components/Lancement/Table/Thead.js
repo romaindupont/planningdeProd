@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 const Thead = ()=> {
-
   return (
     <thead>
       <tr>
@@ -12,9 +10,10 @@ const Thead = ()=> {
         <th>Début</th>
         <th>Fin</th>
         <th>id</th>
+        <th>Quantité</th>
       </tr>
     </thead>
+  );
+};
 
-  )
-}
 export default Thead;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import MomentLocaleUtils, {
   formatDate,
@@ -7,12 +6,12 @@ import MomentLocaleUtils, {
 } from 'react-day-picker/moment';
 import dateFnsFormat from 'date-fns/format';
 
-const DatePicker = ({changeField,name})=> {
+const DatePicker = ({ changeField, name }) => {
   const changeDay = (day, modifiers) => {
     const newDate = day.toLocaleString();
     const modifierDate = newDate.slice(0,10);
-    changeField(modifierDate)
-  }
+    changeField(modifierDate);
+  };
   const FORMAT = 'DD/MM/yyyy';
   return (
     <DayPickerInput
@@ -26,7 +25,8 @@ const DatePicker = ({changeField,name})=> {
         locale: 'fr',
         localeUtils: MomentLocaleUtils,
       }}
-      />
-  )
-}
+    />
+  );
+};
+
 export default DatePicker;

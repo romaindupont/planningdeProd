@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 
-const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
+const Tbody = ({ tasks, search, saveLct, saveIdLct }) => {
   let filterTasks = tasks.filter((task) => task.lancementn===parseInt(search));
-  if(filterTasks.length===0){
+  if (filterTasks.length===0) {
     filterTasks=tasks;
   }
   const handleCheckBox = async (e) => {
@@ -11,16 +11,22 @@ const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
       document.getElementById(`${e.target.value}`).classList.add("checked");
       await saveIdLct(e.target.value);
       const theLancement = tasks.find((lancement) => lancement.id==e.target.value);
-      saveLct(theLancement.id,theLancement.lancementn,theLancement.name,theLancement.start,theLancement.end);
-
+      saveLct(
+        theLancement.id,
+        theLancement.lancementn,
+        theLancement.name,
+        theLancement.start,
+        theLancement.end,
+        theLancement.quantity,
+        theLancement.progress
+      );
     }
     if (!e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.remove("checked");
       saveIdLct('');
-      saveLct('','','','','');
-
+      saveLct('','','','','','','');
     }
-  }
+  };
   return (
     <tbody>
       {filterTasks.map((task,i)=>
@@ -31,8 +37,10 @@ const Tbody = ({tasks,search, saveLct,saveIdLct})=> {
         <td>{moment(task.start).format('DD/MM/YYYY HH:mm:ss')}</td>
         <td>{moment(task.end).format('DD/MM/YYYY HH:mm:ss')}</td>
         <td>{task.id}</td>
+        <td>{task.quantity}</td>
       </tr>)}
     </tbody>
-  )
-}
+  );
+};
+
 export default Tbody;

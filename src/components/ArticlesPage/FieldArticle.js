@@ -23,4 +23,5 @@ const FieldArticle = ({
     </div>
   );
 };
+
 export default FieldArticle;

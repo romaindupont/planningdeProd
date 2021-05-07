@@ -8,6 +8,7 @@ import setMinutes from 'date-fns/setMinutes';
 import ButtonMode from '../ButtonMode';
 import SelectProd from '../../containers/SelectProd/SelectProd';
 import Recalcul from '../Recalcul';
+import BackToMenu from '../BackToMenu';
 import {generateId} from '../../Utils';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
@@ -24,8 +25,8 @@ const GanttField = ({
   n_lancement,
   saveNumeroLct,
   lancementn,
+  quantity
 }) => {
-
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,23 +34,41 @@ const GanttField = ({
     if (event.target.id.value==='') {
       const numeroLct = parseInt(n_lancement) + 1;
       saveNumeroLct(numeroLct);
-      addTasks(newId,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value,event.target.lancementn.value)
+      addTasks(
+        newId,
+        event.target.name.value,
+        event.target.start.value,
+        event.target.end.value,
+        event.target.progress.value,
+        event.target.dependencies.value,
+        event.target.lancementn.value,
+        event.target.quantity.value
+      );
     }
     else {
       const UpdateTask = tasks.filter((task)=> {
         if (task.id ===event.target.id.value){
           console.log(event.target.dependencies.value)
-          updatedPlanning(task.id,event.target.name.value,event.target.start.value,event.target.end.value,event.target.progress.value,event.target.dependencies.value,event.target.lancementn.value)
+          updatedPlanning(
+            task.id,
+            event.target.name.value,
+            event.target.start.value,
+            event.target.end.value,
+            event.target.progress.value,
+            event.target.dependencies.value,
+            event.target.lancementn.value,
+            event.target.quantity.value
+          );
         }
       })
     }
   };
 const handleDelete = (event) => {
   event.preventDefault();
-  deletePlanning(id)
+  deletePlanning(id);
 };
 const handleClickOnTask = (e) => {
-  clickTasks(e.id,e.name,e.start,e.end,e.progress,e.dependencies,e.lancementn);
+  clickTasks(e.id, e.name, e.start, e.end, e.progress, e.dependencies, e.lancementn, e.quantity);
 };
 const custom_popup_html = (event) => {
   const end_date = event._end.toLocaleString();
@@ -63,15 +82,14 @@ const custom_popup_html = (event) => {
       <p class="details-container-dependencies">Dépendances :${event.dependencies}</p>
     </div>
   `
-  )
+  );
 };
 const handleRecalculate = (e) => {
   e.preventDefault();
 };
-
   return (
     <div className="gantt">
-      <Link exact="true" to="/"><button>revenir au menu</button></Link>
+      <BackToMenu />
       <h1 className="gantt-title">Planning de production</h1>
       <div className="gantt-graph">
         <ReactGantt
@@ -119,6 +137,11 @@ const handleRecalculate = (e) => {
             placeholder="numero lancement"
             name="lancementn"
           />
+          <Field
+            type="text"
+            placeholder="quantity"
+            name="quantity"
+          />
           <div className="form-field-button-zones">
             <button className="form-field-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
             <button className="form-field-button remove" onClick={handleDelete} type="submit">Remove</button>
@@ -131,6 +154,7 @@ const handleRecalculate = (e) => {
         <SelectProd />
       </div>
     </div>
-  )
-}
+  );
+};
+
 export default GanttField;

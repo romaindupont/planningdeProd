@@ -10,7 +10,7 @@ const planningController = {
           newPlanning
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -21,7 +21,7 @@ const planningController = {
         planningList
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -33,7 +33,7 @@ const planningController = {
       });
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -44,7 +44,7 @@ const planningController = {
         message: "Votre tâche est mise à jour"
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -55,7 +55,7 @@ const planningController = {
         message: "Date est mise à jour"
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       res.status(500).send(error);
     }
   },
@@ -66,7 +66,18 @@ const planningController = {
         message: "Date est mise à jour"
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      res.status(500).send(error);
+    }
+  },
+  updateQuantity: async(req,res) => {
+    try {
+      await planning_model.dataPlanning.updateQuantity(req.body,req.params.id);
+      return res.status(201).json({
+        message: "Quantité mise à jour"
+      });
+    } catch (error) {
+      console.log(error);
       res.status(500).send(error);
     }
   },

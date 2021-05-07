@@ -12,15 +12,15 @@ const mapStateToProps = (state,ownProps) => ({
     id: state.lancement.id,
     machine: state.lancement.machine,
     progression: state.lancement.progression,
-  });
+});
 
-const mapDispatchToProps = (dispatch,ownProps) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   searchValue: (newValue) => {
     dispatch(searchValue(newValue, ownProps.name));
   },
   update: (list, searchWord) => {
     dispatch(update(list, searchWord));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Th);

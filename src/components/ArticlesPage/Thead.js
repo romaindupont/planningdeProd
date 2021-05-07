@@ -13,6 +13,7 @@ const Thead = ()=> {
               <th>niveau nom.</th>
             </tr>
           </thead>
-  )
-}
+  );
+};
+
 export default Thead;

@@ -1,6 +1,11 @@
 import moment from 'moment';
 
-
+/**
+ *
+ * @param {array} list
+ * @param {string} searchWord
+ * @returns {array} newList
+ */
 export function searchTask(list, searchWord) {
 
   if (searchWord.searchText==="") {

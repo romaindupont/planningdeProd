@@ -9,15 +9,16 @@ const mapStateToProps = (state) => ({
   name: state.lancement.name,
   start: state.lancement.start,
   end: state.lancement.end,
+  quantity: state.lancement.quantity
 });
 
-const mapDispatchToProps = (dispatch,ownProps) => ({
-  saveLct:(id,lancement,name,start,end) => {
-    dispatch(saveLct(id,lancement,name,start,end));
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  saveLct: (id, lancement, name, start, end, quantity, progression) => {
+    dispatch(saveLct(id, lancement, name, start, end, quantity, progression));
   },
-  saveIdLct:(id) => {
+  saveIdLct: (id) => {
     dispatch(saveIdLct(id));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tbody);

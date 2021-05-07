@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TimePicker from '../../components/SelectProd/TimePicker';
-import { changeValue} from '../../actions';
+import { changeValue } from '../../actions';
 
 const mapStateToProps = (state) => ({
   start_hours: state.launch.start_hours,

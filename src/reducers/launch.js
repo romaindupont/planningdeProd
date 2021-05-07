@@ -1,7 +1,6 @@
+import { CHANGE_VALUE } from '../actions';
 import {
-  CHANGE_VALUE,
-} from '../actions';
-import {SAVE_OPERATING_TIME,
+  SAVE_OPERATING_TIME,
   SAVE_SEARCH_REF,
   SAVE_CALCUL_START,
   SAVE_NUMERO_LCT
@@ -24,28 +23,28 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE:
       return {
-          ...state,
-          [action.key]: action.newValue,
+        ...state,
+        [action.key]: action.newValue
       }
     case SAVE_OPERATING_TIME:
       return {
         ...state,
-        operating_time: action.operating_time,
+        operating_time: action.operating_time
       }
     case SAVE_SEARCH_REF:
-    return {
-      ...state,
-      lancement: action.lancement,
-    }
+      return {
+        ...state,
+        lancement: action.lancement
+      }
     case SAVE_CALCUL_START:
       return {
         ...state,
-        calculStart: action.calculStart,
+        calculStart: action.calculStart
       }
     case SAVE_NUMERO_LCT:
       return {
         ...state,
-        n_lancement: action.n_lancement,
+        n_lancement: action.n_lancement
       }
     default:
       return state;

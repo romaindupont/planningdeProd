@@ -5,14 +5,13 @@ import momentBusinessTime from 'moment-business-time';
 
 
 const Recalcul = ()=> {
-  const [valueCalcul, setValueCalcul] = useState('')
+  const [ valueCalcul, setValueCalcul ] = useState('')
   const handleSubmit = (e) => {
     event.preventDefault();
     const a = momentBusinessTime(e.target.date.value, 'YYYY-MM-DD HH:mm:ss').addWorkingTime(e.target.temps.value*e.target.quantity.value/0.4, 'minutes');
     const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
     setValueCalcul(r);
-  }
-
+  };
   return (
     <div className="recalcul">
       <form className="recalcul-submit" type="submit" onSubmit={handleSubmit}>
@@ -23,6 +22,7 @@ const Recalcul = ()=> {
         <button className="recalcul-submit--button" type="submit">recalcul</button>
       </form>
     </div>
-  )
-}
+  );
+};
+
 export default Recalcul;

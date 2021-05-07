@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Gantt from '../../components/Gantt';
-
 import {
   changeValue,
   addTasks,
@@ -8,7 +7,7 @@ import {
   updateTasks,
   deleteTasks
 } from '../../actions';
-import { addPlanningInDb,updatedPlanning,deletePlanning,saveNumeroLct } from '../../actions/launch';
+import { addPlanningInDb, updatedPlanning, deletePlanning, saveNumeroLct } from '../../actions/launch';
 
 const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,
@@ -20,25 +19,25 @@ const mapStateToProps = (state) => ({
     dependencies: state.tasks.dependencies,
     lancementn: state.tasks.lancementn,
     n_lancement: state.launch.n_lancement,
-  });
+    quantity: state.tasks.quantity
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  addTasks:(id,name, start, end, progress,dependencies,lancement) => {
-    dispatch(addPlanningInDb(id,name, start, end, progress,dependencies,lancement));
+  addTasks: (id, name, start, end, progress, dependencies, lancement, quantity) => {
+    dispatch(addPlanningInDb(id, name, start, end, progress, dependencies, lancement, quantity));
   },
-  clickTasks:(id,name, start, end, progress,dependencies,lancement) => {
-    dispatch(clickTasks(id,name, start, end, progress,dependencies,lancement));
+  clickTasks: (id,name, start, end, progress,dependencies,lancement, quantity) => {
+    dispatch(clickTasks(id,name, start, end, progress,dependencies,lancement, quantity));
   },
-  updatedPlanning:(id,name, start, end, progress,dependencies,lancement) => {
-    dispatch(updatedPlanning(id,name, start, end, progress,dependencies,lancement));
+  updatedPlanning: (id, name, start, end, progress, dependencies, lancement, quantity) => {
+    dispatch(updatedPlanning(id, name, start, end, progress, dependencies, lancement, quantity));
   },
-  deletePlanning:(id) => {
+  deletePlanning: (id) => {
     dispatch(deletePlanning(id));
   },
-  saveNumeroLct:(n_lancement) => {
+  saveNumeroLct: (n_lancement) => {
     dispatch(saveNumeroLct(n_lancement));
   }
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gantt);

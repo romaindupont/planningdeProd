@@ -4,9 +4,7 @@ import {SAVE_LCT,
   SEARCH_VALUE,
   UPDATE_LIST,
 } from '../actions/lancement';
-import {
-  CHANGE_VALUE,
-} from '../actions';
+import { CHANGE_VALUE } from '../actions';
 
 const initialState = {
   id:'',
@@ -14,9 +12,12 @@ const initialState = {
   name:'',
   start:'',
   end:'',
+  progression: '',
+  machine: '',
   popupWindow : false,
   popupText:'',
   filterList: [],
+  quantity:''
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,33 +30,35 @@ const reducer = (state = initialState, action = {}) => {
         name: action.name,
         start: action.start,
         end: action.end,
+        quantity: action.quantity,
+        progression: action.progression
       }
       case SAVE_ID_LCT:
         return {
           ...state,
-          id: action.id,
+          id: action.id
         }
-        case CHANGE_VALUE:
-          return {
-              ...state,
-              [action.key]: action.newValue,
-          }
-        case CHANGE_POPUP:
-          return {
-            ...state,
-            popupWindow: action.open,
-            popupText: action.popupText,
-          }
-        case SEARCH_VALUE:
-          return {
-              ...state,
-              [action.key]: action.newValue,
-          }
-        case UPDATE_LIST:
-          return {
-            ...state,
-            filterList: action.filterList,
-          }
+      case CHANGE_VALUE:
+        return {
+          ...state,
+          [action.key]: action.newValue
+        }
+      case CHANGE_POPUP:
+        return {
+          ...state,
+          popupWindow: action.open,
+          popupText: action.popupText
+        }
+      case SEARCH_VALUE:
+        return {
+          ...state,
+          [action.key]: action.newValue
+        }
+      case UPDATE_LIST:
+        return {
+          ...state,
+          filterList: action.filterList
+        }
     default:
       return state;
   }

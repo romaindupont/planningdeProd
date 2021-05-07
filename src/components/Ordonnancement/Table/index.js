@@ -2,7 +2,7 @@ import React from 'react';
 import Thead from './thead';
 import Tbody from '../../../containers/Ordonnancement/Tbody';
 
-const Table = ()=> {
+const Table = () => {
   return (
         <table>
           <Thead />

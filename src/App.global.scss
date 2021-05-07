@@ -509,7 +509,11 @@ thead th {
   }
   &-text {
     font-size: 0.8rem;
+    &--bold {
+      font-weight: 900;
+    }
   }
+
   &--oui {
     color: #265d7d;
     font-size: 0.8rem;
@@ -566,7 +570,6 @@ thead th {
   }
 }
 .popupMessage-span {
-  /* border: 3px solid red; */
   display : inline-block;
   height : 0;
   width : 0;
@@ -580,7 +583,6 @@ thead th {
   position: absolute;
   top: 10px;
   left: -2px;
-
 }
 
 .search-name {
@@ -603,4 +605,54 @@ thead th {
   &--view {
     display: block;
   }
+}
+.ordonnancement-form {
+  color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 150px;
+  justify-content: space-evenly;
+
+  &-field-button-zones {
+
+  }
+}
+.form-ordo-button {
+
+  &--modif {
+    box-shadow: 0px 0px 5px 2px rgba(38,93,125, 0.8);
+    &:hover {
+      color: white;
+      background: #8ec0dd;
+    }
+    &:active {
+      color: #8ec0dd;
+      background: rgba(38,93,125, 0.8);
+    }
+  }
+}
+.button--back {
+  box-shadow: 0px 0px 5px 2px rgba(128,128,128, 0.8);
+  &:hover {
+    background: grey;
+    color: white;
+  }
+  &:active {
+    color: grey;
+    background: white;
+  }
+}
+.impression {
+  text-align: center;
+  &-button {
+    box-shadow: 0px 0px 5px 2px rgba(240, 142, 142, 0.8);
+    color: rgb(240, 142, 142);
+    &:hover {
+      background: rgb(240, 142, 142);
+      color: white;
+    }
+  }
+
 }

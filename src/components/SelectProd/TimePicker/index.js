@@ -3,28 +3,34 @@ import ModalTimePicker from './ModalTimePicker';
 
 
 const TimePicker = ({changeField,start_hours, name})=> {
-  const [hourTime, setHourTime] = useState(8);
-  const [minTime, setMinTime] = useState(0);
-  const [show,setShow] = useState(false);
+  const [ hourTime, setHourTime ] = useState(8);
+  const [ minTime, setMinTime ] = useState(0);
+  const [ show,setShow ] = useState(false);
   const timeFocus = () => {
     setShow(true);
   };
   const valueinput = `${hourTime.toString().padStart(2, '0')}:${minTime.toString().padStart(2, '0')}:00`;
   const timeBlur = () => {
-    setShow(false)
+    setShow(false);
   };
   const dateChoice = (e) => {
     e.preventDefault();
-    setShow(false)
+    setShow(false);
   };
   const changeInput =()=> {
-    changeField(valueinput)
-    console.log(valueinput)
-  }
+    changeField(valueinput);
+  };
    return (
     <>
     <div className="background-Modal">
-    <input name={name} type="text" placeholder="Heure départ HH:MM:SS" onChange={changeInput} onFocus={timeFocus} value={valueinput} />
+    <input
+      name={name}
+      type="text"
+      placeholder="Heure départ HH:MM:SS"
+      onChange={changeInput}
+      onFocus={timeFocus}
+      value={valueinput}
+    />
       <ModalTimePicker
         show={show}
         setShow={setShow}
@@ -36,6 +42,7 @@ const TimePicker = ({changeField,start_hours, name})=> {
       />
     </div>
     </>
-  )
-}
+  );
+};
+
 export default TimePicker;

@@ -30,7 +30,7 @@ export const fetchPlanning = () => ({
 });
 
 export const SAVE_PLANNING = 'SAVE_PLANNING';
-export const savePlanning = (id,name,start,end,progress,dependencies,lancement) => ({
+export const savePlanning = (id,name,start,end,progress,dependencies,lancement,quantity) => ({
   type:SAVE_PLANNING,
   id,
   name,
@@ -39,6 +39,7 @@ export const savePlanning = (id,name,start,end,progress,dependencies,lancement) 
   progress,
   dependencies,
   lancement,
+  quantity,
 });
 
 
@@ -53,7 +54,7 @@ export const addSeveralLineInDb = () => ({
 });
 
 export const UPDATED_PLANNING = 'UPDATED_PLANNING';
-export const updatedPlanning = (id,name,start,end,progress,dependencies,lancement) => ({
+export const updatedPlanning = (id,name,start,end,progress,dependencies,lancement,quantity) => ({
   type:UPDATED_PLANNING,
   id,
   name,
@@ -62,6 +63,7 @@ export const updatedPlanning = (id,name,start,end,progress,dependencies,lancemen
   progress,
   dependencies,
   lancement,
+  quantity,
 });
 
 export const DELETE_PLANNING = 'DELETE_PLANNING';

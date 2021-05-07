@@ -1,7 +1,6 @@
-
-
 const initialState = {
-  machine: [
+  machine:
+  [
     {
       id: 1,
       machine:'M8',

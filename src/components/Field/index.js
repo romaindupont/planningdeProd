@@ -1,14 +1,12 @@
 import React from 'react';
 
-
 const Field = ({
   type,
   placeholder,
   name,
   currentValue,
   changeField,
-})=> {
-
+}) => {
   return (
     <div className="form-lct">
       <span className="form-title">{name}</span>
@@ -20,8 +18,10 @@ const Field = ({
         value={currentValue || ""}
         onChange={(event) => {
           changeField(event.target.value);
-      }}></input>
+        }}>
+      </input>
     </div>
-  )
-}
+  );
+};
+
 export default Field;

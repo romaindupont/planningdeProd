@@ -11,7 +11,8 @@ import {  SAVE_PLANNING } from '../actions/launch';
 
 const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
 const initialState = {
-   tasks: [
+  tasks:
+  [
     {
       id: 'essai1',
       name: 'lab',
@@ -39,6 +40,7 @@ const initialState = {
    ModeView: '',
    tempsOp:null,
    lancementn:null,
+   quantity:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -46,30 +48,31 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_TASKS:
       return {
         ...state,
-       tasks:
+        tasks:
          [
           ...state.tasks,
-        {
-          id: action.id,
-          name: action.name,
-          start: action.start,
-          end: action.end,
-          progress: action.progress,
-          dependencies: action.dependencies,
-          lancementn: action.lancement,
-        }
+          {
+            id: action.id,
+            name: action.name,
+            start: action.start,
+            end: action.end,
+            progress: action.progress,
+            dependencies: action.dependencies,
+            lancementn: action.lancement,
+            quantity: action.quantity
+          }
         ]
       };
       case SEND_TASKS:
           return {
             ...state,
             id: '',
-            name: '',
+            name: ''
           };
       case CHANGE_VALUE:
           return {
               ...state,
-              [action.key]: action.newValue,
+              [action.key]: action.newValue
           }
       case CLICK_TASKS:
         return {
@@ -81,12 +84,13 @@ const reducer = (state = initialState, action = {}) => {
           progress: action.progress,
           dependencies: action.dependencies,
           lancementn: action.lancement,
+          quantity: action.quantity
         }
       case UPDATE_TASKS:
         return {
           ...state,
           tasks: state.tasks.map(task => {
-            if(task.id === action.id) {
+            if (task.id === action.id) {
               return {
                 id: task.id,
                 name: action.name,
@@ -95,6 +99,7 @@ const reducer = (state = initialState, action = {}) => {
                 progress: action.progress,
                 dependencies: action.dependencies,
                 lancementn: action.lancement,
+                quantity: action.quantity
               }
             }
             else {
@@ -106,30 +111,33 @@ const reducer = (state = initialState, action = {}) => {
           progress: 10,
           dependencies: '',
           lancementn:'',
+          quantity: '',
         }
         case DELETE_TASKS:
           return {
-            tasks: state.tasks.filter((task)=> {return action.id !== task.id;}),
+            tasks: state.tasks.filter((task)=> { return action.id !== task.id; }),
             id: '',
             name: '',
             progress: 10,
             dependencies: '',
             lancementn: '',
+            quantity: '',
           }
         case SAVE_PLANNING:
           return {
             ...state,
             tasks:  [
               ...state.tasks,
-            {
-              id: action.id,
-              name: action.name,
-              start: action.start,
-              end: action.end,
-              progress: action.progress,
-              dependencies: action.dependencies,
-              lancementn: action.lancement,
-            }
+              {
+                id: action.id,
+                name: action.name,
+                start: action.start,
+                end: action.end,
+                progress: action.progress,
+                dependencies: action.dependencies,
+                lancementn: action.lancement,
+                quantity: action.quantity
+              }
             ]
           }
     default:

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from '../../App.tsx';
 import { fetchPlanning } from '../../actions/launch';
-import {fetchArticle} from '../../actions/article';
+import { fetchArticle } from '../../actions/article';
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks.tasks,
@@ -10,14 +10,13 @@ const mapStateToProps = (state) => ({
   name: state.lancement.name,
   start: state.lancement.start,
   end: state.lancement.end,
-
-  });
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlanning:() => {
+  fetchPlanning: () => {
     dispatch(fetchPlanning());
   },
-  fetchArticle:() => {
+  fetchArticle: () => {
     dispatch(fetchArticle());
   }
 });

@@ -1,6 +1,4 @@
-import {
-  CHANGE_VALUE,
-} from '../actions';
+import { CHANGE_VALUE } from '../actions';
 import {
   SAVE_ID,
   SEARCH_INFO,
@@ -102,13 +100,13 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE:
       return {
-          ...state,
-          [action.key]: action.newValue,
+        ...state,
+        [action.key]: action.newValue
       }
     case SAVE_ID:
       return {
         ...state,
-        id: action.id,
+        id: action.id
       }
     case SEARCH_INFO:
       return {
@@ -119,15 +117,15 @@ const reducer = (state = initialState, action = {}) => {
         machine_id: action.machine_id,
         operating_time: action.operating_time,
         description: action.description,
-        dependencies: action.dependencies,
+        dependencies: action.dependencies
       }
     case ADD_ARTICLE:
       return {
         ...state,
         list: [
           ...state.list,
-          action.newarticle,
-        ],
+          action.newarticle
+        ]
       };
     case UPDATE_ARTICLE:
         return {
@@ -141,7 +139,7 @@ const reducer = (state = initialState, action = {}) => {
                 machine_id: action.machine_id,
                 operating_time: action.operating_time,
                 description: action.description,
-                dependencies: action.dependencies,
+                dependencies: action.dependencies
               }
             }
             else {
@@ -154,24 +152,24 @@ const reducer = (state = initialState, action = {}) => {
           machine_id:'',
           operating_time:'',
           description: '',
-          dependencies:'',
+          dependencies:''
       }
     case DELETE_ARTICLE:
       return {
-        list: state.list.filter((article)=> {return action.id !== article.id;}),
+        list: state.list.filter((article) => { return action.id !== article.id; }),
         id:'',
         article_name:'',
         level:'',
         machine_id:'',
         operating_time:'',
         description: '',
-        dependencies:'',
+        dependencies:''
       }
       case SAVE_ARTICLE:
         return {
           ...state,
           list: action.articles,
-          waitArticle: false,
+          waitArticle: false
         }
     default:
       return state;
