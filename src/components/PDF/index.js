@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { jsPDF } from "jspdf";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -15,17 +15,20 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
-const PDF = () => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text>Section #1</Text>
-      </View>
-      <View style={styles.section}>
-        <Text>Section #2</Text>
-      </View>
-    </Page>
-  </Document>
+const Pdf = () => (
+
+  doc.text("Hello world!", 10, 10)
+  doc.save("a4.pdf")
 );
 
-export default PDF;
+export default Pdf;
+const Pdf = () => {
+  const doc = new jsPDF();
+  doc.text("Hello world!", 10, 10);
+  doc.save("a4.pdf");
+  return (
+    doc={doc}
+  );
+};
+
+export default Pdf;

@@ -5,7 +5,7 @@ import './App.global.scss';
 import Gantt from './containers/Gantt';
 import ArticlesPage from './components/ArticlesPage';
 import Lancement from './containers/Lancement';
-import Ordonnancement from './components/Ordonnancement';
+import Ordonnancement from './containers/Ordonnancement';
 import PropTypes from 'prop-types';
 
 const Hello = () => {
