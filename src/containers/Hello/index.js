@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import App from '../../App.tsx';
 import { fetchPlanning } from '../../actions/launch';
 import { fetchArticle } from '../../actions/article';
+import { fetchWorkingDay } from '../../actions/workingDay';
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks.tasks,
@@ -18,6 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchArticle: () => {
     dispatch(fetchArticle());
+  },
+  fetchWorkingDay: () => {
+    dispatch(fetchWorkingDay());
   }
 });
 

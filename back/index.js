@@ -6,7 +6,7 @@ dotenv.config();
 
 const articlesRouter = require('./routers/articles');
 const planningRouter = require('./routers/planning');
-
+const workingDayRouter = require('./routers/workingDay');
 
 app.use(express.json());
 app.use(cors());
@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 
 app.use('/', articlesRouter);
 app.use('/', planningRouter);
+app.use('/', workingDayRouter);
 
 // Error middleware
 app.use((err, req, res, next) => {

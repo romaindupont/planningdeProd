@@ -656,3 +656,31 @@ thead th {
   }
 
 }
+.reglages {
+  color: black;
+  &-title {
+    text-align: center;
+  }
+}
+.container-reglages-hour {
+
+}
+.reglages-form {
+
+  &-all {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-jour {
+    width: 100px;
+  }
+  &-input {
+    text-align: center;
+    &--null {
+      background: red;
+    }
+  }
+}
+
+

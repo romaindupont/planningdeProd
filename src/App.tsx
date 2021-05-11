@@ -6,6 +6,7 @@ import Gantt from './containers/Gantt';
 import ArticlesPage from './components/ArticlesPage';
 import Lancement from './containers/Lancement';
 import Ordonnancement from './containers/Ordonnancement';
+import Reglages from './components/Reglages';
 import PropTypes from 'prop-types';
 
 const Hello = () => {
@@ -31,17 +32,23 @@ const Hello = () => {
         <Link to="/ordonnancement" rel="noreferrer">
           <button type="button">Ordonnancement</button>
         </Link>
+        <Link to="/reglages" rel="noreferrer">
+          <button type="button">Réglages Généraux</button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default function App({ fetchPlanning, fetchArticle }) {
+export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay }) {
   useEffect(() => {
     fetchPlanning();
   }, []);
   useEffect(() => {
     fetchArticle();
+  }, []);
+  useEffect(() => {
+    fetchWorkingDay();
   }, []);
   return (
     <HashRouter>
@@ -51,6 +58,7 @@ export default function App({ fetchPlanning, fetchArticle }) {
         <Route path="/articles" component={ArticlesPage} />
         <Route path="/lancement" component={Lancement} />
         <Route path="/ordonnancement" component={Ordonnancement} />
+        <Route path="/reglages" component={Reglages} />
       </Switch>
     </HashRouter>
   );
