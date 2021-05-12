@@ -9,6 +9,7 @@ const Reglages = () => {
       <BackToMenu />
       <h1 className="reglages-title">Réglages</h1>
       <div className="container-reglages-hour">
+        <h2 className="reglages-title">Horaires</h2>
       <FormReglages />
       </div>
     </div>

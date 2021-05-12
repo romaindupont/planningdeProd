@@ -9,6 +9,7 @@ import {
   UPDATE_ARTICLE_IN_DB,
   updateArticle
 } from '../actions/article';
+import { saveErrorMessage } from '../actions/workingDay';
 import { generateId } from '../Utils';
 
 const articles = (store) => (next) => (action) => {
@@ -30,6 +31,7 @@ const articles = (store) => (next) => (action) => {
         })
         .then((response) => {
           store.dispatch(addArticle(response.data.newArticle));
+          store.dispatch(saveErrorMessage(response.data.message));
         })
         .catch((error) => {
           console.error('Error', error);
@@ -59,6 +61,7 @@ const articles = (store) => (next) => (action) => {
             })
             .then((response) => {
               store.dispatch(deleteArticle(state.articles.id));
+              store.dispatch(saveErrorMessage(response.data.message));
             })
             .catch((error) => {
               console.error('Error', error);
@@ -89,6 +92,7 @@ const articles = (store) => (next) => (action) => {
                   state.articles.operating_time,
                   state.articles.dependencies
                 ))
+                store.dispatch(saveErrorMessage(response.data.message));
               })
               .catch((error) => {
                 console.error('Error', error);

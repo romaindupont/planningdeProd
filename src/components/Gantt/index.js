@@ -10,6 +10,7 @@ import SelectProd from '../../containers/SelectProd/SelectProd';
 import Recalcul from '../Recalcul';
 import BackToMenu from '../BackToMenu';
 import {generateId} from '../../Utils';
+import Popup from '../../containers/Reglages/Popup';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
 const demain = moment().add(3, 'hours').format('YYYY-MM-DD, HH:mm:ss');
@@ -27,6 +28,7 @@ const GanttField = ({
   lancementn,
   quantity
 }) => {
+  const [ isShowing, setIsShowing ] = useState(false);
   const [modeView, setModeView] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,11 +46,11 @@ const GanttField = ({
         event.target.lancementn.value,
         event.target.quantity.value
       );
+      setIsShowing(true);
     }
     else {
       const UpdateTask = tasks.filter((task)=> {
         if (task.id ===event.target.id.value){
-          console.log(event.target.dependencies.value)
           updatedPlanning(
             task.id,
             event.target.name.value,
@@ -59,6 +61,7 @@ const GanttField = ({
             event.target.lancementn.value,
             event.target.quantity.value
           );
+          setIsShowing(true);
         }
       })
     }
@@ -66,6 +69,7 @@ const GanttField = ({
 const handleDelete = (event) => {
   event.preventDefault();
   deletePlanning(id);
+  setIsShowing(true);
 };
 const handleClickOnTask = (e) => {
   clickTasks(e.id, e.name, e.start, e.end, e.progress, e.dependencies, e.lancementn, e.quantity);
@@ -148,6 +152,7 @@ const handleRecalculate = (e) => {
           </div>
         </form>
       </div>
+          {isShowing && (<Popup setIsShowing={setIsShowing} />)}
       <Recalcul />
       <div className="gantt-select">
         <h3>Sélection du lancement</h3>

@@ -12,6 +12,7 @@ import {
   updateTasks,
   deleteTasks,
 } from '../actions';
+import { saveErrorMessage } from '../actions/workingDay';
 import moment from 'moment';
 import momentBusinessDays from 'moment-business-days';
 import momentBusinessTime from 'moment-business-time';
@@ -46,6 +47,7 @@ const planning = (store) => (next) => (action) => {
             response.data.newPlanning.lancement,
             response.data.newPlanning.quantity
           ));
+          store.dispatch(saveErrorMessage(response.data.message));
         })
         .catch((error) => {
           console.error('Error', error);
@@ -104,7 +106,8 @@ const planning = (store) => (next) => (action) => {
               state.tasks.dependencies,
               state.tasks.lancementn,
               state.tasks.quantity
-            ))
+            ));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);
@@ -119,7 +122,8 @@ const planning = (store) => (next) => (action) => {
               baseURL: 'http://localhost:5000',
             })
             .then((response) => {
-              store.dispatch(deleteTasks(state.tasks.id))
+              store.dispatch(deleteTasks(state.tasks.id));
+              store.dispatch(saveErrorMessage(response.data.message));
             })
             .catch((error) => {
               console.error('Error', error);
@@ -130,7 +134,7 @@ const planning = (store) => (next) => (action) => {
         {
           const state = store.getState();
           for (let i= 0; i < state.launch.lancement.length; i++) {
-            const calcul = state.launch.lancement[i].tempsop*parseInt(state.articles.quantity);
+            const calcul = state.launch.lancement[i].tempsop * parseInt(state.articles.quantity);
             const c = (state.launch.datepicker + ' ' + '08:00:00');
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
@@ -159,6 +163,7 @@ const planning = (store) => (next) => (action) => {
                   response.data.newPlanning.lancement,
                   response.data.newPlanning.quantity
                 ));
+                store.dispatch(saveErrorMessage(response.data.message));
               })
               .catch((error) => {
                 console.error('Error', error);

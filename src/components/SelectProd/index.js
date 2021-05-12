@@ -7,6 +7,8 @@ import moment from 'moment';
 import momentBusinessDays from 'moment-business-days';
 import momentBusinessTime from 'moment-business-time';
 import {generateId} from '../../Utils';
+import { openDate } from '../../Utils/openDate';
+import Popup from '../../containers/Reglages/Popup';
 
 const SelectProd = ({
   reference,
@@ -26,8 +28,10 @@ const SelectProd = ({
   saveNumeroLct,
   n_lancement
 }) => {
- const handleClick = (e) => {
+  const [ isShowing, setIsShowing ] = useState(false);
+  const handleClick = (e) => {
     e.preventDefault();
+    openDate();
     const numeroLct = parseInt(n_lancement) + 1;
     saveNumeroLct(numeroLct);
     const newId = String(generateId(tasks));
@@ -40,6 +44,7 @@ const SelectProd = ({
     const v = momentBusinessDays(a, 'DD/MM/YYYY HH:mm:ss').businessAdd(timeHours, 'hours')._d;
     const r = moment(v).format('YYYY-MM-DD HH:mm:ss');
     addSeveralLineInDb();
+    setIsShowing(true);
   };
   useEffect(() => {
     fetchArticle();
@@ -52,6 +57,7 @@ const SelectProd = ({
         <TimePicker name="timepicker"/>
         <Quantity name="quantity"/>
       <button className="selectProd--button" type="submit">Créer</button>
+      {isShowing && (<Popup setIsShowing={setIsShowing} />)}
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_WORKING_DAY, saveWorkingDayList } from '../actions/workingDay';
+import { FETCH_WORKING_DAY, saveWorkingDayList, UPDATE_WORKING_DAY, saveErrorMessage } from '../actions/workingDay';
 
 const workingDay = (store) => (next) => (action) => {
   switch (action.type) {
@@ -17,39 +17,30 @@ const workingDay = (store) => (next) => (action) => {
           });
         break;
       }
-    /* case UPDATED_PLANNING:
+    case UPDATE_WORKING_DAY:
       {
         const state = store.getState();
-        axios.put(`planning/update/${state.tasks.id}`,
+        axios.put("/reglages/update",
           {
-            name: state.tasks.name,
-            start: state.tasks.start,
-            _end: state.tasks.end,
-            progress: state.tasks.progress,
-            dependencies: state.tasks.dependencies,
-            lancement: parseInt(state.tasks.lancementn),
-            quantity: state.tasks.quantity
+            numerojour: action.numerojour,
+            open_close: action.open_close,
+            hour1: action.hour1,
+            hour2: action.hour2,
+            hour3: action.hour3,
+            hour4: action.hour4,
           },
           {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            store.dispatch(updateTasks(
-              state.tasks.id,
-              state.tasks.name,
-              state.tasks.start,
-              state.tasks.end,
-              state.tasks.progress,
-              state.tasks.dependencies,
-              state.tasks.lancementn,
-              state.tasks.quantity
-            ))
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
-            console.error('Error', error);
+            store.dispatch(saveErrorMessage(error));
+            //console.error('Error', error);
           });
         break;
-      } */
+      }
     default:
       next(action);
   }

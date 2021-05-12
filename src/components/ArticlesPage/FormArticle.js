@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Field from '../../containers/ArticlesPage/FieldArticle';
+import Popup from '../../containers/Reglages/Popup';
 import { generateId } from '../../Utils';
 
 const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle })=> {
+  const [ isShowing, setIsShowing ] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (event.target.id.value==='') {
@@ -13,6 +15,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
         event.target.description.value,
         event.target.dependencies.value
       );
+      setIsShowing(true);
     }
     else {
       const UpdateArticle = articleList.filter((article)=> {
@@ -26,6 +29,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
             event.target.description.value,
             event.target.dependencies.value
           );
+          setIsShowing(true);
         };
       })
     };
@@ -33,6 +37,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
   const handleDelete = (event) => {
     event.preventDefault();
     deleteArticle(id);
+    setIsShowing(true);
   };
 
   return (
@@ -76,6 +81,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
           <button className="form-field-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
           <button className="form-field-button remove" onClick={handleDelete}>Remove</button>
         </div>
+        {isShowing && (<Popup setIsShowing={setIsShowing} />)}
     </form>
   )
 }
