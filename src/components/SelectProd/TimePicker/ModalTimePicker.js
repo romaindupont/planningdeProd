@@ -9,7 +9,7 @@ const ModalTimePicker = ({
   setHourTime,
   minTime,
   setMinTime,
-  dateChoice
+  dateChoice,
 }) => {
   const previousClick = (e) => {
     e.preventDefault();

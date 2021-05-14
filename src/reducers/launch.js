@@ -3,7 +3,8 @@ import {
   SAVE_OPERATING_TIME,
   SAVE_SEARCH_REF,
   SAVE_CALCUL_START,
-  SAVE_NUMERO_LCT
+  SAVE_NUMERO_LCT,
+  SAVE_TIME_PICKER
 } from '../actions/launch';
 
 const initialState = {
@@ -45,6 +46,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         n_lancement: action.n_lancement
+      }
+    case SAVE_TIME_PICKER:
+      return {
+        ...state,
+        start_hours: action.time
       }
     default:
       return state;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ModalTimePicker from './ModalTimePicker';
 
 
-const TimePicker = ({changeField,start_hours, name})=> {
+const TimePicker = ({changeField,start_hours, name, saveTimePicker})=> {
   const [ hourTime, setHourTime ] = useState(8);
   const [ minTime, setMinTime ] = useState(0);
   const [ show,setShow ] = useState(false);
@@ -15,6 +15,7 @@ const TimePicker = ({changeField,start_hours, name})=> {
   };
   const dateChoice = (e) => {
     e.preventDefault();
+    saveTimePicker(valueinput)
     setShow(false);
   };
   const changeInput =()=> {

@@ -34,15 +34,6 @@ const SelectProd = ({
     openDate();
     const numeroLct = parseInt(n_lancement) + 1;
     saveNumeroLct(numeroLct);
-    const newId = String(generateId(tasks));
-    const calcul = operating_time*parseInt(e.target.quantity.value);
-    const dayTime = Math.floor(((calcul/60)/7.8)/0.4);
-    const timeHours = Math.ceil(((((calcul/60)/7.8)/0.4) - Math.floor(((calcul/60)/7.8)/0.4))*7.8);
-    const c = (e.target.datepicker.value + ' ' + e.target.timepicker.value);
-    const a = momentBusinessDays(c, 'DD/MM/YYYY HH:mm:ss').businessAdd(dayTime, 'days');
-    const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-    const v = momentBusinessDays(a, 'DD/MM/YYYY HH:mm:ss').businessAdd(timeHours, 'hours')._d;
-    const r = moment(v).format('YYYY-MM-DD HH:mm:ss');
     addSeveralLineInDb();
     setIsShowing(true);
   };

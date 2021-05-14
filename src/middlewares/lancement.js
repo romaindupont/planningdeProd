@@ -1,15 +1,11 @@
 import axios from 'axios';
 import { UPDATED_LANCEMENT, UPDATED_END, UPDATED_QUANTITY } from '../actions/lancement';
 import { updateTasks } from '../actions';
-import moment from 'moment';
-import momentBusinessDays from 'moment-business-days';
-import momentBusinessTime from 'moment-business-time';
 
 const lancement = (store) => (next) => (action) => {
   switch (action.type) {
     case UPDATED_LANCEMENT:
       {
-        const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
         const state = store.getState();
         axios.patch(`planning/start/${state.lancement.id}`,
           {
@@ -39,7 +35,6 @@ const lancement = (store) => (next) => (action) => {
       }
       case UPDATED_END:
       {
-        const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
         const state = store.getState();
         axios.patch(`planning/end/${state.lancement.id}`,
           {
@@ -68,9 +63,7 @@ const lancement = (store) => (next) => (action) => {
       }
     case UPDATED_QUANTITY :
       {
-        const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
         const state = store.getState();
-        console.log(state)
         axios.patch(`planning/quantity/${state.lancement.id}`,
           {
             quantity: action.quantity

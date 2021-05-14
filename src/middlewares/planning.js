@@ -16,6 +16,7 @@ import { saveErrorMessage } from '../actions/workingDay';
 import moment from 'moment';
 import momentBusinessDays from 'moment-business-days';
 import momentBusinessTime from 'moment-business-time';
+import { openDate } from '../Utils/openDate';
 
 const planning = (store) => (next) => (action) => {
   switch (action.type) {
@@ -134,8 +135,9 @@ const planning = (store) => (next) => (action) => {
         {
           const state = store.getState();
           for (let i= 0; i < state.launch.lancement.length; i++) {
+            openDate();
             const calcul = state.launch.lancement[i].tempsop * parseInt(state.articles.quantity);
-            const c = (state.launch.datepicker + ' ' + '08:00:00');
+            const c = (state.launch.datepicker + ' ' + state.launch.start_hours);
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
             const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');

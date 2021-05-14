@@ -77,3 +77,9 @@ export const saveNumeroLct = (n_lancement) => ({
   type: SAVE_NUMERO_LCT,
   n_lancement,
 });
+
+export const SAVE_TIME_PICKER = 'SAVE_TIME_PICKER';
+export const saveTimePicker = (time) => ({
+  type: SAVE_TIME_PICKER,
+  time,
+});

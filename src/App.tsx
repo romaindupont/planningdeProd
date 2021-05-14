@@ -7,6 +7,7 @@ import ArticlesPage from './components/ArticlesPage';
 import Lancement from './containers/Lancement';
 import Ordonnancement from './containers/Ordonnancement';
 import Reglages from './components/Reglages';
+import GanttMachine from './components/GanttMachine';
 import PropTypes from 'prop-types';
 
 const Hello = () => {
@@ -35,6 +36,9 @@ const Hello = () => {
         <Link to="/reglages" rel="noreferrer">
           <button type="button">Réglages Généraux</button>
         </Link>
+        <Link to="/planning/machine" rel="noreferrer">
+          <button type="button">Planning Machine</button>
+        </Link>
       </div>
     </div>
   );
@@ -59,6 +63,7 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay }) {
         <Route path="/lancement" component={Lancement} />
         <Route path="/ordonnancement" component={Ordonnancement} />
         <Route path="/reglages" component={Reglages} />
+        <Route path="/planning/machine" component={GanttMachine} />
       </Switch>
     </HashRouter>
   );
