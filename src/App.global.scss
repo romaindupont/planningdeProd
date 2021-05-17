@@ -721,3 +721,39 @@ thead th {
 #reglages_select {
   cursor: pointer;
 }
+.ganttMachine {
+  color: black;
+}
+.ganttMachine-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.ganttMachine-container-date {
+  display: flex;
+
+  &--day {
+    border: 1px solid black;
+    width: 85px;
+    text-align: center;
+  }
+
+
+
+}
+.ganttMachine-container-bloc {
+  display: flex;
+  &--day {
+    width: 85px;
+    text-align: left;
+    border: 1px solid black;
+    &--touch {
+      background: green;
+      width: 85px;
+      text-align: left;
+      border: 1px solid black;
+
+    }
+  }
+}
