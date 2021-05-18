@@ -732,11 +732,15 @@ thead th {
 
 .ganttMachine-container-date {
   display: flex;
-
   &--day {
     border: 1px solid black;
     width: 85px;
     text-align: center;
+    background: #265d7d;
+    color: white;
+
+
+
   }
 
 
@@ -744,16 +748,51 @@ thead th {
 }
 .ganttMachine-container-bloc {
   display: flex;
+  &--empty {
+
+  }
   &--day {
     width: 85px;
-    text-align: left;
+    height: 30px;
+    position: relative;
     border: 1px solid black;
     &--touch {
-      background: green;
+      background: #98ddca;
       width: 85px;
-      text-align: left;
-      border: 1px solid black;
+      height: 15px;
+      position: absolute;
+      top: 6px;
+      &--start {
+        border-radius: 10px 0 0 10px;
+        background: #98ddca;
+        width: 85px;
+        height: 15px;
+        position: absolute;
+        top: 6px;
+      }
+      &--end {
+        background: #98ddca;
+        width: 85px;
+        height: 15px;
+        position: absolute;
+        top: 6px;
+        border-radius: 0 10px 10px 0;
+
+      }
 
     }
   }
+}
+.progress {
+  background: rgb(240, 142, 142);
+  width: 85px;
+  height: 15px;
+  position: absolute;
+  border-radius: 10px 0 0 10px;
+  z-index: 2;
+}
+
+.ganttMachine-container-all {
+  overflow: auto;
+  height: 500px;
 }
