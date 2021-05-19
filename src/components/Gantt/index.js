@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactGantt, {viewMode} from 'gantt-for-react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Field from '../../containers/Field';
 import setHours from 'date-fns/setHours';
@@ -9,7 +9,7 @@ import ButtonMode from '../ButtonMode';
 import SelectProd from '../../containers/SelectProd/SelectProd';
 import Recalcul from '../Recalcul';
 import BackToMenu from '../BackToMenu';
-import {generateId} from '../../Utils';
+import { generateId } from '../../Utils';
 import Popup from '../../containers/Reglages/Popup';
 
 const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');

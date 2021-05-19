@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from '../../containers/SelectProd/Select';
 import DatePicker from '../../containers/SelectProd/DatePicker';
 import TimePicker from '../../containers/SelectProd/TimePicker';
@@ -6,7 +6,7 @@ import Quantity from '../../containers/SelectProd/Quantity';
 import moment from 'moment';
 import momentBusinessDays from 'moment-business-days';
 import momentBusinessTime from 'moment-business-time';
-import {generateId} from '../../Utils';
+import { generateId } from '../../Utils';
 import { openDate } from '../../Utils/openDate';
 import Popup from '../../containers/Reglages/Popup';
 

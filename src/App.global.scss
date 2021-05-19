@@ -736,7 +736,7 @@ thead th {
     border: 1px solid black;
     width: 85px;
     text-align: center;
-    background: #265d7d;
+    background: #36304a;
     color: white;
 
 
@@ -795,4 +795,70 @@ thead th {
 .ganttMachine-container-all {
   overflow: auto;
   height: 500px;
+}
+.windowModal {
+  display: none;
+  &--open {
+    display: block;
+    z-index: 5;
+    position: absolute;
+    width: 300px;
+    height: 175px;
+    background: #8ec0dd;
+    padding: 2rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 1px 0px 5px 3px black;
+
+
+  }
+}
+.windowModal-titre {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+.windowModal-info {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-task {
+    margin-right: 1rem;
+    & > span {
+      text-decoration: underline;
+    }
+  }
+  &-progress {
+
+    &[value] {
+      appearance: none;
+      border: none;
+      width: 300px;
+      height: 20px;
+      border-radius: 5px;
+      position: relative;
+
+
+      &::-webkit-progress-bar {
+        background-color: whitesmoke;
+        box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+        border-radius: 10px;
+
+      }
+      &::-webkit-progress-value{
+        border-radius: 10px;
+        background-color: rgb(240, 142, 142);
+        box-shadow: 5px 1px 10px rgba(0,0,0,.5) inset;
+      }
+    }
+  }
+}
+.windowModal-info-progress-width {
+  position: absolute;
+  bottom: 0;
+  left: 175px;
+  font-weight: 900;
+}
+.ganttMachine-date {
+  display: flex;
 }

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Table from './Table';
 import FormOrdo from '../../containers/Ordonnancement/Form';
 import BackToMenu from '../BackToMenu';

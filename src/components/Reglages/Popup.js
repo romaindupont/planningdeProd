@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Popup = ({ setIsShowing, message }) => {
-  console.log(message)
   const yesClick = () => {
     setIsShowing(false);
   }
