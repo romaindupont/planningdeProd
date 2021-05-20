@@ -762,6 +762,7 @@ thead th {
       height: 15px;
       position: absolute;
       top: 6px;
+      cursor: pointer;
       &--start {
         border-radius: 10px 0 0 10px;
         background: #98ddca;
@@ -769,6 +770,7 @@ thead th {
         height: 15px;
         position: absolute;
         top: 6px;
+        cursor: pointer;
       }
       &--end {
         background: #98ddca;
@@ -777,6 +779,7 @@ thead th {
         position: absolute;
         top: 6px;
         border-radius: 0 10px 10px 0;
+        cursor: pointer;
 
       }
 
@@ -790,6 +793,7 @@ thead th {
   position: absolute;
   border-radius: 10px 0 0 10px;
   z-index: 2;
+  cursor: pointer;
 }
 
 .ganttMachine-container-all {

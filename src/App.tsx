@@ -3,11 +3,11 @@ import { Switch, Route, HashRouter, Link } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import './App.global.scss';
 import Gantt from './containers/Gantt';
-import ArticlesPage from './components/ArticlesPage';
 import Lancement from './containers/Lancement';
 import Ordonnancement from './containers/Ordonnancement';
+import GanttMachine from './containers/GanttMachine';
+import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
-import GanttMachine from './components/GanttMachine';
 import PropTypes from 'prop-types';
 
 const Hello = () => {
