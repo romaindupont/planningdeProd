@@ -1,3 +1,4 @@
+@use './styles/vars';
 /*
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
@@ -6,14 +7,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
 body {
   position: relative;
-  color: white;
+  color: vars.$blanc;
   height: 100vh;
-  /* background: linear-gradient(
-    200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
-  ); */
   font-family: sans-serif;
   overflow-y: hidden;
   display: flex;
@@ -22,7 +17,7 @@ body {
 }
 
 button {
-  background-color: white;
+  background-color: vars.$blanc;
   padding: 10px 20px;
   margin: 10px;
   border-radius: 10px;
@@ -62,7 +57,7 @@ a:hover {
 .gantt-title {
   font-size: 2rem;
   font-weight: 900;
-  color: black;
+  color: vars.$noir;
   text-align: center;
   margin: 0;
 }
@@ -89,9 +84,9 @@ a:hover {
 }
 
 .gantt-container .popup-wrapper {
-  background-color: white;
-  border: 1px solid black;
-  box-shadow: 2px 2px 2px 2px black;
+  background-color: vars.$blanc;
+  border: 1px solid vars.$noir;
+  box-shadow: 2px 2px 2px 2px vars.$noir;
 }
 .gantt-container {
   width: 79%;
@@ -109,12 +104,12 @@ a:hover {
 }
 .details-container {
   width: 200px;
-  color: black;
+  color: vars.$noir;
   &-title {
     font-size: 0.8rem;
     text-align: center;
     border-bottom: 3px solid red;
-    color: black;
+    color: vars.$noir;
     text-transform: uppercase;
     padding-bottom: 0.5rem;
   }
@@ -136,7 +131,7 @@ a:hover {
   }
   &-label {
     display: flex;
-    color: black;
+    color: vars.$noir;
     text-align: center;
     flex-direction: column;
     text-transform: uppercase;
@@ -147,7 +142,7 @@ a:hover {
     font-size: 0.8rem;
     text-decoration: none;
     width: 40%;
-    border: 0.5px solid black;
+    border: 0.5px solid vars.$noir;
 
     &:active {
       text-decoration: none;
@@ -156,8 +151,8 @@ a:hover {
       box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
         0 17px 50px 0 rgba(0, 0, 0, 0.19);
       background-color: green;
-      color: white;
-      border: 3px solid black;
+      color: vars.$blanc;
+      border: 3px solid vars.$noir;
       cursor: pointer;
     }
   }
@@ -194,43 +189,43 @@ button:focus {
   display: flex;
 }
 .articlePage-title {
-  color: black;
+  color: vars.$noir;
   text-align: center;
 }
 
 table {
-  color: black;
+  color: vars.$noir;
   border-collapse: collapse;
-  background: #fff;
+  background: vars.$blanc;
   border-radius: 10px;
   overflow: auto;
   width: 60%;
 }
 thead {
-  background-color: #36304a;
-  color: #fff;
+  background-color: vars.$blueTheadTable;
+  color: vars.$blanc;
 }
 tr {
   text-align: center;
 }
 tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
+  background-color: vars.$evenTable;
 }
 tbody {
   overflow-y: auto;
   overflow-x: hidden;
 }
 .checked {
-  background-color: #a1cae2 !important;
+  background-color: vars.$checkedLineTable !important;
 }
 .notChecked {
-  background-color: white;
+  background-color: vars.$blanc;
 }
 tr:hover td {
-  background-color: #eae3c8;
+  background-color: vars.$tableHover;
 }
 .articlePage-form {
-  color: black;
+  color: vars.$noir;
   width: 40%;
   display: flex;
   flex-direction: row;
@@ -258,7 +253,7 @@ thead th {
   height: 100vh;
 }
 .gantt-select {
-  color: black;
+  color: vars.$noir;
   height: 250px;
 }
 .gantt-select > h3 {
@@ -271,16 +266,16 @@ thead th {
   left: 600px;
   height: 150px;
   width: 300px;
-  border: 0.2px solid #265d7d;
+  border: 0.2px solid vars.$inputbgColor;
   text-align: center;
-  background: #a1cae2;
-  color: #265d7d;
+  background: vars.$checkedLineTable;
+  color: vars.$inputbgColor;
   font-size: 0.7rem;
   font-family: 'Chango', cursive;
   box-shadow: 10px 8px 11px 3px;
   &-title {
     margin: 0.5rem;
-    color: white;
+    color: vars.$blanc;
   }
   &-picker {
     display: flex;
@@ -296,43 +291,43 @@ thead th {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: white;
+  background: vars.$blanc;
   font-weight: 600;
   user-select: none;
-  color: #a1cae2;
-  border: 2px solid white;
+  color: vars.$checkedLineTable;
+  border: 2px solid vars.$blanc;
   font-size: 0.8rem;
   &:hover {
-    color: white;
-    background: #a1cae2;
-    border: 2px solid white;
+    color: vars.$blanc;
+    background: vars.$checkedLineTable;
+    border: 2px solid vars.$blanc;
   }
   &:active {
-    color: white;
-    background: #265d7d;
-    border: 2px solid white;
+    color: vars.$blanc;
+    background: vars.$inputbgColor;
+    border: 2px solid vars.$blanc;
   }
 }
 .dateModal-li {
   width: 50px;
-  color: #265d7d;
+  color: vars.$inputbgColor;
 }
 .dateModal-button {
   font-family: 'Chango', cursive;
-  color: #a1cae2;
-  background: white;
+  color: vars.$labelbgColor;
+  background: vars.$blanc;
   display: inline-block;
   padding: 0.3rem;
   border-radius: 30%;
   &:hover {
-    color: white;
-    background: #a1cae2;
-    border: 2px solid white;
+    color: vars.$blanc;
+    background: vars.$checkedLineTable;
+    border: 2px solid vars.$blanc;
   }
   &:active {
-    color: white;
-    background: #265d7d;
-    border: 2px solid white;
+    color: vars.$blanc;
+    background: vars.$inputbgColor;
+    border: 2px solid vars.$blanc;
   }
 }
 .dateModal--close {
@@ -343,7 +338,7 @@ thead th {
   cursor: pointer;
 
   &:hover {
-    color: white;
+    color: vars.$blanc;
   }
 }
 
@@ -369,7 +364,7 @@ thead th {
 }
 .selectProd--button {
   &:hover {
-    color: white;
+    color: vars.$blanc;
     background: green;
   }
 }
@@ -400,20 +395,20 @@ thead th {
 }
 
 .recalcul {
-  color: black;
+  color: vars.$noir;
   text-align: center;
 
   &-submit {
     &--button {
       &:hover {
-        color: white;
+        color: vars.$blanc;
         background: green;
       }
     }
   }
 }
 .lancement {
-  color: black;
+  color: vars.$noir;
 
   &-title {
     text-align: center;
@@ -421,11 +416,11 @@ thead th {
     font-size: 1.5rem;
   }
   &-search {
-    border: 1px solid #8ec0dd;
+    border: 1px solid vars.$labelbgColor;
     padding: 0.7rem;
     border-radius: 5px 0px 0px 5px;
-    background: #8ec0dd;
-    color: #265d7d;
+    background: vars.$labelbgColor;
+    color: vars.$inputbgColor;
     font-size: 0.8rem;
     transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
   }
@@ -434,19 +429,19 @@ thead th {
     text-align: center;
     margin: 2em 0;
     &:focus-within > span {
-      border: 2px solid #265d7d;
-      background: #265d7d;
-      color: #8ec0dd;
+      border: 2px solid vars.$inputbgColor;
+      background: vars.$inputbgColor;
+      color: vars.$labelbgColor;
     }
 
     &:focus-within > .lancement-input {
-      border: 2px solid #265d7d;
+      border: 2px solid vars.$inputbgColor;
     }
   }
   &-input {
     padding: 0.7rem;
     border-radius: 0px 5px 5px 0px;
-    border: 1px solid #8ec0dd;
+    border: 1px solid vars.$labelbgColor;
     transition: border 0.3s ease;
     &:focus {
       outline: none;
@@ -466,27 +461,27 @@ thead th {
   margin: 0 1rem 1rem 1rem;
 
   &:focus-within > span {
-    border: 2px solid #265d7d;
-    background: #265d7d;
-    color: #8ec0dd;
+    border: 2px solid vars.$inputbgColor;
+    background: vars.$inputbgColor;
+    color: vars.$labelbgColor;
   }
   &:focus-within > input {
-    border: 2px solid #265d7d;
+    border: 2px solid vars.$inputbgColor;
   }
 }
 .form-title {
-  border: 1px solid #8ec0dd;
+  border: 1px solid vars.$labelbgColor;
   display: block;
   font-size: 0.8rem;
   border-radius: 5px 5px 0 0;
   padding: 0.5em;
   text-align: center;
-  color: #265d7d;
-  background: #8ec0dd;
+  color: vars.$inputbgColor;
+  background: vars.$labelbgColor;
   transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
 .form-input {
-  border: 1px solid #8ec0dd;
+  border: 1px solid vars.$labelbgColor;
   padding: 0.5em;
   border-radius: 0 0 5px 5px;
   text-align: center;
@@ -498,15 +493,15 @@ thead th {
 }
 .popup {
   position: fixed;
-  background: #8ec0dd;
+  background: vars.$labelbgColor;
   top: 35%;
   left: 20%;
   text-align: center;
   padding: 1em;
   border-radius: 10px;
-  box-shadow: 1px 0px 5px 3px black;
+  box-shadow: 1px 0px 5px 3px vars.$noir;
   &-title {
-    color: #265d7d;
+    color: vars.$inputbgColor;
     font-size: 1rem;
   }
   &-text {
@@ -517,57 +512,57 @@ thead th {
   }
 
   &--oui {
-    color: #265d7d;
+    color: vars.$inputbgColor;
     font-size: 0.8rem;
     &:hover {
-      color: white;
-      background: #265d7d;
+      color: vars.$blanc;
+      background: vars.$inputbgColor;
     }
     &:active {
-      color: #265d7d;
-      background: white;
+      color: vars.$inputbgColor;
+      background: vars.$blanc;
     }
   }
   &--non {
-    color: #265d7d;
+    color: vars.$inputbgColor;
     font-size: 0.8rem;
     &:hover {
-      color: white;
-      background: #265d7d;
+      color: vars.$blanc;
+      background: vars.$inputbgColor;
     }
     &:active {
-      color: #265d7d;
-      background: white;
+      color: vars.$inputbgColor;
+      background: vars.$blanc;
     }
   }
 }
 .popupMessage {
   position: fixed;
-  background: #265d7d;
+  background: vars.$inputbgColor;
   top: 40%;
   left: 23%;
   text-align: center;
   padding: 1em;
   border-radius: 10px;
   width: 30%;
-  box-shadow: 1px 0px 5px 3px black;
+  box-shadow: 1px 0px 5px 3px vars.$noir;
   &-title {
-    color: #fff;
+    color: vars.$blanc;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
     text-align: center;
   }
   &--oui {
-    color: #265d7d;
+    color: vars.$inputbgColor;
     font-size: 0.8rem;
     &:hover {
-      color: white;
-      background: #8ec0dd;
+      color: vars.$blanc;
+      background: vars.$labelbgColor;
     }
     &:active {
-      color: #8ec0dd;
-      background: white;
+      color: vars.$labelbgColor;
+      background: vars.$blanc;
     }
   }
 }
@@ -602,14 +597,14 @@ thead th {
   padding: 0.7rem 0;
  &:focus {
    outline: none;
-   border: 1px solid #8ec0dd;
+   border: 1px solid vars.$labelbgColor;
  }
   &--view {
     display: block;
   }
 }
 .ordonnancement-form {
-  color: black;
+  color: vars.$noir;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -624,13 +619,13 @@ thead th {
 .form-ordo-button {
 
   &--modif {
-    box-shadow: 0px 0px 5px 2px rgba(38,93,125, 0.8);
+    box-shadow: 0px 0px 5px 2px rgba(38, 93, 125, 0.8);
     &:hover {
-      color: white;
-      background: #8ec0dd;
+      color: vars.$blanc;
+      background: vars.$labelbgColor;
     }
     &:active {
-      color: #8ec0dd;
+      color: vars.$labelbgColor;
       background: rgba(38,93,125, 0.8);
     }
   }
@@ -639,21 +634,21 @@ thead th {
   box-shadow: 0px 0px 5px 2px rgba(128,128,128, 0.8);
   &:hover {
     background: grey;
-    color: white;
+    color: vars.$blanc;
   }
   &:active {
     color: grey;
-    background: white;
+    background: vars.$blanc;
   }
 }
 .impression {
   text-align: center;
   &-button {
     box-shadow: 0px 0px 5px 2px rgba(240, 142, 142, 0.8);
-    color: rgb(240, 142, 142);
+    color: vars.$rougePastel;
     &:hover {
-      background: rgb(240, 142, 142);
-      color: white;
+      background: vars.$rougePastel;
+      color: vars.$blanc;
     }
   }
 
@@ -689,17 +684,17 @@ thead th {
       background: red;
     }
     &:focus {
-      background: #265d7d;
-      border: 2px solid #8ec0dd;
+      background: vars.$inputbgColor;
+      border: 2px solid vars.$labelbgColor;
       outline: none;
-      color: white;
+      color: vars.$blanc;
       transform: scale(1.5);
       transition: 500ms;
     }
   }
 }
 .reglages-form-all > .reglages-form--null {
-  background: #ff7171;
+  background: rgb(255, 113, 113);
 }
 
 .reglages-form-all > select {
@@ -710,11 +705,11 @@ thead th {
   box-shadow: 0px 0px 5px 2px rgba(38,93,125, 0.8);
   color: rgba(38,93,125, 0.8);
   &:hover {
-    color: white;
-    background: #8ec0dd;
+    color: vars.$blanc;
+    background: vars.$labelbgColor;
   }
   &:active {
-    color: #8ec0dd;
+    color: vars.$labelbgColor;
     background: rgba(38,93,125, 0.8);
   }
 }
@@ -722,7 +717,8 @@ thead th {
   cursor: pointer;
 }
 .ganttMachine {
-  color: black;
+  color: vars.$noir;
+  margin-left: 4rem;
 }
 .ganttMachine-container {
   display: flex;
@@ -733,13 +729,35 @@ thead th {
 .ganttMachine-container-date {
   display: flex;
   &--day {
-    border: 1px solid black;
+    border: 1px solid vars.$noir;
     width: 85px;
     text-align: center;
-    background: #36304a;
-    color: white;
-
-
+    background: vars.$blueTheadTable;
+    color: vars.$blanc;
+    &:nth-child(1){
+      display: none;
+    }
+    &:nth-child(2){
+      display: none;
+    }
+    &:nth-child(3){
+      display: none;
+    }
+    &:nth-child(4){
+      display: none;
+    }
+    &:nth-child(5){
+      display: none;
+    }
+    &:nth-child(6){
+      display: none;
+    }
+    &:nth-child(7){
+      display: none;
+    }
+    &:nth-child(8){
+      display: none;
+    }
 
   }
 
@@ -755,7 +773,32 @@ thead th {
     width: 85px;
     height: 30px;
     position: relative;
-    border: 1px solid black;
+    border-bottom: 1px solid vars.$noir;
+
+    &:nth-child(1){
+      display: none;
+    }
+    &:nth-child(2){
+      display: none;
+    }
+    &:nth-child(3){
+      display: none;
+    }
+    &:nth-child(4){
+      display: none;
+    }
+    &:nth-child(5){
+      display: none;
+    }
+    &:nth-child(6){
+      display: none;
+    }
+    &:nth-child(7){
+      display: none;
+    }
+    &:nth-child(8){
+      display: none;
+    }
     &--touch {
       background: #98ddca;
       width: 85px;
@@ -787,7 +830,7 @@ thead th {
   }
 }
 .progress {
-  background: rgb(240, 142, 142);
+  background: vars.$rougePastel;
   width: 85px;
   height: 15px;
   position: absolute;
@@ -808,14 +851,12 @@ thead th {
     position: absolute;
     width: 300px;
     height: 175px;
-    background: #8ec0dd;
+    background: vars.$labelbgColor;
     padding: 2rem;
     font-size: 0.8rem;
     border-radius: 10px;
     flex-direction: column;
-    box-shadow: 1px 0px 5px 3px black;
-
-
+    box-shadow: 1px 0px 5px 3px vars.$noir;
   }
 }
 .windowModal-titre {
@@ -851,7 +892,7 @@ thead th {
       }
       &::-webkit-progress-value{
         border-radius: 10px;
-        background-color: rgb(240, 142, 142);
+        background-color: vars.$rougePastel;
         box-shadow: 5px 1px 10px rgba(0,0,0,.5) inset;
       }
     }
@@ -865,4 +906,159 @@ thead th {
 }
 .ganttMachine-date {
   display: flex;
+  position: relative;
+  left: 500px;
+}
+
+.ganttMachine-return {
+  transform: scale(0.8);
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 376px;
+  left: -5px;
+  display: flex;
+  border-radius: 50%;
+  border: 4px solid vars.$blueTheadTable;
+  box-shadow: 0px 1px 5px 5px rgba(54, 48, 74, 0.3);
+  cursor: pointer;
+  transition: transform 300ms;
+  &:hover {
+    background: vars.$blueTheadTable;
+    border: 4px solid vars.$blanc;
+
+  }
+  &:active {
+    border: 4px solid vars.$blueTheadTable;
+    background: vars.$blanc;
+  }
+  &--change {
+    transform: rotateZ(180deg) scale(0.8);
+  }
+
+  &-fleche1 {
+    width: 25px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 5px;
+    &-haut {
+      transform: rotate3d(0, 0, 1, -33deg);
+      width: 35px;
+      height: 6px;
+      background: vars.$blueTheadTable;
+      border-radius: 30px;
+      box-shadow: 4px -2px 4px 1px rgba(54, 48, 74, 0.5);
+
+    }
+    &-bas {
+      width: 35px;
+      height: 6px;
+      background: vars.$blueTheadTable;
+      transform: rotate3d(0, 0, 1, 33deg);
+      border-radius: 30px;
+      box-shadow: 4px 1px 4px 1px rgba(54, 48, 74, 0.5);
+
+    }
+  }
+  &-fleche2 {
+    width: 25px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    &-haut {
+      transform: rotate3d(0, 0, 1, -33deg);
+      width: 35px;
+      height: 6px;
+      background: vars.$blueTheadTable;
+      border-radius: 30px;
+      box-shadow: 4px -2px 4px 1px rgba(54, 48, 74, 0.5);
+    }
+    &-bas {
+      width: 35px;
+      height: 6px;
+      background: vars.$blueTheadTable;
+      transform: rotate3d(0, 0, 1, 33deg);
+      border-radius: 30px;
+      box-shadow: 4px 1px 4px 1px rgba(54, 48, 74, 0.5);
+    }
+  }
+}
+
+
+.ganttMachine-return:hover > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-haut {
+  background: vars.$blanc;
+}
+.ganttMachine-return:hover > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-bas {
+  background: vars.$blanc;
+}
+.ganttMachine-return:hover > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-haut {
+  background: vars.$blanc;
+}
+.ganttMachine-return:hover > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-bas {
+  background: vars.$blanc;
+}
+
+.ganttMachine-return:active > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-haut {
+  background: vars.$blueTheadTable;
+}
+.ganttMachine-return:active > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-bas {
+  background: vars.$blueTheadTable;
+}
+.ganttMachine-return:active > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-haut {
+  background: vars.$blueTheadTable;
+}
+.ganttMachine-return:active > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-bas {
+  background: vars.$blueTheadTable;
+}
+.day-information {
+  background: vars.$jourActif;
+  width: 85px;
+  height: 500px;
+  position: absolute;
+  top: 153px;
+  left: 326px;
+
+  &--change {
+    background: vars.$jourActif;
+    width: 85px;
+    height: 500px;
+    position: absolute;
+    top: 153px;
+    left: 1022px;
+  }
+}
+.ganttMachine-button-change {
+  color: vars.$rougePastel;
+  width: 150px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px 2px rgba(240, 142, 142, 0.8);
+
+  &:hover {
+    background: vars.$rougePastel;
+    color: vars.$blanc;
+  }
+  &:active {
+    color: vars.$rougePastel;
+    background:vars.$blanc;
+  }
+}
+
+.ganttMachine-choice-button {
+  width: 150px;
+  color: vars.$inputbgColor;
+  box-shadow: 0 2px 3px rgba(0,0,0,.5);
+
+  &:hover {
+    background: vars.$labelbgColor;
+    box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+    color: vars.$blanc;
+  }
 }
