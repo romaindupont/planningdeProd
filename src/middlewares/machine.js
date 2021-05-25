@@ -1,31 +1,24 @@
 import axios from 'axios';
+import { FETCH_MACHINE, saveMachineList } from '../actions/machines';
 
 const machine = (store) => (next) => (action) => {
   switch (action.type) {
-    /* case UPDATE_WORKING_DAY:
+    case FETCH_MACHINE:
       {
         const state = store.getState();
-        axios.put("/reglages/update",
-          {
-            numerojour: action.numerojour,
-            open_close: action.open_close,
-            hour1: action.hour1,
-            hour2: action.hour2,
-            hour3: action.hour3,
-            hour4: action.hour4,
-          },
+        axios.get("/machine",
           {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            store.dispatch(saveErrorMessage(response.data.message));
+            console.log(response.data.MachineList)
+            store.dispatch(saveMachineList(response.data.MachineList));
           })
           .catch((error) => {
-            store.dispatch(saveErrorMessage(error));
-            //console.error('Error', error);
+            console.error('Error', error);
           });
         break;
-      } */
+      }
     default:
       next(action);
   }

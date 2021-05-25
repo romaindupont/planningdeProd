@@ -44,7 +44,7 @@ const Hello = () => {
   );
 };
 
-export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay }) {
+export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetchMachine }) {
   useEffect(() => {
     fetchPlanning();
   }, []);
@@ -53,6 +53,10 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay }) {
   }, []);
   useEffect(() => {
     fetchWorkingDay();
+
+  }, []);
+  useEffect(() => {
+    fetchMachine();
   }, []);
   return (
     <HashRouter>

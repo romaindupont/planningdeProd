@@ -3,6 +3,7 @@ import App from '../../App.tsx';
 import { fetchPlanning } from '../../actions/launch';
 import { fetchArticle } from '../../actions/article';
 import { fetchWorkingDay } from '../../actions/workingDay';
+import { fetchMachine } from '../../actions/machines';
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks.tasks,
@@ -22,7 +23,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchWorkingDay: () => {
     dispatch(fetchWorkingDay());
-  }
+  },
+  fetchMachine: () => {
+    dispatch(fetchMachine());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

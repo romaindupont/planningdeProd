@@ -1,4 +1,5 @@
 const pool = require('../data/database');
+
 class Planning {
 
   id;
