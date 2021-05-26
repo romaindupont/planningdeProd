@@ -10,5 +10,6 @@ router.delete('/planning/delete/:id', planningController.delete);
 router.patch('/planning/start/:id', planningController.updateStartDate);
 router.patch('/planning/end/:id', planningController.updateEndDate);
 router.patch('/planning/quantity/:id', planningController.updateQuantity);
+router.get('/planning/machine', planningController.find);
 
 module.exports = router;

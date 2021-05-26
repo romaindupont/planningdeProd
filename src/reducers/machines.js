@@ -1,4 +1,4 @@
-import { SAVE_CONTAINER_DATE, SAVE_MACHINE_LIST } from '../actions/machines';
+import { SAVE_CONTAINER_DATE, SAVE_MACHINE_LIST, SAVE_MACHINE_PLANNING, SAVE_PLANNING_MACHINE } from '../actions/machines';
 import { DatetimeNow } from '../Utils/datetimeNow';
 
 const initialState = {
@@ -20,6 +20,8 @@ const initialState = {
   yield_time:'',
   dt: DatetimeNow(),
   listMachine: [],
+  MachinePlanning: [],
+  PlanningForMachine: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +35,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listMachine: action.machineList,
+      }
+    case SAVE_MACHINE_PLANNING:
+      return {
+        ...state,
+        MachinePlanning: action.updateList,
+      }
+    case SAVE_PLANNING_MACHINE:
+      return {
+        ...state,
+        PlanningForMachine: action.machinePlanning,
       }
     default:
       return state;

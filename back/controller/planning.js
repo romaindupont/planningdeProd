@@ -81,6 +81,17 @@ const planningController = {
       res.status(500).send(error);
     }
   },
+  find: async (req, res) => {
+    try {
+      const planningMachineList = await planning_model.dataPlanning.planningSpecialMachine();
+      return res.status(201).json({
+        planningMachineList
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  },
 };
 
 module.exports = planningController;

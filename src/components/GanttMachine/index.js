@@ -5,7 +5,7 @@ import ContainerDate from './ContainerDate';
 import ContainerBloc from '../../containers/GanttMachine/ContainerBloc';
 import DatePicker from '../../containers/SelectProd/DatePicker';
 import Return from '../GanttMachine/Return';
-import MachineChoice from '../GanttMachine/MachineChoice';
+import MachineChoice from '../../containers/GanttMachine/MachineChoice';
 import { DiffDay } from '../../Utils/diffDay';
 import classNames from 'classnames';
 

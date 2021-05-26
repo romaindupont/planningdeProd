@@ -4,6 +4,7 @@ import ModalWindow from '../../../components/GanttMachine/ContainerBloc/ModalWin
 
 const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,
+    MachinePlanning: state.machines.MachinePlanning,
 });
 
 const mapDispatchToProps = {};

@@ -104,6 +104,12 @@ const dataPlanning = {
     const result = await pool.pool.query(sql, [ name, start, _end, progress, dependencies, aujourdhui, lancement, quantity, id ]);
     return result.rows;
   },
+  planningSpecialMachine: async () => {
+    const sql = 'SELECT *, planning.id as planning_id FROM planning INNER JOIN articles ON planning.name = articles.reference WHERE articles.machine_id IS NOT NULL AND planning.progress < 100 ORDER BY lancement, name;';
+    const result = await pool.pool.query(sql);
+    const PlanningMachine = result.rows;
+    return PlanningMachine;
+  },
 };
 
 module.exports = {
