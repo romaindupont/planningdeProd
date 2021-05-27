@@ -8,9 +8,15 @@ import Return from '../GanttMachine/Return';
 import MachineChoice from '../../containers/GanttMachine/MachineChoice';
 import { DiffDay } from '../../Utils/diffDay';
 import classNames from 'classnames';
+import { useReactMediaRecorder } from "react-media-recorder";
 
 const GanttMachine = ({ dt, saveContainerDate, tasks }) => {
   const [ addTime, setAddTime ] = useState(false);
+  const {
+    status,
+    startRecording,
+    mediaBlobUrl,
+  } = useReactMediaRecorder({ screen: true });
   const changeDate = async (e) => {
     e.preventDefault();
     saveContainerDate(DateTime.fromISO(`${e.target.date.value.slice(6,10)}-${e.target.date.value.slice(3,5)}-${e.target.date.value.slice(0,2)}`, { locale: "fr" }));
@@ -55,6 +61,9 @@ const GanttMachine = ({ dt, saveContainerDate, tasks }) => {
           <ContainerBloc dt={dt} />
         </div>
         <MachineChoice />
+        <button onClick={startRecording}>screenshot</button>
+        <p>{status}</p>
+        {/* <video src={mediaBlobUrl} controls autoPlay loop /> */}
       </div>
     </>
   );

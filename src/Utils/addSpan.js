@@ -3,15 +3,12 @@ import { DiffDay } from './diffDay';
  export async function addSpan (MachinePlanning) {
 
   const begin = document.querySelectorAll('.ganttMachine-container-bloc--day--touch--start');
-
   for ( let i = 0 ; i < begin.length ; i++ ) {
     const myDataset = begin[i].dataset.myId;
     const newSpan = document.createElement('span');
     newSpan.classList.add('progress');
     newSpan.dataset.myId = myDataset;
-    console.log(myDataset)
     const startEnd = MachinePlanning.find((task) => task.planning_id == myDataset);
-    console.log(MachinePlanning)
     const differenceDay = DiffDay(startEnd._end, startEnd.start);
     if (differenceDay == 0) {
       newSpan.style.width = `calc(85px * calc(${startEnd.progress}/100))`;

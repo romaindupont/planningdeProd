@@ -806,6 +806,7 @@ thead th {
       position: absolute;
       top: 6px;
       cursor: pointer;
+      /* box-shadow: 8px 3px 0px 2px rgba(0,0,0, .4); */
       &--start {
         border-radius: 10px 0 0 10px;
         background: #98ddca;
@@ -814,6 +815,7 @@ thead th {
         position: absolute;
         top: 6px;
         cursor: pointer;
+        /* box-shadow: 4px 3px 0px 2px rgba(0,0,0, .4); */
       }
       &--end {
         background: #98ddca;
@@ -823,7 +825,7 @@ thead th {
         top: 6px;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
-
+        /* box-shadow: 4px 3px 3px 2px rgba(0,0,0, .4); */
       }
 
     }

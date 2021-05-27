@@ -13,20 +13,20 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (e.target.elements.allChoice.value == 1) {
-      saveMachinePlanning(list, '');
+      await saveMachinePlanning(list, '');
       const child = document.querySelectorAll('.progress');
       for ( let i = 0 ; i < child.length ; i++ ) {
         await child[i].remove();
       }
-      addSpan(MachinePlanning);
+      addSpan(list);
     }
     if (e.target.elements.allChoice.value == 2) {
-      saveMachinePlanning(list, e.target[2].value);
+      await saveMachinePlanning(list, e.target[2].value);
       const child = document.querySelectorAll('.progress');
       for ( let i = 0 ; i < child.length ; i++ ) {
         await child[i].remove();
       }
-     addSpan(MachinePlanning);
+     addSpan(list);
     }
   }
   return (
