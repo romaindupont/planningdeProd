@@ -8,15 +8,27 @@ import Return from '../GanttMachine/Return';
 import MachineChoice from '../../containers/GanttMachine/MachineChoice';
 import { DiffDay } from '../../Utils/diffDay';
 import classNames from 'classnames';
-import { useReactMediaRecorder } from "react-media-recorder";
+import html2canvas from 'html2canvas';
+import { base64_encode } from '../../Utils/base64Image';
 
-const GanttMachine = ({ dt, saveContainerDate, tasks }) => {
+
+const GanttMachine = ({ dt, saveContainerDate, tasks, title }) => {
   const [ addTime, setAddTime ] = useState(false);
-  const {
-    status,
-    startRecording,
-    mediaBlobUrl,
-  } = useReactMediaRecorder({ screen: true });
+    const startCapture = () => {
+      html2canvas(document.querySelector(".ganttMachine-container")).then(canvas => {
+        document.body.appendChild(canvas)
+        canvas.style.display = 'none'
+        return canvas
+      })
+      .then(canvas => {
+        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+        const a = document.createElement('a')
+        a.setAttribute('download', 'my-image.png')
+        a.setAttribute('href', image)
+        a.click()
+        canvas.remove()
+    })
+  }
   const changeDate = async (e) => {
     e.preventDefault();
     saveContainerDate(DateTime.fromISO(`${e.target.date.value.slice(6,10)}-${e.target.date.value.slice(3,5)}-${e.target.date.value.slice(0,2)}`, { locale: "fr" }));
@@ -48,10 +60,12 @@ const GanttMachine = ({ dt, saveContainerDate, tasks }) => {
   }
   return (
     <>
+
       <BackToMenu />
       <div className="ganttMachine">
         <Return setAddTime={setAddTime} addTime={addTime} />
         <form className="ganttMachine-date" onSubmit={changeDate}>
+          <h1 className="ganttMachine-title">{title}</h1>
           <DatePicker name="date"/>
           <button className="ganttMachine-button-change"  type="submit">Change Date</button>
         </form>
@@ -61,9 +75,8 @@ const GanttMachine = ({ dt, saveContainerDate, tasks }) => {
           <ContainerBloc dt={dt} />
         </div>
         <MachineChoice />
-        <button onClick={startRecording}>screenshot</button>
-        <p>{status}</p>
-        {/* <video src={mediaBlobUrl} controls autoPlay loop /> */}
+        <button className="button-screenshot" onClick={startCapture}>screenshot</button>
+
       </div>
     </>
   );

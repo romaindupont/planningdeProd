@@ -6,6 +6,7 @@ import { saveContainerDate } from '../../actions/machines';
 const mapStateToProps = (state) => ({
     dt: state.machines.dt,
     tasks: state.tasks.tasks,
+    title: state.machines.title,
 });
 
 const mapDispatchToProps = (dispatch) => ({

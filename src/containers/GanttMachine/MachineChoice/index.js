@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MachineChoice from '../../../components/GanttMachine/MachineChoice';
-import { saveMachinePlanning } from '../../../actions/machines';
+import { saveMachinePlanning, saveTitleMachine } from '../../../actions/machines';
 
 const mapStateToProps = (state) => ({
   MachinePlanning: state.machines.MachinePlanning,
@@ -10,7 +10,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   saveMachinePlanning: (list, searchWord) => {
     dispatch(saveMachinePlanning(list, searchWord));
-  }
+  },
+  saveTitleMachine: (title) => {
+    dispatch(saveTitleMachine(title));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MachineChoice);

@@ -36,3 +36,9 @@ export const saveMachinePlanning = (machinePlanning, searchWord) => {
   updateList,
 });
 };
+
+export const SAVE_TITLE_MACHINE = 'SAVE_TITLE_MACHINE';
+export const saveTitleMachine = (title) => ({
+  type: SAVE_TITLE_MACHINE,
+  title,
+});

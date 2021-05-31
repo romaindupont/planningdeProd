@@ -2,7 +2,7 @@ import React from 'react';
 import Select from '../../../containers/GanttMachine/MachineChoice/Select';
 import { addSpan } from '../../../Utils/addSpan';
 
-const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachine }) => {
+const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachine, saveTitleMachine }) => {
   const list = PlanningForMachine;
   const openSelect = () => {
     document.querySelector('.ganttMachine-choice-button-select').style.display='block';
@@ -13,6 +13,7 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (e.target.elements.allChoice.value == 1) {
+      saveTitleMachine('Planning de toutes les machines');
       await saveMachinePlanning(list, '');
       const child = document.querySelectorAll('.progress');
       for ( let i = 0 ; i < child.length ; i++ ) {
@@ -21,6 +22,12 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
       addSpan(list);
     }
     if (e.target.elements.allChoice.value == 2) {
+      if (e.target[2].value == 1) {
+        saveTitleMachine("Planning NEO");
+      }
+      if (e.target[2].value == 2) {
+        saveTitleMachine("Planning M8");
+      }
       await saveMachinePlanning(list, e.target[2].value);
       const child = document.querySelectorAll('.progress');
       for ( let i = 0 ; i < child.length ; i++ ) {
