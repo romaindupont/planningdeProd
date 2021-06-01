@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
     dt: state.machines.dt,
     tasks: state.tasks.tasks,
     title: state.machines.title,
+    MachinePlanning: state.machines.MachinePlanning,
 });
 
 const mapDispatchToProps = (dispatch) => ({

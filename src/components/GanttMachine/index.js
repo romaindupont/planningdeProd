@@ -9,10 +9,10 @@ import MachineChoice from '../../containers/GanttMachine/MachineChoice';
 import { DiffDay } from '../../Utils/diffDay';
 import classNames from 'classnames';
 import html2canvas from 'html2canvas';
-import { base64_encode } from '../../Utils/base64Image';
+import { PdfGantt } from './PdfGantt';
 
 
-const GanttMachine = ({ dt, saveContainerDate, tasks, title }) => {
+const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) => {
   const [ addTime, setAddTime ] = useState(false);
     const startCapture = () => {
       html2canvas(document.querySelector(".ganttMachine-container")).then(canvas => {
@@ -27,7 +27,9 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title }) => {
         a.setAttribute('href', image)
         a.click()
         canvas.remove()
+        PdfGantt(title,MachinePlanning,image)
     })
+
   }
   const changeDate = async (e) => {
     e.preventDefault();
