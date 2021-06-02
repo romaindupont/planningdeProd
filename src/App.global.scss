@@ -994,29 +994,29 @@ thead th {
 }
 
 
-.ganttMachine-return:hover > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-haut {
+.ganttMachine-return:hover > .ganttMachine-return-fleche1 > .ganttMachine-return-fleche1-haut {
   background: vars.$blanc;
 }
-.ganttMachine-return:hover > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-bas {
+.ganttMachine-return:hover > .ganttMachine-return-fleche1 > .ganttMachine-return-fleche1-bas {
   background: vars.$blanc;
 }
-.ganttMachine-return:hover > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-haut {
+.ganttMachine-return:hover > .ganttMachine-return-fleche2 > .ganttMachine-return-fleche2-haut {
   background: vars.$blanc;
 }
-.ganttMachine-return:hover > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-bas {
+.ganttMachine-return:hover > .ganttMachine-return-fleche2 > .ganttMachine-return-fleche2-bas {
   background: vars.$blanc;
 }
 
-.ganttMachine-return:active > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-haut {
+.ganttMachine-return:active > .ganttMachine-return-fleche1 > .ganttMachine-return-fleche1-haut {
   background: vars.$blueTheadTable;
 }
-.ganttMachine-return:active > .ganttMachine-return-fleche1 >.ganttMachine-return-fleche1-bas {
+.ganttMachine-return:active > .ganttMachine-return-fleche1 > .ganttMachine-return-fleche1-bas {
   background: vars.$blueTheadTable;
 }
-.ganttMachine-return:active > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-haut {
+.ganttMachine-return:active > .ganttMachine-return-fleche2 > .ganttMachine-return-fleche2-haut {
   background: vars.$blueTheadTable;
 }
-.ganttMachine-return:active > .ganttMachine-return-fleche2 >.ganttMachine-return-fleche2-bas {
+.ganttMachine-return:active > .ganttMachine-return-fleche2 > .ganttMachine-return-fleche2-bas {
   background: vars.$blueTheadTable;
 }
 .day-information {
@@ -1137,5 +1137,26 @@ thead th {
   position: absolute;
   top: 0;
   left: 270px;
+  &:hover {
+    background: vars.$labelbgColor;
+    border: 2px solid vars.$inputbgColor;
+  }
+  &:active {
+    background: rgba(38,93,125, 0.8);
+    border: 2px solid vars.$labelbgColor;
+  }
+}
+.button-screenshot--img {
+  width: 50px;
+  height: 50px;
+
+}
+.machinesPage {
+  color: vars.$noir;
+
+  &-title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
 
 }

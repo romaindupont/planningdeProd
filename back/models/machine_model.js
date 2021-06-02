@@ -28,13 +28,32 @@ const dataMachine = {
     const ListOfMachine = result.rows;
     return ListOfMachine;
   },
-  /* updateWorkingDay: async (body) => {
-    const sql = 'UPDATE workingDay SET open_close=$1, hour1=$2, hour2=$3, hour3=$4, hour4=$5 WHERE numerojour=$6';
-    const { open_close, hour1, hour2, hour3, hour4, numerojour } = body;
-    const result = await pool.pool.query(sql, [ open_close, hour1, hour2, hour3, hour4, numerojour ]);
+  updateMachine: async (body, id) => {
+    const sql = 'UPDATE machine SET name=$1, yield_time=$2, updated_at=$3 WHERE id=$4';
+    const aujourdhui = 'now()';
+    const { name, yield_time } = body;
+    const result = await pool.pool.query(sql, [ name, yield_time, aujourdhui, id ]);
     return result.rows;
-  }, */
-
+  },
+  deleteMachine: async (id) => {
+    const sql = 'DELETE FROM machine WHERE id=$1';
+    const result = await pool.pool.query(sql, [ id ]);
+    return result.rows[0];
+  },
+  addMachine: async (body, newId) => {
+    const sql = 'INSERT INTO machine(id, name, yield_time, created_at ) VALUES ($1, $2, $3, $4) RETURNING *';
+    const aujourdhui = 'now()';
+    const { name, yield_time } = body;
+    const result = await pool.pool.query(sql,[ newId, name, yield_time, aujourdhui ]);
+    const machineAdd = new Machine(result.rows[0]);
+    return machineAdd;
+  },
+  lastId: async () => {
+    const sql ='SELECT MAX(id) FROM machine';
+    const result = await pool.pool.query(sql);
+    const id = result.rows[0];
+    return id;
+  },
 };
 
 module.exports = {

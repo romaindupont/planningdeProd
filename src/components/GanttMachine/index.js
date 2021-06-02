@@ -10,6 +10,7 @@ import { DiffDay } from '../../Utils/diffDay';
 import classNames from 'classnames';
 import html2canvas from 'html2canvas';
 import { PdfGantt } from './PdfGantt';
+import Camera from '../../../assets/images/camera.png';
 
 
 const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) => {
@@ -23,7 +24,7 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
       .then(canvas => {
         const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
         const a = document.createElement('a')
-        a.setAttribute('download', 'my-image.png')
+        a.setAttribute('download', 'planning.png')
         a.setAttribute('href', image)
         a.click()
         canvas.remove()
@@ -77,7 +78,9 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
           <ContainerBloc dt={dt} />
         </div>
         <MachineChoice />
-        <button className="button-screenshot" onClick={startCapture}>screenshot</button>
+        <button className="button-screenshot" onClick={startCapture}>
+          <img className="button-screenshot--img" src={Camera} alt="camera" />
+        </button>
 
       </div>
     </>

@@ -7,7 +7,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
   const [ isShowing, setIsShowing ] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (event.target.id.value==='') {
+    if (event.target.id.value === '') {
       addArticle(event.target.article_name.value,
         event.target.level.value,
         event.target.machine_id.value,
@@ -19,7 +19,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
     }
     else {
       const UpdateArticle = articleList.filter((article)=> {
-        if (article.id ==event.target.id.value){
+        if (article.id == event.target.id.value){
           updateArticle(
             article.id,
             event.target.article_name.value,

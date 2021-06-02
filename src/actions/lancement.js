@@ -54,8 +54,8 @@ export const searchValue = (newValue, key) => ({
 export const UPDATE_LIST = 'UPDATE_LIST';
 export const update = (list, searchWord) => {
   const updateList = searchTask(list, searchWord);
-  return ({
-  type: UPDATE_LIST,
-  filterList: updateList,
-});
+    return ({
+    type: UPDATE_LIST,
+    filterList: updateList,
+    });
 };

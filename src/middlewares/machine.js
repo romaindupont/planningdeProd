@@ -1,5 +1,17 @@
 import axios from 'axios';
-import { FETCH_MACHINE, saveMachineList, FETCH_MACHINE_PLANNING, saveMachinePlanning, savePlanningMachine } from '../actions/machines';
+import {
+  FETCH_MACHINE,
+  saveMachineList,
+  FETCH_MACHINE_PLANNING,
+  saveMachinePlanning,
+  savePlanningMachine,
+  ADD_MACHINE,
+  UPDATE_MACHINE,
+  DELETE_MACHINE,
+  addMachineState,
+  updateMachineState,
+  deleteMachineState
+} from '../actions/machines';
 
 const machine = (store) => (next) => (action) => {
   switch (action.type) {
@@ -28,6 +40,53 @@ const machine = (store) => (next) => (action) => {
           .then((response) => {
             store.dispatch(savePlanningMachine(response.data.planningMachineList));
             store.dispatch(saveMachinePlanning(response.data.planningMachineList,''));
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case ADD_MACHINE:
+      {
+        const state = store.getState();
+        axios.post('/machine/add',
+        {
+          name: state.machines.name,
+          yield_time: parseInt(state.machines.yield_time)
+        },
+          {
+            baseURL: 'http://localhost:5000',
+          })
+          .then((response) => {
+            console.log(response.data.newMachine)
+            store.dispatch(addMachineState(
+              response.data.newMachine.id,
+              response.data.newMachine.name,
+              response.data.newMachine.yield_time,
+            ));
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case UPDATE_MACHINE:
+      {
+        const state = store.getState();
+        axios.put(`/machine/update/${state.machines.id}`,
+        {
+          name: state.machines.name,
+          yield_time: state.machines.yield_time
+        },
+        {
+          baseURL: 'http://localhost:5000',
+        })
+          .then((response) => {
+            store.dispatch(updateMachineState(
+              state.machines.listMachine,
+              state.machines.id,
+
+            ))
           })
           .catch((error) => {
             console.error('Error', error);

@@ -8,7 +8,7 @@ import Ordonnancement from './containers/Ordonnancement';
 import GanttMachine from './containers/GanttMachine';
 import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
-import PropTypes from 'prop-types';
+import MachinesPage from './components/MachinesPage';
 
 const Hello = () => {
   return (
@@ -21,7 +21,7 @@ const Hello = () => {
         <Link to="/articles" rel="noreferrer">
           <button type="button">Base Articles</button>
         </Link>
-        <Link to="/Machines" rel="noreferrer">
+        <Link to="/machines" rel="noreferrer">
           <button type="button">Base Machine</button>
         </Link>
         <Link to="/gantt" rel="noreferrer">
@@ -71,12 +71,8 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
         <Route path="/ordonnancement" component={Ordonnancement} />
         <Route path="/reglages" component={Reglages} />
         <Route path="/planning/machine" component={GanttMachine} />
+        <Route path="/machines" component={MachinesPage} />
       </Switch>
     </HashRouter>
   );
 };
-
-/* App.propTypes = {
-  fetchPlanning : PropTypes.func,
-  fetchArticle : PropTypes.func,
-}; */
