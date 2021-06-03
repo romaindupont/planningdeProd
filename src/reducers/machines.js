@@ -99,12 +99,31 @@ const reducer = (state = initialState, action = {}) => {
     case UPDATE_MACHINE_STATE:
       return {
         ...state,
-        listMachine: action.listMachine
+        listMachine: state.listMachine.map(machine => {
+          if(machine.id === action.id) {
+            return {
+              id: action.id,
+              name: action.name,
+              yield_time: action.yield_time
+            }
+          }
+          else {
+            return machine;
+          }
+        }),
+        id: '',
+        name: '',
+        yield_time: ''
       }
-   /* case DELETE_MACHINE_STATE:
+    case DELETE_MACHINE_STATE:
       return {
-
-      } */
+        listMachine: state.listMachine.filter((machine) => {
+           return machine.id !== action.id
+          }),
+        id:'',
+        name: '',
+        yield_time: ''
+      }
     default:
       return state;
   }

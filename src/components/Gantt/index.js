@@ -12,7 +12,7 @@ import BackToMenu from '../BackToMenu';
 import { generateId } from '../../Utils';
 import Popup from '../../containers/Reglages/Popup';
 
-const aujourdhui =moment().format('YYYY-MM-DD, HH:mm:ss');
+const aujourdhui = moment().format('YYYY-MM-DD, HH:mm:ss');
 const demain = moment().add(3, 'hours').format('YYYY-MM-DD, HH:mm:ss');
 
 const GanttField = ({
@@ -29,11 +29,11 @@ const GanttField = ({
   quantity
 }) => {
   const [ isShowing, setIsShowing ] = useState(false);
-  const [modeView, setModeView] = useState('Quarter Day');
+  const [ modeView, setModeView ] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();
     const newId = String(generateId(tasks));
-    if (event.target.id.value==='') {
+    if (event.target.id.value === '') {
       const numeroLct = parseInt(n_lancement) + 1;
       saveNumeroLct(numeroLct);
       addTasks(
@@ -49,8 +49,8 @@ const GanttField = ({
       setIsShowing(true);
     }
     else {
-      const UpdateTask = tasks.filter((task)=> {
-        if (task.id ===event.target.id.value){
+      const UpdateTask = tasks.filter((task) => {
+        if (task.id === event.target.id.value){
           updatedPlanning(
             task.id,
             event.target.name.value,

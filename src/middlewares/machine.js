@@ -12,6 +12,7 @@ import {
   updateMachineState,
   deleteMachineState
 } from '../actions/machines';
+import { saveErrorMessage } from '../actions/workingDay';
 
 const machine = (store) => (next) => (action) => {
   switch (action.type) {
@@ -64,6 +65,7 @@ const machine = (store) => (next) => (action) => {
               response.data.newMachine.name,
               response.data.newMachine.yield_time,
             ));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);
@@ -83,10 +85,27 @@ const machine = (store) => (next) => (action) => {
         })
           .then((response) => {
             store.dispatch(updateMachineState(
-              state.machines.listMachine,
               state.machines.id,
-
-            ))
+              state.machines.name,
+              state.machines.yield_time
+            ));
+            store.dispatch(saveErrorMessage(response.data.message));
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case DELETE_MACHINE:
+      {
+        const state = store.getState();
+        axios.delete(`/machine/delete/${state.machines.id}`,
+          {
+            baseURL: 'http://localhost:5000',
+          })
+          .then((response) => {
+            store.dispatch(deleteMachineState(state.machines.id));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);

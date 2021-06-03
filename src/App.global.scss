@@ -1158,5 +1158,24 @@ thead th {
     text-align: center;
     font-size: 1.5rem;
   }
+}
 
+.ganttGeneral {
+  color: vars.$noir;
+
+  &-title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+.ganttMachine-form {
+  display: flex;
+  width: 1100px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.ganttGeneral-changeInfo {
+  color: vars.$noir;
 }

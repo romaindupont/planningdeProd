@@ -1,5 +1,4 @@
 import { searchMachinePlanning } from '../Utils/triTaskMachine';
-import { filterMachineState } from '../Utils/filterMachineState';
 
 export const SAVE_CONTAINER_DATE = 'SAVE_CONTAINER_DATE';
 export const saveContainerDate = (dt) => ({
@@ -71,14 +70,14 @@ export const addMachineState = (id, name, yield_time) => ({
   name,
   yield_time
 });
+
 export const UPDATE_MACHINE_STATE = 'UPDATE_MACHINE_STATE';
-export const updateMachineState = (list, id) => {
-  const filterMachine = filterMachineState(list, id);
-  return ({
-    type: UPDATE_MACHINE_STATE,
-    listMachine: filterMachine
-  })
-};
+export const updateMachineState = (id,name,yield_time) => ({
+  type: UPDATE_MACHINE_STATE,
+  id,
+  name,
+  yield_time
+});
 
 export const UPDATE_MACHINE = 'UPDATE_MACHINE';
 export const updateMachine = (id,name,yield_time) => ({
@@ -87,11 +86,13 @@ export const updateMachine = (id,name,yield_time) => ({
   name,
   yield_time
 });
+
 export const DELETE_MACHINE = 'DELETE_MACHINE';
 export const deleteMachine = (id) => ({
   type: DELETE_MACHINE,
   id,
 });
+
 export const DELETE_MACHINE_STATE = 'DELETE_MACHINE_STATE';
 export const deleteMachineState = (id) => ({
   type: DELETE_MACHINE_STATE,

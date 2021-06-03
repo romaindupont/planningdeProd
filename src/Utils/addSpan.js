@@ -1,7 +1,6 @@
 import { DiffDay } from './diffDay';
 
  export async function addSpan (MachinePlanning) {
-
   const begin = document.querySelectorAll('.ganttMachine-container-bloc--day--touch--start');
   for ( let i = 0 ; i < begin.length ; i++ ) {
     const myDataset = begin[i].dataset.myId;

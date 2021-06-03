@@ -86,7 +86,7 @@ const dataPlanning = {
     return result.rows[0];
   },
   planningList: async () => {
-    const sql = 'SELECT * FROM planning ORDER BY lancement, name;';
+    const sql = 'SELECT *, planning.id as planning_id FROM planning ORDER BY lancement, name;';
     /* select planning.name,planning.start, planning._end,planning.progress,planning.dependencies,planning.lancement,articles.order_n from planning inner join articles on planning.name=articles.reference order by order_n,lancement,name; */
     const result = await pool.pool.query(sql);
     const ListOfPlanning = result.rows;

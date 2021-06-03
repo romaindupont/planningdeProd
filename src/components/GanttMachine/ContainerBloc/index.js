@@ -4,12 +4,11 @@ import ModalWindow from '../../../containers/GanttMachine/ContainerBloc/ModalWin
 import { DateTime } from "luxon";
 import { addSpan } from '../../../Utils/addSpan';
 
-const ContainerBloc = ({ dt, tasks, MachinePlanning }) => {
-  const [ windowModalOpen, setWindowModalOpen ] = useState(false);
-  const [ getId, setGetId ] = useState('');
+const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowModalOpen, getId, setGetId }) => {
 
   const openWindowClick = async (e) => {
     setGetId(e.target.getAttribute("data-my-id"));
+    console.log(e)
     await setWindowModalOpen(!windowModalOpen);
     const modal = document.querySelector('.windowModal--open');
     if (modal) {

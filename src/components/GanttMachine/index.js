@@ -11,10 +11,12 @@ import classNames from 'classnames';
 import html2canvas from 'html2canvas';
 import { PdfGantt } from './PdfGantt';
 import Camera from '../../../assets/images/camera.png';
-
+import { addSpanForTasks } from '../../Utils/addSpanForTasks';
 
 const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) => {
+  const [ windowModalOpen, setWindowModalOpen ] = useState(false);
   const [ addTime, setAddTime ] = useState(false);
+  const [ getId, setGetId ] = useState('');
     const startCapture = () => {
       html2canvas(document.querySelector(".ganttMachine-container")).then(canvas => {
         document.body.appendChild(canvas)
@@ -39,27 +41,7 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
     for ( let i = 0 ; i < child.length ; i++ ) {
       await child[i].remove();
     }
-    const begin = document.querySelectorAll('.ganttMachine-container-bloc--day--touch--start');
-    for ( let i = 0 ; i < begin.length ; i++ ) {
-      const myDataset = begin[i].dataset.myId;
-      const newSpan = document.createElement('span');
-      newSpan.classList.add('progress');
-      newSpan.dataset.myId = myDataset;
-      const startEnd = tasks.find((task) => task.id == myDataset);
-      const differenceDay = DiffDay(startEnd.end, startEnd.start);
-      if (differenceDay == 0) {
-        newSpan.style.width = `calc(85px * calc(${startEnd.progress}/100))`;
-      }
-      if (startEnd.progress == 100) {
-        newSpan.style.width = `calc(85px * (${differenceDay} + 1) * calc(${startEnd.progress}/100))`;
-        newSpan.style.borderRadius = '10px';
-        newSpan.style.background = 'rgba(38,93,125, 0.8)';
-      }
-      else {
-        newSpan.style.width = `calc(85px * ${differenceDay} * calc(${startEnd.progress}/100))`;
-      }
-      begin[i].append(newSpan);
-    }
+    addSpanForTasks(tasks)
   }
   return (
     <>
@@ -75,7 +57,7 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
         <div className="ganttMachine-container">
           <div className={classNames("day-information", {"day-information--change":addTime})}></div>
           <ContainerDate dt={dt} />
-          <ContainerBloc dt={dt} />
+          <ContainerBloc dt={dt} windowModalOpen={windowModalOpen} setWindowModalOpen={setWindowModalOpen} getId={getId} setGetId={setGetId} />
         </div>
         <MachineChoice />
         <button className="button-screenshot" onClick={startCapture}>

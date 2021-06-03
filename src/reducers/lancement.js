@@ -1,4 +1,5 @@
-import {SAVE_LCT,
+import {
+  SAVE_LCT,
   SAVE_ID_LCT,
   CHANGE_POPUP,
   SEARCH_VALUE,
