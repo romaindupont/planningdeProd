@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Select = ({
   listArticles,
   changeField,
-  nameArticleSelect,
   saveOperatingTime,
   saveSearchRef,
   lancement
@@ -20,9 +19,13 @@ const Select = ({
       }
     })
   };
+  const handleFocus = () => {
+    const input = document.querySelector('.select');
+    input.focus();
+  }
   return (
     <div className="selection">
-      <select className="select" name="reference" id="ref-select" onChange={changeSelect} value={nameArticleSelect}>
+      <select className="select" name="reference" id="ref-select" onClick={handleFocus} onChange={changeSelect}>
         {list.map((article,i)=>
         <option key={i} value={article.reference}>{article.reference}</option>
         )}

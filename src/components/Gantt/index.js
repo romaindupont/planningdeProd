@@ -3,14 +3,15 @@ import ReactGantt, {viewMode} from 'gantt-for-react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Field from '../../containers/Field';
+import SelectProd from '../../containers/SelectProd/SelectProd';
+import Popup from '../../containers/Reglages/Popup';
+import GanttGeneral from '../../containers/GanttGeneral';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import ButtonMode from '../ButtonMode';
-import SelectProd from '../../containers/SelectProd/SelectProd';
 import Recalcul from '../Recalcul';
 import BackToMenu from '../BackToMenu';
 import { generateId } from '../../Utils';
-import Popup from '../../containers/Reglages/Popup';
 
 const aujourdhui = moment().format('YYYY-MM-DD, HH:mm:ss');
 const demain = moment().add(3, 'hours').format('YYYY-MM-DD, HH:mm:ss');
@@ -29,7 +30,6 @@ const GanttField = ({
   quantity
 }) => {
   const [ isShowing, setIsShowing ] = useState(false);
-  const [ modeView, setModeView ] = useState('Quarter Day');
   const handleSubmit = (event) => {
     event.preventDefault();
     const newId = String(generateId(tasks));
@@ -72,39 +72,14 @@ const handleDelete = (event) => {
   setIsShowing(true);
 };
 const handleClickOnTask = (e) => {
+  console.log(e)
   clickTasks(e.id, e.name, e.start, e.end, e.progress, e.dependencies, e.lancementn, e.quantity);
-};
-const custom_popup_html = (event) => {
-  const end_date = event._end.toLocaleString();
-  const start_date = event._start.toLocaleString();
-  return (
-    `
-    <div class="details-container">
-      <h5 class="details-container-title">${event.name}</h5>
-      <p class="details-container-date">Fin le ${end_date}</p>
-      <p class="details-container-progress">${event.progress}%</p>
-      <p class="details-container-dependencies">Dépendances :${event.dependencies}</p>
-    </div>
-  `
-  );
-};
-const handleRecalculate = (e) => {
-  e.preventDefault();
 };
   return (
     <div className="gantt">
       <BackToMenu />
-      <h1 className="gantt-title">Planning de production</h1>
       <div className="gantt-graph">
-        <ReactGantt
-          tasks={tasks}
-          viewMode={modeView}
-          onDateChange={(task, start, end) => console.log(task, start, end)}
-          onClick={handleClickOnTask}
-          customPopupHtml={custom_popup_html}
-          timelineStyle={'position:fixed'}
-        />
-        <ButtonMode setModeView={setModeView} />
+       <GanttGeneral />
         <form className="form-field" onSubmit={handleSubmit}>
           <Field
             type="text"
@@ -154,10 +129,7 @@ const handleRecalculate = (e) => {
       </div>
           {isShowing && (<Popup setIsShowing={setIsShowing} />)}
       <Recalcul />
-      <div className="gantt-select">
-        <h3>Sélection du lancement</h3>
-        <SelectProd />
-      </div>
+      <SelectProd />
     </div>
   );
 };

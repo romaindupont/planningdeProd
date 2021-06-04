@@ -123,9 +123,10 @@ a:hover {
 }
 .form-field {
   display: flex;
-  flex-direction: column;
-  width: 20%;
+  flex-direction: row;
+  width: 100%;
   align-items: center;
+  flex-wrap: wrap;
   &-input {
     margin: 0.8rem;
   }
@@ -254,11 +255,20 @@ thead th {
 }
 .gantt-select {
   color: vars.$noir;
-  height: 250px;
+  background: vars.$greenBar;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+  padding: 1rem;
+  border-radius: 15px;
+  top: 70px;
+  left: 100px;
+
 }
-.gantt-select > h3 {
+.gantt-select-title {
   margin: 0;
   text-align: center;
+  &-none {
+    display: none;
+  }
 }
 .dateModal {
   position: fixed;
@@ -345,6 +355,9 @@ thead th {
 .selectProd {
   text-align: center;
   overflow-y: scroll;
+  &-none {
+    display: none;
+  }
 }
 .select {
   margin: 0.5rem;
@@ -719,6 +732,7 @@ thead th {
 .ganttMachine {
   color: vars.$noir;
   margin-left: 4rem;
+  overflow: auto;
 }
 .ganttMachine-container {
   display: flex;
@@ -1178,4 +1192,119 @@ thead th {
 }
 .ganttGeneral-changeInfo {
   color: vars.$noir;
+}
+
+.form-field-button-zones {
+  display: flex;
+}
+#drag, #dragLct {
+  position: absolute;
+  z-index: 9;
+}
+.recalcul {
+  background: vars.$labelbgColor;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+  padding: 1rem;
+  border-radius: 15px;
+  top: 70px;
+  left: 55px;
+}
+.recalcul-submit--button {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  box-shadow: 3px 3px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.recalcul-submit--button--focus {
+  width: 50px;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  box-shadow: 0px 0px 1px 3px rgba(255, 255, 255, 0.5);
+  &-none {
+    display: none;
+  }
+  &:hover {
+    background: vars.$inputbgColor;
+    color: white;
+    font-weight: bold;
+  }
+
+}
+.recalcul-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-none {
+    display: none;
+  }
+}
+.ganttMachine-recalcul-fleche1 {
+  width: 15px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  &-haut {
+    position: absolute;
+    top: -4px;
+    transform: rotate3d(0, 0, 1, -90deg);
+    width: 15px;
+    height: 6px;
+    background: vars.$blueTheadTable;
+    border-radius: 30px;
+
+    &-none {
+      display: none;
+    }
+  }
+  &-bas {
+    width: 15px;
+    height: 6px;
+    background: vars.$blueTheadTable;
+    transform: translate(0px, -16px);
+    border-radius: 30px;
+
+    &-none {
+      transform: translate(-6px, -10px);
+    }
+  }
+}
+.ganttMachine-gantt-select-fleche1 {
+  width: 15px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  &-haut {
+    position: absolute;
+    top: -4px;
+    transform: rotate3d(0, 0, 1, -90deg);
+    width: 15px;
+    height: 6px;
+    background: vars.$blueTheadTable;
+    border-radius: 30px;
+
+    &-none {
+      display: none;
+    }
+  }
+  &-bas {
+    width: 15px;
+    height: 6px;
+    background: vars.$blueTheadTable;
+    transform: translate(0px, -16px);
+    border-radius: 30px;
+
+    &-none {
+      transform: translate(-6px, -10px);
+    }
+  }
 }

@@ -146,7 +146,7 @@ const planning = (store) => (next) => (action) => {
               name: state.launch.lancement[i].reference,
               start: g,
               _end: r,
-              progress: state.tasks.progress,
+              progress: 10,
               dependencies: '',
               lancement: state.launch.n_lancement,
               quantity: state.tasks.quantity

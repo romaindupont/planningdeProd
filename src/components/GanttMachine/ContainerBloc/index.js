@@ -8,7 +8,6 @@ const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowM
 
   const openWindowClick = async (e) => {
     setGetId(e.target.getAttribute("data-my-id"));
-    console.log(e)
     await setWindowModalOpen(!windowModalOpen);
     const modal = document.querySelector('.windowModal--open');
     if (modal) {
