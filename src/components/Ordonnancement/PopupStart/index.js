@@ -12,13 +12,13 @@ const PopupStart = ({ setStartClick, name, lctNumber, start, end, updatedLanceme
   };
   const debutClick = () => {
     setStartClick(false);
-    const newEndDate = momentBusinessTime(start, 'YYYY-MM-DD HH:mm:ss').addWorkingTime(newList.tempsop*quantity/0.4, 'minutes')._d;
+    const newEndDate = momentBusinessTime(start, 'YYYY-MM-DD HH:mm:ss').addWorkingTime(newList.tempsop * quantity / (newList.yield_time / 100), 'minutes')._d;
     const endDate = moment(newEndDate).format('YYYY-MM-DD HH:mm:ss');
-    updatedLancement(start,endDate);
+    updatedLancement(start, endDate);
   };
   const finClick = () => {
     setStartClick(false);
-    updatedLancement(start,end);
+    updatedLancement(start, end);
   };
   const QClick = () => {
     setStartClick(false);

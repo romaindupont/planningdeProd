@@ -5,7 +5,7 @@ import { addArticleInDb, updateArticleInDb, deleteArticleInDb } from '../../acti
 
 const mapStateToProps = (state) => ({
     articleList: state.articles.list,
-    id: state.articles.id,
+    id: state.articles.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

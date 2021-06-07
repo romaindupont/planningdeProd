@@ -3,7 +3,7 @@ import InputReglages from '../../components/Reglages/Field/Input';
 import { changeValue } from '../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentValue: state.workingDay[ownProps.name],
+    currentValue: state.workingDay[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

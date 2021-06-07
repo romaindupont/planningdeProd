@@ -227,7 +227,7 @@ tr:hover td {
 }
 .articlePage-form {
   color: vars.$noir;
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1307,4 +1307,14 @@ thead th {
       transform: translate(-6px, -10px);
     }
   }
+}
+.ganttMachine-choice-button-articleSelect {
+  padding: 0.3rem 4rem;
+  border-radius: 10px;
+}
+.title-selectMachineInArticlePage {
+  color: vars.$noir;
+}
+.selectMachineInArticlePage {
+
 }

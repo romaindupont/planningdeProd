@@ -94,6 +94,10 @@ const initialState = {
   description: '',
   dependencies:null,
   waitArticle:true,
+  reference:'',
+  tempsop: '',
+  liason:'',
+  niveau:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -134,10 +138,10 @@ const reducer = (state = initialState, action = {}) => {
             if(article.id === action.id) {
               return {
                 id: article.id,
-                article_name: action.article_name,
-                level: action.level,
+                reference: action.article_name,
+                niveau: action.level,
                 machine_id: action.machine_id,
-                operating_time: action.operating_time,
+                tempsop: action.operating_time,
                 description: action.description,
                 dependencies: action.dependencies
               }

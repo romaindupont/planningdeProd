@@ -4,17 +4,17 @@ import Table from '../../containers/ArticlesPage/Table/Table';
 import FormArticle from '../../containers/ArticlesPage/FormArticle';
 import BackToMenu from '../BackToMenu';
 
-
-const ArticlesPage = ()=> {
+const ArticlesPage = () => {
   return (
     <div className="articlePage">
-       <BackToMenu />
+        <BackToMenu />
         <h1 className="articlePage-title">Base Articles</h1>
         <div className="articlePage-list">
-        <Table />
-        <FormArticle />
-      </div>
+          <Table />
+          <FormArticle />
+        </div>
     </div>
   );
 };
+
 export default ArticlesPage;

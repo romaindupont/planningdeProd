@@ -105,7 +105,7 @@ const dataPlanning = {
     return result.rows;
   },
   planningSpecialMachine: async () => {
-    const sql = 'SELECT *, planning.id as planning_id FROM planning INNER JOIN articles ON planning.name = articles.reference WHERE articles.machine_id IS NOT NULL AND planning.progress < 100 ORDER BY lancement, name;';
+    const sql = 'SELECT *, planning.id as planning_id, machine.id as id_machine, machine.name as machineName FROM planning INNER JOIN articles ON planning.name = articles.reference LEFT JOIN machine ON articles.machine_id = machine.id WHERE articles.machine_id IS NOT NULL AND planning.progress < 100 ORDER BY lancement, planning.name;';
     const result = await pool.pool.query(sql);
     const PlanningMachine = result.rows;
     return PlanningMachine;

@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import ReactGantt, {viewMode} from 'gantt-for-react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import setHours from 'date-fns/setHours';
+import setMinutes from 'date-fns/setMinutes';
 import Field from '../../containers/Field';
 import SelectProd from '../../containers/SelectProd/SelectProd';
 import Popup from '../../containers/Reglages/Popup';
 import GanttGeneral from '../../containers/GanttGeneral';
-import setHours from 'date-fns/setHours';
-import setMinutes from 'date-fns/setMinutes';
-import ButtonMode from '../ButtonMode';
 import Recalcul from '../Recalcul';
 import BackToMenu from '../BackToMenu';
 import { generateId } from '../../Utils';
-
-const aujourdhui = moment().format('YYYY-MM-DD, HH:mm:ss');
-const demain = moment().add(3, 'hours').format('YYYY-MM-DD, HH:mm:ss');
 
 const GanttField = ({
   tasks,
@@ -72,7 +67,6 @@ const handleDelete = (event) => {
   setIsShowing(true);
 };
 const handleClickOnTask = (e) => {
-  console.log(e)
   clickTasks(e.id, e.name, e.start, e.end, e.progress, e.dependencies, e.lancementn, e.quantity);
 };
   return (
@@ -127,7 +121,7 @@ const handleClickOnTask = (e) => {
           </div>
         </form>
       </div>
-          {isShowing && (<Popup setIsShowing={setIsShowing} />)}
+      {isShowing && (<Popup setIsShowing={setIsShowing} />)}
       <Recalcul />
       <SelectProd />
     </div>

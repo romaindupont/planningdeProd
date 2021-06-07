@@ -1,22 +1,20 @@
 export const SAVE_OPERATING_TIME = 'SAVE_OPERATING_TIME';
 export const saveOperatingTime = (operating_time) => ({
   type: SAVE_OPERATING_TIME,
-  operating_time,
+  operating_time
 });
 
 export const SAVE_SEARCH_REF = 'SAVE_SEARCH_REF';
 export const saveSearchRef = (lancement) => ({
   type: SAVE_SEARCH_REF,
-  lancement,
+  lancement
 });
-
 
 export const SAVE_CALCUL_START = 'SAVE_CALCUL_START';
 export const saveCalculStart = (calculStart) => ({
   type: SAVE_CALCUL_START,
-  calculStart,
+  calculStart
 });
-
 
 export const ADD_PLANNING = 'ADD_PLANNING';
 export const addPlanning = (newPlanning) => ({
@@ -26,11 +24,11 @@ export const addPlanning = (newPlanning) => ({
 
 export const FETCH_PLANNING = 'FETCH_PLANNING';
 export const fetchPlanning = () => ({
-  type: FETCH_PLANNING,
+  type: FETCH_PLANNING
 });
 
 export const SAVE_PLANNING = 'SAVE_PLANNING';
-export const savePlanning = (id,name,start,end,progress,dependencies,lancement,quantity) => ({
+export const savePlanning = (id, name, start, end, progress, dependencies, lancement, quantity) => ({
   type:SAVE_PLANNING,
   id,
   name,
@@ -39,22 +37,21 @@ export const savePlanning = (id,name,start,end,progress,dependencies,lancement,q
   progress,
   dependencies,
   lancement,
-  quantity,
+  quantity
 });
-
 
 export const ADD_PLANNING_IN_DB = 'ADD_PLANNING_IN_DB';
 export const addPlanningInDb = (planning) => ({
   type:ADD_PLANNING_IN_DB,
-  planning,
+  planning
 });
 export const ADD_SEVERAL_LINE_IN_DB = 'ADD_SEVERAL_LINE_IN_DB';
 export const addSeveralLineInDb = () => ({
-  type:ADD_SEVERAL_LINE_IN_DB,
+  type:ADD_SEVERAL_LINE_IN_DB
 });
 
 export const UPDATED_PLANNING = 'UPDATED_PLANNING';
-export const updatedPlanning = (id,name,start,end,progress,dependencies,lancement,quantity) => ({
+export const updatedPlanning = (id, name, start, end, progress, dependencies, lancement, quantity) => ({
   type:UPDATED_PLANNING,
   id,
   name,
@@ -63,23 +60,23 @@ export const updatedPlanning = (id,name,start,end,progress,dependencies,lancemen
   progress,
   dependencies,
   lancement,
-  quantity,
+  quantity
 });
 
 export const DELETE_PLANNING = 'DELETE_PLANNING';
 export const deletePlanning = (id) => ({
   type: DELETE_PLANNING,
-  id,
+  id
 });
 
 export const SAVE_NUMERO_LCT = 'SAVE_NUMERO_LCT';
 export const saveNumeroLct = (n_lancement) => ({
   type: SAVE_NUMERO_LCT,
-  n_lancement,
+  n_lancement
 });
 
 export const SAVE_TIME_PICKER = 'SAVE_TIME_PICKER';
 export const saveTimePicker = (time) => ({
   type: SAVE_TIME_PICKER,
-  time,
+  time
 });

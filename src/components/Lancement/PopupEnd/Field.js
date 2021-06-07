@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Field = ({ placeholder, name, type, currentValue, changeValue, value })=> {
+const Field = ({ placeholder, name, type, currentValue, changeValue, value }) => {
   return (
     <div className="form-lct">
       <input

@@ -10,7 +10,7 @@ const Recalcul = () => {
   const [ calculZone, setCalculZone ] = useState(true);
   const handleSubmit = (e) => {
     event.preventDefault();
-    const a = momentBusinessTime(e.target.date.value, 'YYYY-MM-DD HH:mm:ss').addWorkingTime(e.target.temps.value*e.target.quantity.value/0.4, 'minutes');
+    const a = momentBusinessTime(e.target.date.value, 'YYYY-MM-DD HH:mm:ss').addWorkingTime(e.target.temps.value * e.target.quantity.value / e.target.yield_time.value, 'minutes');
     const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
     setValueCalcul(r);
   };
@@ -50,14 +50,8 @@ const closeDragElement = () => {
   document.onmouseup = null;
   document.onmousemove = null;
 }
-const onDragOrNot = () => {
-  setWantDrag(!wantDrag);
-  const elemnt = document.getElementById('drag');
-  elemnt.setAttribute("draggable", wantDrag);
-  const input = document.querySelector('.recalcul-date').focus();
-}
 const handleClick = () => {
-  setCalculZone(!calculZone)
+  setCalculZone(!calculZone);
 }
   return (
     <div className="recalcul" draggable="true" id="drag" onDragStart={dragElement} >
@@ -69,10 +63,10 @@ const handleClick = () => {
           <input className="recalcul-date" type="text" placeholder="date" name="date"/>
           <input className="recalcul-temps" type="text" placeholder="temps opé" name="temps"/>
           <input className="recalcul-quantity" type="text" placeholder="Quantité" name="quantity"/>
+          <input className="recalcul-quantity" type="text" placeholder="Yield_time sous la forme 0.4" name="yield_time"/>
           <input className="recalcul-calcul" type="text" name="calcul" value={valueCalcul} readOnly/>
         <button className="recalcul-submit--button" type="submit">recalcul</button>
       </form>
-      <button className={classNames("recalcul-submit--button--focus", {"recalcul-submit--button--focus-none":calculZone})} onClick={onDragOrNot}>Focus</button>
     </div>
   );
 };

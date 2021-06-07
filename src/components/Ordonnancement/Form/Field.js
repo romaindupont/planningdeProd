@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FieldOrdo = ({ placeholder, name, type, currentValue, changeValue })=> {
+const FieldOrdo = ({ placeholder, name, type, currentValue, changeValue }) => {
   return (
     <div className="form-lct">
       <span className="form-title">{name}</span>

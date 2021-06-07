@@ -10,8 +10,7 @@ const Thead = () => {
         <th>yield_time</th>
       </tr>
     </thead>
-
-  )
-}
+  );
+};
 
 export default Thead;

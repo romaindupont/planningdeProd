@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
     end: state.lancement.end,
     lctNumber: state.lancement.lctNumber,
     currentValue: state.lancement[ownProps.name],
-    popupWindow : state.lancement.popupWindow,
+    popupWindow : state.lancement.popupWindow
 });
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => ({
     },
     changePopup: (open, popupText) => {
       dispatch(changePopup(open, popupText));
-    },
+    }
   });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PopupEnd);

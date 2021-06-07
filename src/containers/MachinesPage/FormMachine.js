@@ -19,4 +19,5 @@ const mapStateToProps = (state) => ({
     dispatch(deleteMachine(id));
   }
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(FormMachine);

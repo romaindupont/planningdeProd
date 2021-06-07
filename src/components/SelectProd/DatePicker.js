@@ -9,7 +9,7 @@ import dateFnsFormat from 'date-fns/format';
 const DatePicker = ({ changeField, name }) => {
   const changeDay = (day, modifiers) => {
     const newDate = day.toLocaleString();
-    const modifierDate = newDate.slice(0,10);
+    const modifierDate = newDate.slice(0, 10);
     changeField(modifierDate);
   };
   const FORMAT = 'DD/MM/yyyy';

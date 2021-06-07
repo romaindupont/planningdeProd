@@ -3,7 +3,7 @@ import FormReglages from '../../components/Reglages/Form';
 import { updateWorkingDay } from '../../actions/workingDay';
 
 const mapStateToProps = (state, ownProps) => ({
-  workingDayList: state.workingDay.workingDayList,
+  workingDayList: state.workingDay.workingDayList
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

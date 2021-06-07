@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Thead = ()=> {
+const Thead = () => {
   return (
     <thead>
       <tr>

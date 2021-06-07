@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
   start: state.launch.start,
   operating_time: state.launch.operating_time,
   lancement: state.launch.lancement,
-  n_lancement:state.launch.n_lancement,
+  n_lancement:state.launch.n_lancement
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -8,7 +8,7 @@ import reducer from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(
-  applyMiddleware(articles, planning,lancement,workingDay, machine),
+  applyMiddleware(articles, planning, lancement, workingDay, machine),
 ));
 
 export default store;

@@ -40,7 +40,7 @@ const machine = (store) => (next) => (action) => {
           })
           .then((response) => {
             store.dispatch(savePlanningMachine(response.data.planningMachineList));
-            store.dispatch(saveMachinePlanning(response.data.planningMachineList,''));
+            store.dispatch(saveMachinePlanning(response.data.planningMachineList, ''));
           })
           .catch((error) => {
             console.error('Error', error);
@@ -63,7 +63,7 @@ const machine = (store) => (next) => (action) => {
             store.dispatch(addMachineState(
               response.data.newMachine.id,
               response.data.newMachine.name,
-              response.data.newMachine.yield_time,
+              response.data.newMachine.yield_time
             ));
             store.dispatch(saveErrorMessage(response.data.message));
           })

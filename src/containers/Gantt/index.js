@@ -7,7 +7,12 @@ import {
   updateTasks,
   deleteTasks
 } from '../../actions';
-import { addPlanningInDb, updatedPlanning, deletePlanning, saveNumeroLct } from '../../actions/launch';
+import {
+  addPlanningInDb,
+  updatedPlanning,
+  deletePlanning,
+  saveNumeroLct
+} from '../../actions/launch';
 
 const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,

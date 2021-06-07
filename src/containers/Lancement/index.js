@@ -4,7 +4,7 @@ import { changePopup } from '../../actions/lancement';
 
 const mapStateToProps = (state, ownProps) => ({
     currentValue: state.tasks[ownProps.name],
-    popupWindow : state.lancement.popupWindow,
+    popupWindow : state.lancement.popupWindow
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

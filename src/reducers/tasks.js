@@ -9,7 +9,8 @@ import {
 } from '../actions';
 import {  SAVE_PLANNING } from '../actions/launch';
 
-const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
+const aujourdhui = moment().format('YYYY-MM-DD HH:mm:ss');
+
 const initialState = {
   tasks:
   [
@@ -111,7 +112,7 @@ const reducer = (state = initialState, action = {}) => {
           progress: 10,
           dependencies: '',
           lancementn:'',
-          quantity: '',
+          quantity: ''
         }
         case DELETE_TASKS:
           return {
@@ -121,7 +122,7 @@ const reducer = (state = initialState, action = {}) => {
             progress: 10,
             dependencies: '',
             lancementn: '',
-            quantity: '',
+            quantity: ''
           }
         case SAVE_PLANNING:
           return {

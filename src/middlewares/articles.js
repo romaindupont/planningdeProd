@@ -24,7 +24,7 @@ const articles = (store) => (next) => (action) => {
           tempsop: state.articles.operating_time,
           liaison: state.articles.dependencies,
           niveau: state.articles.level,
-          order_n: parseInt(state.articles.description)
+          description: state.articles.description
         },
         {
           baseURL: 'http://localhost:5000',
@@ -78,7 +78,7 @@ const articles = (store) => (next) => (action) => {
               tempsop: state.articles.operating_time,
               liaison: state.articles.dependencies,
               niveau: state.articles.level,
-              order_n: parseInt(state.articles.description)
+              description: state.articles.description
             },
             {
               baseURL: 'http://localhost:5000',
@@ -90,7 +90,8 @@ const articles = (store) => (next) => (action) => {
                   state.articles.level,
                   state.articles.machine_id,
                   state.articles.operating_time,
-                  state.articles.dependencies
+                  state.articles.dependencies,
+                  state.articles.description
                 ))
                 store.dispatch(saveErrorMessage(response.data.message));
               })

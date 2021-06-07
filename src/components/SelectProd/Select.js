@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const Select = ({
   listArticles,
@@ -7,14 +7,14 @@ const Select = ({
   saveSearchRef,
   lancement
 }) => {
-  const list = listArticles.filter((articles)=> articles.niveau===1);
-  let ensembleFab=listArticles;
+  const list = listArticles.filter((articles) => articles.niveau === 1);
+  let ensembleFab = listArticles;
   const changeSelect = (e) => {
     changeField(e.target.value);
-    list.map((article)=> {
-      if(article.reference===e.target.value){
+    list.map((article) => {
+      if (article.reference === e.target.value) {
         saveOperatingTime(article.tempsop);
-        ensembleFab = listArticles.filter((articles)=> articles.liaison == article.id);
+        ensembleFab = listArticles.filter((articles) => articles.liaison == article.id);
         saveSearchRef(ensembleFab);
       }
     })
@@ -32,17 +32,17 @@ const Select = ({
       </select>
       <table className="select-table">
         <tbody className="select-table-tbody">
-              {lancement.map((article,i)=>
-                <tr key={i} id={article.id}>
-                  <td >{article.id}</td>
-                  <td >{article.reference}</td>
-                  <td >{article.machine_id}</td>
-                  <td >{article.tempsop}</td>
-                  <td >{article.liaison}</td>
-                  <td >{article.niveau}</td>
-                </tr>
-              )}
-            </tbody>
+          {lancement.map((article,i)=>
+            <tr key={i} id={article.id}>
+              <td >{article.id}</td>
+              <td >{article.reference}</td>
+              <td >{article.machine_id}</td>
+              <td >{article.tempsop}</td>
+              <td >{article.liaison}</td>
+              <td >{article.niveau}</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </div>
   );

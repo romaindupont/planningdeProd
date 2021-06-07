@@ -11,7 +11,7 @@ const lancement = (store) => (next) => (action) => {
           {
             start: action.start,
             _end: action.end,
-            progress: 50,
+            progress: 50
           },
           {
             baseURL: 'http://localhost:5000',
@@ -39,7 +39,7 @@ const lancement = (store) => (next) => (action) => {
         axios.patch(`planning/end/${state.lancement.id}`,
           {
             _end: action.end,
-            progress: 100,
+            progress: 100
           },
           {
             baseURL: 'http://localhost:5000',

@@ -3,7 +3,7 @@ import Field from '../../components/Field';
 import { changeValue } from '../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentValue: state.tasks[ownProps.name],
+    currentValue: state.tasks[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

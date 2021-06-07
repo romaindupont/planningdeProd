@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { DateTime } from "luxon";
-import BackToMenu from '../BackToMenu';
-import ContainerDate from './ContainerDate';
+import html2canvas from 'html2canvas';
+import classNames from 'classnames';
 import ContainerBloc from '../../containers/GanttMachine/ContainerBloc';
 import DatePicker from '../../containers/SelectProd/DatePicker';
-import Return from '../GanttMachine/Return';
 import MachineChoice from '../../containers/GanttMachine/MachineChoice';
-import { DiffDay } from '../../Utils/diffDay';
-import classNames from 'classnames';
-import html2canvas from 'html2canvas';
+import BackToMenu from '../BackToMenu';
+import ContainerDate from './ContainerDate';
+import Return from '../GanttMachine/Return';
 import { PdfGantt } from './PdfGantt';
 import Camera from '../../../assets/images/camera.png';
+import { DiffDay } from '../../Utils/diffDay';
 import { addSpanForTasks } from '../../Utils/addSpanForTasks';
 
 const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) => {
@@ -45,7 +45,6 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
   }
   return (
     <>
-
       <BackToMenu />
       <div className="ganttMachine">
         <Return setAddTime={setAddTime} addTime={addTime} />
@@ -63,7 +62,6 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
         <button className="button-screenshot" onClick={startCapture}>
           <img className="button-screenshot--img" src={Camera} alt="camera" />
         </button>
-
       </div>
     </>
   );

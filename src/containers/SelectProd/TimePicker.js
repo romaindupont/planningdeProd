@@ -4,7 +4,7 @@ import { changeValue } from '../../actions';
 import { saveTimePicker } from '../../actions/launch';
 
 const mapStateToProps = (state) => ({
-  start_hours: state.launch.start_hours,
+  start_hours: state.launch.start_hours
 });
 
 const mapDispatchToProps = (dispatch,ownProps) => ({

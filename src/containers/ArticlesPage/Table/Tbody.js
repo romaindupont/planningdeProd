@@ -6,7 +6,7 @@ import { saveId, searchInfo, fetchArticle } from '../../../actions/article';
 const mapStateToProps = (state) => ({
   id: state.articles.id,
   articlesList: state.articles.list,
-  waitArticle: state.articles.waitArticle,
+  waitArticle: state.articles.waitArticle
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

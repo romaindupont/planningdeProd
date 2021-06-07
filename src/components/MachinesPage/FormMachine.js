@@ -12,14 +12,15 @@ const FormMachine = ({ id, addMachine, updateMachine, deleteMachine, listMachine
   const handleSubmit = (event) => {
     event.preventDefault();
     if (event.target.id.value === '') {
-      addMachine(event.target.id.value,
+      addMachine(
+        event.target.id.value,
         event.target.name.value,
         event.target.yield_time.value
       );
       setIsShowing(true);
     }
     else {
-      const UpdateMachine = listMachine.filter((machine)=> {
+      const UpdateMachine = listMachine.filter((machine) => {
         if (machine.id == event.target.id.value){
           updateMachine(
             machine.id,
@@ -49,12 +50,12 @@ const FormMachine = ({ id, addMachine, updateMachine, deleteMachine, listMachine
         name="yield_time"
       />
       <div className="form-field-button-zones">
-        <button className="form-field-button" type="submit">{id=='' ? "Ajouter" : "Modifier"}</button>
+        <button className="form-field-button" type="submit">{id == '' ? "Ajouter" : "Modifier"}</button>
         <button className="form-field-button remove" onClick={handleDelete}>Remove</button>
       </div>
       {isShowing && (<Popup setIsShowing={setIsShowing} />)}
     </form>
-  )
-}
+  );
+};
 
 export default FormMachine;

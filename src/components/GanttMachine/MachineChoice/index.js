@@ -23,10 +23,10 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
     }
     if (e.target.elements.allChoice.value == 2) {
       if (e.target[2].value == 1) {
-        saveTitleMachine("Planning NEO");
+        saveTitleMachine(`Planning NEO ${e.target[2].value}`);
       }
       if (e.target[2].value == 2) {
-        saveTitleMachine("Planning M8");
+        saveTitleMachine(`Planning M8 ${e.target[2].value}`);
       }
       await saveMachinePlanning(list, e.target[2].value);
       const child = document.querySelectorAll('.progress');
@@ -40,14 +40,14 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
     <div className="ganttMachine-choice">
       <form className="ganttMachine-choice-form" onSubmit={handleSubmit}>
         <label className="ganttMachine-choice-button-label" htmlFor="all" onClick={closeSelect}>
-        <input type="radio" name="allChoice" className="ganttMachine-choice-button" id="all" value="1"/>
-          <span>ALL</span>
+          <input type="radio" name="allChoice" className="ganttMachine-choice-button" id="all" value="1"/>
+            <span>ALL</span>
         </label>
         <label className="ganttMachine-choice-button-label" htmlFor="machine" onClick={openSelect}>
-        <input type="radio" name="allChoice" className="ganttMachine-choice-button" id="machine" value="2"/>
-          <span>CHOIX</span>
+          <input type="radio" name="allChoice" className="ganttMachine-choice-button" id="machine" value="2"/>
+            <span>CHOIX</span>
         </label>
-        <Select />
+        <Select classNom="select" />
         <button className="ganttMachine-choice-button-button" type="submit">Valider le choix</button>
       </form>
     </div>

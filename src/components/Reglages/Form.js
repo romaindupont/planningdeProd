@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import FieldReglages from './Field';
 import Popup from '../../containers/Reglages/Popup';
+import FieldReglages from './Field';
 
 const FormReglages = ({ workingDayList, updateWorkingDay }) => {
   const [ isShowing, setIsShowing ] = useState(false);
@@ -18,7 +18,7 @@ const FormReglages = ({ workingDayList, updateWorkingDay }) => {
   return (
     <form className="reglages-form" onSubmit={handleSubmit}>
       {workingDayList.map((day, i) =>
-      <FieldReglages key={i} jour={day.numerojour} open_close={day.open_close} name={day.numerojour} />
+        <FieldReglages key={i} jour={day.numerojour} open_close={day.open_close} name={day.numerojour} />
       )}
       <div className="reglages-form-button">
         <button type="submit" className="reglages-form-button--modif" type="submit">Modifier</button>

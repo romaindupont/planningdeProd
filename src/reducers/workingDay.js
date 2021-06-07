@@ -1,4 +1,4 @@
-import { SAVE_WORKING_DAY_LIST,SAVE_ERROR_MESSAGE } from '../actions/workingDay';
+import { SAVE_WORKING_DAY_LIST, SAVE_ERROR_MESSAGE } from '../actions/workingDay';
 import { CHANGE_VALUE } from '../actions';
 
 const initialState = {
@@ -77,7 +77,7 @@ const reducer = (state = initialState, action = {}) => {
       case SAVE_ERROR_MESSAGE:
         return {
           ...state,
-          ErrorList: action.message,
+          ErrorList: action.message
         }
     default:
       return state;

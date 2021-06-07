@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { DateTime } from "luxon";
 import classNames from 'classnames';
 import ModalWindow from '../../../containers/GanttMachine/ContainerBloc/ModalWindow';
-import { DateTime } from "luxon";
 import { addSpan } from '../../../Utils/addSpan';
 
 const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowModalOpen, getId, setGetId }) => {

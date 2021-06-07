@@ -26,9 +26,9 @@ const GanttGeneral = ({ dt, tasks, saveContainerDate }) => {
       <div className="ganttMachine">
         <Return setAddTime={setAddTime} addTime={addTime}/>
         <form className="ganttMachine-date" onSubmit={changeDate}>
-        <h1 className="ganttGeneral-title">Planning général</h1>
-        <DatePicker name="date"/>
-        <button className="ganttMachine-button-change"  type="submit">Change Date</button>
+          <h1 className="ganttGeneral-title">Planning général</h1>
+          <DatePicker name="date"/>
+          <button className="ganttMachine-button-change"  type="submit">Change Date</button>
         </form>
         <div className="ganttMachine-container">
           <div className={classNames("day-information", {"day-information--change":addTime})}></div>
@@ -37,7 +37,7 @@ const GanttGeneral = ({ dt, tasks, saveContainerDate }) => {
           </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default GanttGeneral;

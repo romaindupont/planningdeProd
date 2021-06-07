@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 const Tbody = ({
@@ -40,7 +40,7 @@ const Tbody = ({
     <tbody>
       {filteredTasks.map((task,i) =>
       <tr key={i} id={task.id}>
-        <td><input onChange={handleCheckBox}  value={task.id} type="checkbox" /></td>
+        <td><input onChange={handleCheckBox} value={task.id} type="checkbox" /></td>
         <td>{task.lancementn}</td>
         <td>{task.name}</td>
         <td>{moment(task.start).format('DD/MM/YYYY HH:mm:ss')}</td>

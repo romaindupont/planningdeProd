@@ -19,7 +19,7 @@ const Return = ({ setAddTime, addTime }) => {
       }
     }
     else {
-      for (let i = 1 ; i < 9 ; i++){
+      for (let i = 1 ; i < 9 ; i++) {
         let containerDate = document.querySelector(`.ganttMachine-container-date--day:nth-child(${i})`);
         containerDate.style.display ='none';
         let containerTotal =  document.querySelectorAll(".ganttMachine-container-bloc").length ;

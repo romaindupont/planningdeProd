@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
   lctNumber: state.lancement.lctNumber,
   name: state.lancement.name,
   start: state.lancement.start,
-  end: state.lancement.end,
+  end: state.lancement.end
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchMachinePlanning: () => {
     dispatch(fetchMachinePlanning());
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

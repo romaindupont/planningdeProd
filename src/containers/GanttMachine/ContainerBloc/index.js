@@ -5,7 +5,7 @@ import ContainerBloc from '../../../components/GanttMachine/ContainerBloc';
 
 const mapStateToProps = (state) => ({
     tasks: state.tasks.tasks,
-    MachinePlanning: state.machines.MachinePlanning,
+    MachinePlanning: state.machines.MachinePlanning
 });
 
 const mapDispatchToProps = {}

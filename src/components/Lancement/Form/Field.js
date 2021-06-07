@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Field = ({ placeholder, name, type, currentValue })=> {
+const Field = ({ placeholder, name, type, currentValue }) => {
   return (
     <div className="form-lct">
       <span className="form-title">{name}</span>

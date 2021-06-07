@@ -1,6 +1,6 @@
 import React from 'react';
-import Thead from './Thead';
 import Tbody from '../../containers/MachinesPage/Tbody';
+import Thead from './Thead';
 
 const Table = () => {
   return (

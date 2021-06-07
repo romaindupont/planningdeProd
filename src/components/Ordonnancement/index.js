@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Table from './Table';
-import FormOrdo from '../../containers/Ordonnancement/Form';
-import BackToMenu from '../BackToMenu';
-import { jsPDF } from "jspdf";
 import moment from 'moment';
 import momentBusinessTime from 'moment-business-time';
+import { jsPDF } from "jspdf";
+import { Pdf } from '../PDF';
+import BackToMenu from '../BackToMenu';
+import FormOrdo from '../../containers/Ordonnancement/Form';
+import Table from './Table';
 import { openDate } from '../../Utils/openDate';
 import { hoursCalcul } from '../../Utils/hoursCalcul';
-import { Pdf } from '../PDF';
 
 const Ordonnancement = ({ id, lctNumber, name, start, end, quantity }) => {
   const [ viewPdf, setViewPdf ] = useState(false)

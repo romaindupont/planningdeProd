@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
     name: state.lancement.name,
     start: state.lancement.start,
     end: state.lancement.end,
-    lctNumber: state.lancement.lctNumber,
+    lctNumber: state.lancement.lctNumber
 });
 
 const mapDispatchToProps = (dispatch) => ({

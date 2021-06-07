@@ -25,17 +25,17 @@ const Th = ({
     setViewInput(false);
   };
   const handleChange = (e) => {
-    searchValue(e.target.value,e.target.name);
+    searchValue(e.target.value, e.target.name);
     setWordSearch({ category : e.target.value , searchText : e.target.name});
   };
   useEffect(() => {
-    update(tasks,wordSearch);
+    update(tasks, wordSearch);
   }, [handleChange]);
   return (
     <th className="search" onClick={searchClick}>
-      <span className={classNames("search-name", {"search-name--erase":viewInput})}>{searchName}</span>
+      <span className={classNames("search-name", {"search-name--erase": viewInput})}>{searchName}</span>
       <input
-        className={classNames("search-input", {"search-input--view":viewInput})}
+        className={classNames("search-input", {"search-input--view": viewInput})}
         type={type}
         name={name}
         placeholder={placeholder}

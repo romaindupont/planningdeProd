@@ -3,7 +3,7 @@ import FieldOrdo from '../../../components/Ordonnancement/Form/Field';
 import { changeValue } from '../../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentValue: state.lancement[ownProps.name],
+    currentValue: state.lancement[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

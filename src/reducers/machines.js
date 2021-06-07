@@ -10,7 +10,13 @@ import {
   UPDATE_MACHINE_STATE,
   DELETE_MACHINE_STATE
 } from '../actions/machines';
-import { CHANGE_VALUE } from '../actions';
+import {
+  CHANGE_VALUE,
+  ADD_TASKS,
+  UPDATE_TASKS,
+  DELETE_TASKS
+} from '../actions';
+import {  SAVE_PLANNING } from '../actions/launch';
 import { DatetimeNow } from '../Utils/datetimeNow';
 
 const initialState = {
@@ -37,6 +43,12 @@ const initialState = {
   title: '',
   name: '',
   wait:true,
+  start: '',
+  _end: '',
+  progress: '',
+  dependencies: '',
+  lancement: '',
+  quantity:''
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -44,28 +56,28 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_CONTAINER_DATE:
       return {
         ...state,
-        dt: action.dt,
+        dt: action.dt
       };
     case SAVE_MACHINE_LIST:
       return {
         ...state,
         listMachine: action.machineList,
-        wait:false,
+        wait:false
       }
     case SAVE_MACHINE_PLANNING:
       return {
         ...state,
-        MachinePlanning: action.updateList,
+        MachinePlanning: action.updateList
       }
     case SAVE_PLANNING_MACHINE:
       return {
         ...state,
-        PlanningForMachine: action.machinePlanning,
+        PlanningForMachine: action.machinePlanning
       }
     case SAVE_TITLE_MACHINE:
     return {
       ...state,
-      title: action.title,
+      title: action.title
     }
     case SEARCH_INFO_MACHINE:
       return {
@@ -123,6 +135,61 @@ const reducer = (state = initialState, action = {}) => {
         id:'',
         name: '',
         yield_time: ''
+      }
+    case ADD_TASKS:
+      return {
+        ...state,
+        MachinePlanning: [
+          ...state.MachinePlanning,
+          {
+            id: action.id,
+            name: action.name,
+            start: action.start,
+            _end: action.end,
+            progress: action.progress,
+            dependencies: action.dependencies,
+            lancement: action.lancement,
+            quantity: action.quantity
+          }
+        ]
+      }
+    case UPDATE_TASKS:
+      return {
+        ...state,
+        MachinePlanning: state.MachinePlanning.map(planning => {
+          if (planning.id === action.id ) {
+            return {
+              id: action.id,
+              name: action.name,
+              start: action.start,
+              _end: action.end,
+              progress: action.progress,
+              dependencies: action.dependencies,
+              lancement: action.lancement,
+              quantity: action.quantity
+            }
+          }
+          else {
+            return planning;
+          }
+        }
+        ),
+        id: '',
+        name: '',
+        progress: 10,
+        dependencies: '',
+        lancementn:'',
+        quantity: ''
+      }
+    case DELETE_TASKS:
+      return {
+        MachinePlanning: state.MachinePlanning.filter((planning) => { return action.id !== lanning.id }),
+        id: '',
+        name: '',
+        progress: 10,
+        dependencies: '',
+        lancementn: '',
+        quantity: ''
       }
     default:
       return state;

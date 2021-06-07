@@ -2,10 +2,18 @@ import React from 'react';
 
 const ModalWindow = ({ MachinePlanning, getId, clickTasks }) => {
   const handleClickOnTask = (e) => {
-    console.log(e,e.target.childNodes[0].dataset.lancement)
-    clickTasks(e.target.childNodes[0].dataset.planning_id, e.target.childNodes[0].dataset.name, e.target.childNodes[0].dataset.start, e.target.childNodes[0].dataset._end, e.target.childNodes[0].dataset.progress, e.dependencies, e.target.childNodes[0].dataset.lancement, e.target.childNodes[0].dataset.quantity);
+    clickTasks(
+      e.target.childNodes[0].dataset.planning_id,
+      e.target.childNodes[0].dataset.name,
+      e.target.childNodes[0].dataset.start,
+      e.target.childNodes[0].dataset._end,
+      e.target.childNodes[0].dataset.progress,
+      e.dependencies,
+      e.target.childNodes[0].dataset.lancement,
+      e.target.childNodes[0].dataset.quantity
+    );
   };
-  const findTask = MachinePlanning.find((task)=> task.planning_id == getId)
+  const findTask = MachinePlanning.find((task) => task.planning_id == getId)
   return (
     <div className="windowModal--open" onClick={handleClickOnTask} >
       <div className="windowModal--none"
@@ -17,8 +25,7 @@ const ModalWindow = ({ MachinePlanning, getId, clickTasks }) => {
         data-_end={findTask._end}
         data-progress={findTask.progress}
       >
-
-        </div>
+      </div>
       <h1 className="windowModal-titre">Lancement {findTask.lancement}</h1>
       <div className="windowModal-info">
         <p className="windowModal-info-task" data-planning_id={findTask.planning_id} ><span>id </span>: {findTask.planning_id}</p>

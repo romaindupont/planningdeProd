@@ -24,27 +24,27 @@ const PopupEnd = ({
   };
   const yesClick = (e) => {
     e.preventDefault();
-    if(e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value ===''){
-      changePopup(true,"Attention Vous ne devez selectionner qu'un bouton");
+    if(e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value === ''){
+      changePopup(true, "Attention Vous ne devez selectionner qu'un bouton");
     }
-    if(e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value !==''){
-      changePopup(true,"Attention Vous ne pouvez faire qu'un choix");
+    if(e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value !== ''){
+      changePopup(true, "Attention Vous ne pouvez faire qu'un choix");
     }
-    if(!e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value ==='') {
-      changePopup(true,"Attention Vous devez indiquer une date");
+    if(!e.target.form.maintenant.checked && e.target.form.datedef.checked && e.target.form.dateFin.value === '') {
+      changePopup(true, "Attention Vous devez indiquer une date");
     }
-    if(!e.target.form.maintenant.checked && !e.target.form.datedef.checked && e.target.form.dateFin.value ===''){
-      changePopup(true,"Attention Vous devez faire un choix");
+    if(!e.target.form.maintenant.checked && !e.target.form.datedef.checked && e.target.form.dateFin.value === ''){
+      changePopup(true, "Attention Vous devez faire un choix");
     }
-    if(e.target.form.datedef.checked && !moment(e.target.form.dateFin.value,'YYYY-MM-DD HH:mm:ss',true).isValid() && (!e.target.form.maintenant.checked)){
-      changePopup(true,"Attention Le format de la date n'est pas le bon");
+    if(e.target.form.datedef.checked && !moment(e.target.form.dateFin.value, 'YYYY-MM-DD HH:mm:ss', true).isValid() && (!e.target.form.maintenant.checked)){
+      changePopup(true, "Attention Le format de la date n'est pas le bon");
     }
-    if(e.target.form.maintenant.checked && (!e.target.form.datedef.checked && e.target.form.dateFin.value ==='')) {
-      const aujourdhui =moment().format('YYYY-MM-DD HH:mm:ss');
+    if(e.target.form.maintenant.checked && (!e.target.form.datedef.checked && e.target.form.dateFin.value === '')) {
+      const aujourdhui = moment().format('YYYY-MM-DD HH:mm:ss');
       updatedEnd(aujourdhui);
       setEndClick(false);
     }
-    if(e.target.form.datedef.checked && moment(e.target.form.dateFin.value,'YYYY-MM-DD HH:mm:ss',true).isValid() && (!e.target.form.maintenant.checked)) {
+    if(e.target.form.datedef.checked && moment(e.target.form.dateFin.value, 'YYYY-MM-DD HH:mm:ss', true).isValid() && (!e.target.form.maintenant.checked)) {
       updatedEnd(e.target.form.dateFin.value);
       setEndClick(false);
     }

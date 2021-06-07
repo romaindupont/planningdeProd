@@ -4,7 +4,7 @@ import { changeValue } from '../../actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  currentValue: state.machines[ownProps.name],
+  currentValue: state.machines[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

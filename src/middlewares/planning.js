@@ -1,4 +1,7 @@
 import axios from 'axios';
+import moment from 'moment';
+import momentBusinessDays from 'moment-business-days';
+import momentBusinessTime from 'moment-business-time';
 import {
   FETCH_PLANNING,
   savePlanning,
@@ -13,9 +16,6 @@ import {
   deleteTasks,
 } from '../actions';
 import { saveErrorMessage } from '../actions/workingDay';
-import moment from 'moment';
-import momentBusinessDays from 'moment-business-days';
-import momentBusinessTime from 'moment-business-time';
 import { openDate } from '../Utils/openDate';
 
 const planning = (store) => (next) => (action) => {

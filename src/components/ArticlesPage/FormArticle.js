@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import Field from '../../containers/ArticlesPage/FieldArticle';
 import Popup from '../../containers/Reglages/Popup';
+import SelectMachine from '../../containers/GanttMachine/MachineChoice/Select';
 import { generateId } from '../../Utils';
 
-const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle })=> {
+const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle }) => {
   const [ isShowing, setIsShowing ] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (event.target.id.value === '') {
-      addArticle(event.target.article_name.value,
+      addArticle(
+        event.target.article_name.value,
         event.target.level.value,
         event.target.machine_id.value,
         event.target.operating_time.value,
@@ -18,8 +20,8 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
       setIsShowing(true);
     }
     else {
-      const UpdateArticle = articleList.filter((article)=> {
-        if (article.id == event.target.id.value){
+      const UpdateArticle = articleList.filter((article) => {
+        if (article.id == event.target.id.value) {
           updateArticle(
             article.id,
             event.target.article_name.value,
@@ -39,9 +41,9 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
     deleteArticle(id);
     setIsShowing(true);
   };
-
   return (
-    <form className="articlePage-form" onSubmit={handleSubmit}>
+    <>
+      <form className="articlePage-form" onSubmit={handleSubmit}>
         <Field
           type="text"
           placeholder="id"
@@ -69,7 +71,7 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
         />
         <Field
           type="text"
-          placeholder="ordre Fab."
+          placeholder="description"
           name="description"
         />
         <Field
@@ -82,7 +84,13 @@ const FormArticle = ({ id, articleList, addArticle, updateArticle, deleteArticle
           <button className="form-field-button remove" onClick={handleDelete}>Remove</button>
         </div>
         {isShowing && (<Popup setIsShowing={setIsShowing} />)}
-    </form>
-  )
-}
+      </form>
+      <div className="selectMachineInArticlePage">
+        <h6 className="title-selectMachineInArticlePage">Id Machine ?</h6>
+        <SelectMachine classNom="articleSelect"/>
+      </div>
+    </>
+  );
+};
+
 export default FormArticle;

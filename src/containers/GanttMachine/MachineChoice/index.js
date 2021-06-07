@@ -4,7 +4,7 @@ import { saveMachinePlanning, saveTitleMachine } from '../../../actions/machines
 
 const mapStateToProps = (state) => ({
   MachinePlanning: state.machines.MachinePlanning,
-  PlanningForMachine: state.machines.PlanningForMachine,
+  PlanningForMachine: state.machines.PlanningForMachine
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   saveTitleMachine: (title) => {
     dispatch(saveTitleMachine(title));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MachineChoice);

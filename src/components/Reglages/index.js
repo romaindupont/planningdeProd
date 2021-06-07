@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BackToMenu from '../BackToMenu';
 import FormReglages from '../../containers/Reglages/Form';
+import BackToMenu from '../BackToMenu';
 
 const Reglages = () => {
   return (
@@ -10,7 +10,7 @@ const Reglages = () => {
       <h1 className="reglages-title">Réglages</h1>
       <div className="container-reglages-hour">
         <h2 className="reglages-title">Horaires</h2>
-      <FormReglages />
+        <FormReglages />
       </div>
     </div>
   );

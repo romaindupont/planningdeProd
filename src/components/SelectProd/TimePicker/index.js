@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalTimePicker from './ModalTimePicker';
 
 
-const TimePicker = ({changeField,start_hours, name, saveTimePicker})=> {
+const TimePicker = ({ changeField, start_hours, name, saveTimePicker })=> {
   const [ hourTime, setHourTime ] = useState(8);
   const [ minTime, setMinTime ] = useState(0);
   const [ show,setShow ] = useState(false);
@@ -18,30 +18,30 @@ const TimePicker = ({changeField,start_hours, name, saveTimePicker})=> {
     saveTimePicker(valueinput)
     setShow(false);
   };
-  const changeInput =()=> {
+  const changeInput = () => {
     changeField(valueinput);
   };
-   return (
+  return (
     <>
-    <div className="background-Modal">
-    <input
-      name={name}
-      type="text"
-      placeholder="Heure départ HH:MM:SS"
-      onChange={changeInput}
-      onFocus={timeFocus}
-      value={valueinput}
-    />
-      <ModalTimePicker
-        show={show}
-        setShow={setShow}
-        hourTime={hourTime}
-        setHourTime={setHourTime}
-        minTime={minTime}
-        setMinTime={setMinTime}
-        dateChoice={dateChoice}
-      />
-    </div>
+      <div className="background-Modal">
+        <input
+          name={name}
+          type="text"
+          placeholder="Heure départ HH:MM:SS"
+          onChange={changeInput}
+          onFocus={timeFocus}
+          value={valueinput}
+        />
+        <ModalTimePicker
+          show={show}
+          setShow={setShow}
+          hourTime={hourTime}
+          setHourTime={setHourTime}
+          minTime={minTime}
+          setMinTime={setMinTime}
+          dateChoice={dateChoice}
+        />
+      </div>
     </>
   );
 };

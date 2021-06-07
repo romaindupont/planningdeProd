@@ -3,14 +3,14 @@ import moment from 'moment';
 
 const Tbody = ({ tasks, search, saveLct, saveIdLct }) => {
   let filterTasks = tasks.filter((task) => task.lancementn===parseInt(search));
-  if (filterTasks.length===0) {
-    filterTasks=tasks;
+  if (filterTasks.length === 0) {
+    filterTasks = tasks;
   }
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
       await saveIdLct(e.target.value);
-      const theLancement = tasks.find((lancement) => lancement.id==e.target.value);
+      const theLancement = tasks.find((lancement) => lancement.id == e.target.value);
       saveLct(
         theLancement.id,
         theLancement.lancementn,

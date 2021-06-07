@@ -9,7 +9,6 @@ import GanttMachine from './containers/GanttMachine';
 import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
 import MachinesPage from './components/MachinesPage';
-import GanttGeneral from './containers/GanttGeneral';
 
 const Hello = () => {
   return (
@@ -27,9 +26,6 @@ const Hello = () => {
         </Link>
         <Link to="/gantt" rel="noreferrer">
           <button type="button">Planning Général</button>
-        </Link>
-        <Link to="/ganttNew" rel="noreferrer">
-          <button type="button">Planning Général New</button>
         </Link>
         <Link to="/lancement" rel="noreferrer">
           <button type="button">Lancement</button>
@@ -76,7 +72,6 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
         <Route path="/reglages" component={Reglages} />
         <Route path="/planning/machine" component={GanttMachine} />
         <Route path="/machines" component={MachinesPage} />
-        <Route path="/ganttNew" component={GanttGeneral} />
       </Switch>
     </HashRouter>
   );

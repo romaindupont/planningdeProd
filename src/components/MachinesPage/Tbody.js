@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Tbody = ({ listMachine, saveIdMachine, searchInfoMachine, wait }) => {
   const handleCheckBox = async (e) => {
@@ -30,7 +30,7 @@ const Tbody = ({ listMachine, saveIdMachine, searchInfoMachine, wait }) => {
       </tr>
       ))}
     </tbody>
-  )
-}
+  );
+};
 
 export default Tbody;

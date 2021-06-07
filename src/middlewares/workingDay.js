@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { FETCH_WORKING_DAY, saveWorkingDayList, UPDATE_WORKING_DAY, saveErrorMessage } from '../actions/workingDay';
+import {
+  FETCH_WORKING_DAY,
+  saveWorkingDayList,
+  UPDATE_WORKING_DAY,
+  saveErrorMessage
+} from '../actions/workingDay';
 
 const workingDay = (store) => (next) => (action) => {
   switch (action.type) {
@@ -37,7 +42,6 @@ const workingDay = (store) => (next) => (action) => {
           })
           .catch((error) => {
             store.dispatch(saveErrorMessage(error));
-            //console.error('Error', error);
           });
         break;
       }

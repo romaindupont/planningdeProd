@@ -15,7 +15,7 @@ const FieldMachine = ({ type, placeholder, name, currentValue, changeValue }) =>
           }}
         />
       </div>
-  )
-}
+  );
+};
 
 export default FieldMachine;

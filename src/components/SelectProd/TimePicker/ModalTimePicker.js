@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import DataHour from '../../../data/dataHour';
+import React from 'react';
 import DatePicker from '../DatePicker';
+import DataHour from '../../../data/dataHour';
 
 const ModalTimePicker = ({
   show,
@@ -14,7 +14,7 @@ const ModalTimePicker = ({
   const previousClick = (e) => {
     e.preventDefault();
     const previousTime = hourTime-1;
-    if (previousTime===-1) {
+    if (previousTime === -1) {
       setHourTime(23);
     }
     else {
@@ -23,8 +23,8 @@ const ModalTimePicker = ({
   };
   const nextClick = (e) => {
     e.preventDefault();
-    const nextTime = parseInt(hourTime)+1;
-    if (nextTime===24) {
+    const nextTime = parseInt(hourTime) + 1;
+    if (nextTime === 24) {
       setHourTime(0);
     }
     else {
@@ -33,8 +33,8 @@ const ModalTimePicker = ({
   };
   const previousClickMin = (e) => {
     e.preventDefault();
-    const previousTime = minTime-1;
-    if (previousTime===-1) {
+    const previousTime = minTime - 1;
+    if (previousTime === -1) {
       setMinTime(59);
     }
     else {
@@ -43,8 +43,8 @@ const ModalTimePicker = ({
   };
   const nextClickMin = (e) => {
     e.preventDefault();
-    const nextTime = parseInt(minTime)+1;
-    if (nextTime===60) {
+    const nextTime = parseInt(minTime) + 1;
+    if (nextTime === 60) {
       setMinTime(0);
     }
     else {
@@ -53,7 +53,7 @@ const ModalTimePicker = ({
   };
   const previousClickMinTen = (e) => {
     e.preventDefault();
-    const previousTime = minTime-10;
+    const previousTime = minTime - 10;
     if (previousTime<0) {
       setMinTime(59);
     }
@@ -63,8 +63,8 @@ const ModalTimePicker = ({
   };
   const nextClickMinTen = (e) => {
     e.preventDefault();
-    const nextTime = parseInt(minTime)+10;
-    if (nextTime>60) {
+    const nextTime = parseInt(minTime) + 10;
+    if (nextTime > 60) {
       setMinTime(0);
     }
     else {

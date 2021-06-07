@@ -4,7 +4,7 @@ import { changeValue } from '../../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
     currentValue: state.lancement[ownProps.name],
-    popupWindow : state.lancement.popupWindow,
+    popupWindow : state.lancement.popupWindow
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
