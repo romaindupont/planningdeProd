@@ -5,7 +5,6 @@ import ModalWindow from '../../../containers/GanttMachine/ContainerBloc/ModalWin
 import { addSpan } from '../../../Utils/addSpan';
 
 const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowModalOpen, getId, setGetId }) => {
-
   const openWindowClick = async (e) => {
     setGetId(e.target.getAttribute("data-my-id"));
     await setWindowModalOpen(!windowModalOpen);

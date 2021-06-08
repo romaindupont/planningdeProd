@@ -25,7 +25,7 @@ const planningController = {
       res.status(500).send(error);
     }
   },
-  delete: async(req,res) => {
+  delete: async(req, res) => {
     try {
       await planning_model.dataPlanning.deletePlanning(req.params.id);
       return res.status(201).json({
@@ -37,9 +37,9 @@ const planningController = {
       res.status(500).send(error);
     }
   },
-  update: async(req,res) => {
+  update: async(req, res) => {
     try {
-      await planning_model.dataPlanning.updatePlanning(req.body,req.params.id);
+      await planning_model.dataPlanning.updatePlanning(req.body, req.params.id);
       return res.status(201).json({
         message: "Votre tâche est mise à jour"
       });
@@ -48,9 +48,9 @@ const planningController = {
       res.status(500).send(error);
     }
   },
-  updateStartDate: async(req,res) => {
+  updateStartDate: async(req, res) => {
     try {
-      await planning_model.dataPlanning.updateStartDate(req.body,req.params.id);
+      await planning_model.dataPlanning.updateStartDate(req.body, req.params.id);
       return res.status(201).json({
         message: "Date est mise à jour"
       });
@@ -59,9 +59,9 @@ const planningController = {
       res.status(500).send(error);
     }
   },
-  updateEndDate: async(req,res) => {
+  updateEndDate: async(req, res) => {
     try {
-      await planning_model.dataPlanning.updateEndDate(req.body,req.params.id);
+      await planning_model.dataPlanning.updateEndDate(req.body, req.params.id);
       return res.status(201).json({
         message: "Date est mise à jour"
       });
@@ -70,9 +70,9 @@ const planningController = {
       res.status(500).send(error);
     }
   },
-  updateQuantity: async(req,res) => {
+  updateQuantity: async(req, res) => {
     try {
-      await planning_model.dataPlanning.updateQuantity(req.body,req.params.id);
+      await planning_model.dataPlanning.updateQuantity(req.body, req.params.id);
       return res.status(201).json({
         message: "Quantité mise à jour"
       });
@@ -91,7 +91,7 @@ const planningController = {
       console.log(error);
       res.status(500).send(error);
     }
-  },
+  }
 };
 
 module.exports = planningController;

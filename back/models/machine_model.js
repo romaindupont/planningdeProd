@@ -44,7 +44,7 @@ const dataMachine = {
     const sql = 'INSERT INTO machine(id, name, yield_time, created_at ) VALUES ($1, $2, $3, $4) RETURNING *';
     const aujourdhui = 'now()';
     const { name, yield_time } = body;
-    const result = await pool.pool.query(sql,[ newId, name, yield_time, aujourdhui ]);
+    const result = await pool.pool.query(sql, [ newId, name, yield_time, aujourdhui ]);
     const machineAdd = new Machine(result.rows[0]);
     return machineAdd;
   },
@@ -53,7 +53,7 @@ const dataMachine = {
     const result = await pool.pool.query(sql);
     const id = result.rows[0];
     return id;
-  },
+  }
 };
 
 module.exports = {

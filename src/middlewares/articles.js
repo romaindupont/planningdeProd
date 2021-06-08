@@ -20,9 +20,9 @@ const articles = (store) => (next) => (action) => {
       axios.post('/add',
         {
           reference: state.articles.article_name,
-          machine_id: state.articles.machine_id,
+          machine_id: parseInt(state.articles.machine_id),
           tempsop: state.articles.operating_time,
-          liaison: state.articles.dependencies,
+          liaison: parseInt(state.articles.dependencies),
           niveau: state.articles.level,
           description: state.articles.description
         },
@@ -74,9 +74,9 @@ const articles = (store) => (next) => (action) => {
             axios.put(`/articles/update/${state.articles.id}`,
             {
               reference: state.articles.article_name,
-              machine_id: state.articles.machine_id,
+              machine_id: parseInt(state.articles.machine_id),
               tempsop: state.articles.operating_time,
-              liaison: state.articles.dependencies,
+              liaison: parseInt(state.articles.dependencies),
               niveau: state.articles.level,
               description: state.articles.description
             },

@@ -129,7 +129,14 @@ const reducer = (state = initialState, action = {}) => {
         list: [
           ...state.list,
           action.newarticle
-        ]
+        ],
+        id:'',
+        article_name:'',
+        level:'',
+        machine_id:'',
+        operating_time:'',
+        description: '',
+        dependencies:''
       };
     case UPDATE_ARTICLE:
         return {

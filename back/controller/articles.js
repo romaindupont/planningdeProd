@@ -5,7 +5,7 @@ const articlesController = {
     try {
       const id = await articles_model.dataArticles.lastId();
       const newId = id.max+1;
-      const newArticle = await articles_model.dataArticles.addArticles(newId,req.body);
+      const newArticle = await articles_model.dataArticles.addArticles(newId, req.body);
       return res.status(201).json({
           logging: true,
           message: "Votre article est enregistré",
@@ -38,11 +38,10 @@ const articlesController = {
       console.log(error);
       res.status(500).send(error);
     }
-
   },
   update: async(req,res) => {
     try {
-      await articles_model.dataArticles.updateArticles(req.body,req.params.id);
+      await articles_model.dataArticles.updateArticles(req.body, req.params.id);
       return res.status(201).json({
         message: "Votre article est mis à jour"
       });
@@ -50,7 +49,7 @@ const articlesController = {
       console.log(error);
       res.status(500).send(error);
     }
-  },
+  }
 };
 
 module.exports = articlesController;

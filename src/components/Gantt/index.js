@@ -4,11 +4,11 @@ import moment from 'moment';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import Field from '../../containers/Field';
-import SelectProd from '../../containers/SelectProd/SelectProd';
-import Popup from '../../containers/Reglages/Popup';
 import GanttGeneral from '../../containers/GanttGeneral';
-import Recalcul from '../Recalcul';
+import Popup from '../../containers/Reglages/Popup';
+import SelectProd from '../../containers/SelectProd/SelectProd';
 import BackToMenu from '../BackToMenu';
+import Recalcul from '../Recalcul';
 import { generateId } from '../../Utils';
 
 const GanttField = ({

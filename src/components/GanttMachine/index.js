@@ -9,9 +9,9 @@ import BackToMenu from '../BackToMenu';
 import ContainerDate from './ContainerDate';
 import Return from '../GanttMachine/Return';
 import { PdfGantt } from './PdfGantt';
-import Camera from '../../../assets/images/camera.png';
 import { DiffDay } from '../../Utils/diffDay';
 import { addSpanForTasks } from '../../Utils/addSpanForTasks';
+import Camera from '../../../assets/images/camera.png';
 
 const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) => {
   const [ windowModalOpen, setWindowModalOpen ] = useState(false);
@@ -32,7 +32,6 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
         canvas.remove()
         PdfGantt(title,MachinePlanning,image)
     })
-
   }
   const changeDate = async (e) => {
     e.preventDefault();

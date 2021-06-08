@@ -34,11 +34,11 @@ class Articles {
   }
 }
 const dataArticles = {
-  addArticles: async (id,body) => {
+  addArticles: async (id, body) => {
     const sql = 'INSERT INTO articles(id, reference, machine_id, tempsop, liaison, niveau, created_at, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
     const aujourdhui = 'now()';
     const { reference, machine_id, tempsop, liaison, niveau, description } = body;
-    const result = await pool.pool.query(sql,[ id, reference, machine_id, tempsop, liaison,niveau, aujourdhui, description ]);
+    const result = await pool.pool.query(sql, [ id, reference, machine_id, tempsop, liaison, niveau, aujourdhui, description ]);
     const articlesAdd = new Articles(result.rows[0]);
     return articlesAdd;
   },
@@ -48,15 +48,10 @@ const dataArticles = {
     const id = result.rows[0];
     return id;
   },
-  /* getSpecificArticles: async (params) => {
-    const sql ="SELECT row_to_json(quest) as questions FROM (SELECT * ,(SELECT json_agg(alb) FROM ( SELECT * from answers WHERE id_question= a.id) alb)AS answers FROM questions as a WHERE id_category=$1 LIMIT 10 ) quest ORDER BY random();";
-    const result = await pool.pool.query(sql,[params]);
-    return result.rows;
-  }, */
   getArticles: async (body) => {
     const sql ='SELECT * FROM articles WHERE id=$1';
     const { id } = body;
-    const result = await pool.pool.query(sql,[ id ]);
+    const result = await pool.pool.query(sql, [ id ]);
     return result.rows[0];
   },
   articlesList: async () => {
@@ -76,8 +71,7 @@ const dataArticles = {
     const { reference, machine_id, tempsop, liaison, niveau, description } = body;
     const result = await pool.pool.query(sql, [ reference, machine_id, tempsop, liaison,niveau, aujourdhui, description, id ]);
     return result.rows;
-  },
-
+  }
 };
 
 module.exports = {

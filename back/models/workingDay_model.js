@@ -47,8 +47,7 @@ const dataWorkingDay = {
     const { open_close, hour1, hour2, hour3, hour4, numerojour } = body;
     const result = await pool.pool.query(sql, [ open_close, hour1, hour2, hour3, hour4, numerojour ]);
     return result.rows;
-  },
-
+  }
 };
 
 module.exports = {

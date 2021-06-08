@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { DateTime } from "luxon";
 import classNames from 'classnames';
-import DatePicker from '../../containers/SelectProd/DatePicker';
 import ContainerBloc from '../../containers/GanttMachine/ContainerBloc';
+import DatePicker from '../../containers/SelectProd/DatePicker';
 import BackToMenu from '../BackToMenu';
 import ContainerDate from '../../components/GanttMachine/ContainerDate';
 import Return from '../GanttMachine/Return';
