@@ -99,14 +99,14 @@ const planning = (store) => (next) => (action) => {
           })
           .then((response) => {
             store.dispatch(updateTasks(
-              state.tasks.id,
-              state.tasks.name,
-              state.tasks.start,
-              state.tasks.end,
-              state.tasks.progress,
-              state.tasks.dependencies,
-              state.tasks.lancementn,
-              state.tasks.quantity
+              response.data.updateLine[0].id,
+              response.data.updateLine[0].name,
+              response.data.updateLine[0].start,
+              response.data.updateLine[0]._end,
+              response.data.updateLine[0].progress,
+              response.data.updateLine[0].dependencies,
+              response.data.updateLine[0].lancement,
+              response.data.updateLine[0].quantity
             ));
             store.dispatch(saveErrorMessage(response.data.message));
           })
@@ -134,6 +134,7 @@ const planning = (store) => (next) => (action) => {
       case ADD_SEVERAL_LINE_IN_DB:
         {
           const state = store.getState();
+          console.log(state.launch.n_lancement)
           for (let i= 0; i < state.launch.lancement.length; i++) {
             openDate();
             const calcul = state.launch.lancement[i].tempsop * parseInt(state.articles.quantity);
@@ -141,6 +142,7 @@ const planning = (store) => (next) => (action) => {
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
             const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+            const lancementCalcul = parseInt(state.launch.n_lancement) + 1;
           axios.post('/planning/add/several',
             {
               name: state.launch.lancement[i].reference,
@@ -148,7 +150,7 @@ const planning = (store) => (next) => (action) => {
               _end: r,
               progress: 10,
               dependencies: '',
-              lancement: state.launch.n_lancement,
+              lancement: lancementCalcul,
               quantity: state.tasks.quantity
             },
               {

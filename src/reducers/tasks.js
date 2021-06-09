@@ -91,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           tasks: state.tasks.map(task => {
-            if (task.id === action.id) {
+            if (task.id == action.id) {
               return {
                 id: task.id,
                 name: action.name,

@@ -39,9 +39,10 @@ const planningController = {
   },
   update: async(req, res) => {
     try {
-      await planning_model.dataPlanning.updatePlanning(req.body, req.params.id);
+      const updateLine = await planning_model.dataPlanning.updatePlanning(req.body, req.params.id);
       return res.status(201).json({
-        message: "Votre tâche est mise à jour"
+        message: "Votre tâche est mise à jour",
+        updateLine
       });
     } catch (error) {
       console.log(error);

@@ -83,7 +83,7 @@ const dataPlanning = {
     return result.rows[0];
   },
   updatePlanning: async (body, id) => {
-    const sql = 'UPDATE planning SET name=$1, start=$2, _end=$3, progress=$4, dependencies=$5, updated_at=$6, lancement=$7, quantity=$8 WHERE id=$9';
+    const sql = 'UPDATE planning SET name=$1, start=$2, _end=$3, progress=$4, dependencies=$5, updated_at=$6, lancement=$7, quantity=$8 WHERE id=$9 RETURNING *';
     const aujourdhui = 'now()';
     const { name, start, _end, progress, dependencies, lancement, quantity } = body;
     const result = await pool.pool.query(sql, [ name, start, _end, progress, dependencies, aujourdhui, lancement, quantity, id ]);
@@ -94,6 +94,12 @@ const dataPlanning = {
     const result = await pool.pool.query(sql);
     const PlanningMachine = result.rows;
     return PlanningMachine;
+  },
+  lastId: async () => {
+    const sql ='SELECT MAX(id) FROM planning';
+    const result = await pool.pool.query(sql);
+    const id = result.rows[0];
+    return id;
   }
 };
 

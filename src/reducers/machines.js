@@ -42,13 +42,15 @@ const initialState = {
   PlanningForMachine: [],
   title: '',
   name: '',
-  wait:true,
+  wait: true,
   start: '',
   _end: '',
   progress: '',
   dependencies: '',
-  lancement: '',
-  quantity:''
+  lancement: 0,
+  quantity:'',
+  planning_id: '',
+  reference: ''
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -143,30 +145,34 @@ const reducer = (state = initialState, action = {}) => {
           ...state.MachinePlanning,
           {
             id: action.id,
+            planning_id: action.id,
             name: action.name,
             start: action.start,
             _end: action.end,
             progress: action.progress,
             dependencies: action.dependencies,
             lancement: action.lancement,
-            quantity: action.quantity
+            quantity: action.quantity,
+            reference: action.name
           }
         ]
       }
     case UPDATE_TASKS:
+      console.log(action)
       return {
         ...state,
         MachinePlanning: state.MachinePlanning.map(planning => {
-          if (planning.id === action.id ) {
+          if (planning.planning_id === action.id ) {
             return {
-              id: action.id,
+              planning_id: action.id,
               name: action.name,
               start: action.start,
               _end: action.end,
               progress: action.progress,
               dependencies: action.dependencies,
               lancement: action.lancement,
-              quantity: action.quantity
+              quantity: action.quantity,
+              reference: action.name
             }
           }
           else {
@@ -178,17 +184,17 @@ const reducer = (state = initialState, action = {}) => {
         name: '',
         progress: 10,
         dependencies: '',
-        lancementn:'',
+        lancement:'',
         quantity: ''
       }
     case DELETE_TASKS:
       return {
-        MachinePlanning: state.MachinePlanning.filter((planning) => { return action.id !== lanning.id }),
+        MachinePlanning: state.MachinePlanning.filter((planning) => { return action.id !== planning.planning_id }),
         id: '',
         name: '',
         progress: 10,
         dependencies: '',
-        lancementn: '',
+        lancement: '',
         quantity: ''
       }
     default:

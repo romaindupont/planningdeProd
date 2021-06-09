@@ -13,13 +13,13 @@ const ModalWindow = ({ MachinePlanning, getId, clickTasks }) => {
       e.target.childNodes[0].dataset.quantity
     );
   };
-  const findTask = MachinePlanning.find((task) => task.planning_id == getId)
+  const findTask = MachinePlanning.find((task) => task.planning_id == getId);
   return (
     <div className="windowModal--open" onClick={handleClickOnTask} >
       <div className="windowModal--none"
         data-lancement={findTask.lancement}
         data-planning_id={findTask.planning_id}
-        data-name={findTask.name}
+        data-name={findTask.reference}
         data-quantity={findTask.quantity}
         data-start={findTask.start}
         data-_end={findTask._end}
@@ -29,7 +29,7 @@ const ModalWindow = ({ MachinePlanning, getId, clickTasks }) => {
       <h1 className="windowModal-titre">Lancement {findTask.lancement}</h1>
       <div className="windowModal-info">
         <p className="windowModal-info-task" data-planning_id={findTask.planning_id} ><span>id </span>: {findTask.planning_id}</p>
-        <p className="windowModal-info-task"><span>Nom </span>: {findTask.name}</p>
+        <p className="windowModal-info-task"><span>Nom </span>: {findTask.reference}</p>
         <p className="windowModal-info-task"><span>Quantité </span>: {findTask.quantity}</p>
         <p className="windowModal-info-task"><span>Date début </span>: {findTask.start}</p>
         <p className="windowModal-info-task"><span>Date fin </span>: {findTask._end}</p>
