@@ -46,6 +46,11 @@ Start by using node index.js in your windows shell in file name back.
 * Romain Dupont - Developpeur Front & Back (https://github.com/romaindupont) [myWebsite](https://www.romaindupont.me/)
 
 ## Some Screen Print
+![visuel](https://github.com/romaindupont/planningdeProd/blob/main/planningGG.png)
+![visuel](https://github.com/romaindupont/planningdeProd/blob/main/planningG2.png)
+![visuel](https://github.com/romaindupont/planningdeProd/blob/main/planningOrdo1.png)
+![visuel](https://github.com/romaindupont/planningdeProd/blob/main/baseArticles.png)
+![visuel](https://github.com/romaindupont/planningdeProd/blob/main/LctProd.png)
 
 ## License
 
