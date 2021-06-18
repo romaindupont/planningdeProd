@@ -2,14 +2,11 @@ import React, {useState} from 'react';
 import Tbody from '../../containers/ArticlesPage/Table/Tbody';
 import Thead from './Thead';
 
-const Table = () => {
-  const handleChange = (e) => {
-    console.log(e)
-  };
+const Table = ({ search }) => {
   return (
     <table>
       <Thead />
-      <Tbody />
+      <Tbody search={search} />
     </table>
   );
 };

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Tbody = ({ saveId, searchInfo, articlesList, waitArticle }) => {
+const Tbody = ({ saveId, searchInfo, articlesList, waitArticle, search }) => {
+  let listArticlesFilter = articlesList.filter((article) => article.reference.startsWith(search));
+  if (listArticlesFilter.length === 0) {
+    listArticlesFilter = articlesList;
+  }
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
@@ -26,7 +30,7 @@ const Tbody = ({ saveId, searchInfo, articlesList, waitArticle }) => {
     <tbody>
       {waitArticle && (<tr key="patience" className="app-load"><td value="">Veuillez patienter</td></tr>)}
       {!waitArticle && (
-        articlesList.map((article, i)=>
+        listArticlesFilter.map((article, i)=>
           <tr key={i} id={article.id}>
             <td ><input onChange={handleCheckBox} value={article.id} type="checkbox"></input></td>
             <td >{article.id}</td>

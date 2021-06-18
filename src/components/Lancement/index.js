@@ -14,7 +14,7 @@ const Lancement = () => {
     <div className="lancement">
       <BackToMenu />
       <h1 className="lancement-title">Lancement en Prod</h1>
-      <SearchBar changeNumber={changeNumber} search={search} />
+      <SearchBar changeNumber={changeNumber} search={search} placeholder="Numero de lancement"/>
       <div className="container-lancement">
         <Table search={search}/>
         <Form />

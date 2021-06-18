@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SearchBar = ({ changeNumber, search })=> {
+const SearchBar = ({ changeNumber, search, placeholder })=> {
   return (
     <form className="lancement-form" action="" type="submit">
       <span className="lancement-search">Recherche</span>
-      <input className="lancement-input" type="text" placeholder="Numero de lancement" onChange={changeNumber} value={search} />
+      <input className="lancement-input" type="text" placeholder={placeholder} onChange={changeNumber} value={search} />
     </form>
   );
 };

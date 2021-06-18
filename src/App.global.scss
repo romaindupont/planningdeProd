@@ -886,8 +886,12 @@ thead th {
 
   &-task {
     margin-right: 1rem;
+    font-size: 0.7rem;
     & > span {
       text-decoration: underline;
+    }
+    &--small {
+      font-size: 0.6rem;
     }
   }
   &-progress {

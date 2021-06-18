@@ -28,6 +28,12 @@ const MachineChoice = ({ saveMachinePlanning, MachinePlanning, PlanningForMachin
       if (e.target[2].value == 2) {
         saveTitleMachine(`Planning M8 ${e.target[2].value}`);
       }
+      if (e.target[2].value == 3) {
+        saveTitleMachine(`Planning VNC ${e.target[2].value}`);
+      }
+      if (e.target[2].value == 4) {
+        saveTitleMachine(`Planning QT200 ${e.target[2].value}`);
+      }
       await saveMachinePlanning(list, e.target[2].value);
       const child = document.querySelectorAll('.progress');
       for ( let i = 0 ; i < child.length ; i++ ) {
