@@ -57,10 +57,10 @@ const GanttMachine = ({ dt, saveContainerDate, tasks, title, MachinePlanning }) 
           <ContainerDate dt={dt} />
           <ContainerBloc dt={dt} windowModalOpen={windowModalOpen} setWindowModalOpen={setWindowModalOpen} getId={getId} setGetId={setGetId} />
         </div>
-        <MachineChoice />
-        <button className="button-screenshot" onClick={startCapture}>
-          <img className="button-screenshot--img" src={Camera} alt="camera" />
-        </button>
+          <MachineChoice />
+          <button className="button-screenshot" onClick={startCapture}>
+            <img className="button-screenshot--img" src={Camera} alt="camera" />
+          </button>
       </div>
     </>
   );
