@@ -27,6 +27,7 @@ const ModalWindow = ({ MachinePlanning, getId, clickTasks }) => {
       >
       </div>
       <h1 className="windowModal-titre">Lancement {findTask.lancement}</h1>
+        <p className="windowModal-info-task--small"><span>Machine </span>: {findTask.machinename}</p>
       <div className="windowModal-info">
         <p className="windowModal-info-task" data-planning_id={findTask.planning_id} ><span>id </span>: {findTask.planning_id}</p>
         <p className="windowModal-info-task"><span>Nom </span>: {findTask.reference}</p>

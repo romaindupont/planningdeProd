@@ -5,7 +5,6 @@ import './App.global.scss';
 import Gantt from './containers/Gantt';
 import Lancement from './containers/Lancement';
 import Ordonnancement from './containers/Ordonnancement';
-import GanttMachine from './containers/GanttMachine';
 import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
 import MachinesPage from './components/MachinesPage';
