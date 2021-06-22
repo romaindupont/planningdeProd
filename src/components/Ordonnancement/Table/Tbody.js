@@ -12,14 +12,15 @@ const Tbody = ({
   tasks,
   filterList,
   saveLct,
-  saveIdLct
+  saveIdLct,
+  PlanningForMachine
 }) => {
   let filteredTasks = filterList;
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
       await saveIdLct(e.target.value);
-      const theLancement = tasks.find((lancement) => lancement.id==e.target.value);
+      const theLancement = tasks.find((lancement) => lancement.id == e.target.value);
       saveLct(
         theLancement.id,
         theLancement.lancementn,
@@ -38,16 +39,16 @@ const Tbody = ({
   };
   return (
     <tbody>
-      {filteredTasks.map((task,i) =>
-      <tr key={i} id={task.id}>
-        <td><input onChange={handleCheckBox} value={task.id} type="checkbox" /></td>
-        <td>{task.lancementn}</td>
-        <td>{task.name}</td>
+      {filteredTasks.map((task, i) =>
+      <tr key={i} id={task.planning_id}>
+        <td><input onChange={handleCheckBox} value={task.planning_id} type="checkbox" /></td>
+        <td>{task.lancement}</td>
+        <td>{task.reference}</td>
         <td>{moment(task.start).format('DD/MM/YYYY HH:mm:ss')}</td>
-        <td>{moment(task.end).format('DD/MM/YYYY HH:mm:ss')}</td>
-        <td>{task.id}</td>
-        <td>M8</td>
-        <td>{task.progress}</td>
+        <td>{moment(task._end).format('DD/MM/YYYY HH:mm:ss')}</td>
+        <td>{task.planning_id}</td>
+        <td>{task.machinename}</td>
+        <td>{task.progress}%</td>
         <td>{task.quantity}</td>
       </tr>)}
     </tbody>

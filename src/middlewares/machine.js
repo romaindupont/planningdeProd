@@ -59,7 +59,6 @@ const machine = (store) => (next) => (action) => {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            console.log(response.data.newMachine)
             store.dispatch(addMachineState(
               response.data.newMachine.id,
               response.data.newMachine.name,

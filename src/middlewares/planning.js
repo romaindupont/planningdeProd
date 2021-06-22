@@ -14,8 +14,10 @@ import {
   addTasks,
   updateTasks,
   deleteTasks,
+  deleteOrdo
 } from '../actions';
 import { saveErrorMessage } from '../actions/workingDay';
+import { generateIdAdd } from '../Utils';
 import { openDate } from '../Utils/openDate';
 
 const planning = (store) => (next) => (action) => {
@@ -118,12 +120,12 @@ const planning = (store) => (next) => (action) => {
     case DELETE_PLANNING:
       {
         const state = store.getState();
-        axios.delete(`planning/delete/${state.tasks.id}`,
+        axios.delete(`planning/delete/${action.id}`,
             {
               baseURL: 'http://localhost:5000',
             })
             .then((response) => {
-              store.dispatch(deleteTasks(state.tasks.id));
+              store.dispatch(deleteTasks(action.id));
               store.dispatch(saveErrorMessage(response.data.message));
             })
             .catch((error) => {
@@ -134,7 +136,7 @@ const planning = (store) => (next) => (action) => {
       case ADD_SEVERAL_LINE_IN_DB:
         {
           const state = store.getState();
-          console.log(state.launch.n_lancement)
+          const lancementCalcul = generateIdAdd(state.machines.PlanningForMachine);
           for (let i= 0; i < state.launch.lancement.length; i++) {
             openDate();
             const calcul = state.launch.lancement[i].tempsop * parseInt(state.articles.quantity);
@@ -142,7 +144,6 @@ const planning = (store) => (next) => (action) => {
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
             const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-            const lancementCalcul = parseInt(state.launch.n_lancement) + 1;
           axios.post('/planning/add/several',
             {
               name: state.launch.lancement[i].reference,

@@ -1,6 +1,7 @@
 import { jsPDF } from 'jspdf';
 import { DateTime } from 'luxon';
 import 'jspdf-autotable';
+import moment from 'moment';
 
 export function PdfGantt(title, list, screen) {
   const doc = new jsPDF('l', 'mm', [297, 210]);
@@ -35,12 +36,12 @@ export function PdfGantt(title, list, screen) {
       tableWidth: 280,
       body: [
         [
-          { content: `${task.id}`, styles: { cellWidth: 10 } },
-          { content: `${task.name}`, styles: { cellWidth: 40 } },
+          { content: `${task.planning_id}`, styles: { cellWidth: 10 } },
+          { content: `${task.reference}`, styles: { cellWidth: 40 } },
           { content: `${task.description}`, styles: { cellWidth: 50 } },
           { content: `${task.lancement}`, styles: { cellWidth: 30 } },
-          { content: `${task.start}`, styles: { cellWidth: 30 } },
-          { content: `${task._end}`, styles: { cellWidth: 30 } },
+          { content: `${moment(task.start).format('DD/MM/YYYY HH:mm:ss')}`, styles: { cellWidth: 30 } },
+          { content: `${moment(task._end).format('DD/MM/YYYY HH:mm:ss')}`, styles: { cellWidth: 30 } },
           { content: `${task.quantity}`, styles: { cellWidth: 20 } },
           { content: `${task.progress}`, styles: { cellWidth: 25 } }
         ]

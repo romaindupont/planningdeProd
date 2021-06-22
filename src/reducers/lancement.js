@@ -5,7 +5,7 @@ import {
   SEARCH_VALUE,
   UPDATE_LIST,
 } from '../actions/lancement';
-import { CHANGE_VALUE } from '../actions';
+import { CHANGE_VALUE, DELETE_TASKS, UPDATE_TASKS } from '../actions';
 
 const initialState = {
   id:'',
@@ -59,6 +59,34 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           filterList: action.filterList
+        }
+      case DELETE_TASKS:
+        return {
+          ...state,
+          filterList: state.filterList.filter((planning) => { return action.id != planning.planning_id }),
+        }
+      case UPDATE_TASKS:
+        return {
+          ...state,
+          filterList: state.filterList.map(task => {
+            if (task.planning_id == action.id) {
+              return {
+                id: action.id,
+                planning_id: action.id,
+                name: action.name,
+                start: action.start,
+                _end: action.end,
+                progress: action.progress,
+                dependencies: action.dependencies,
+                lancement: action.lancement,
+                quantity: action.quantity,
+                reference: action.name
+              }
+            }
+            else {
+              return task;
+            }
+          }),
         }
     default:
       return state;

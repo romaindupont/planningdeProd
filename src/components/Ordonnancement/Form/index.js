@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FieldOrdo from '../../../containers/Ordonnancement/Form/Field';
 import PopupStart from '../../../containers/Ordonnancement/PopupStart';
 
-const FormOrdo = ({ id }) => {
+const FormOrdo = ({ id, setIsShowing }) => {
   const [ startClick, setStartClick ] = useState(false);
   const Commencer = (e) => {
     e.preventDefault();
@@ -57,7 +57,7 @@ const FormOrdo = ({ id }) => {
           <button type="submit" className="form-ordo-button--modif" onClick={Commencer}>Modifier</button>
         </div>
       </form>
-      {startClick && (<PopupStart setStartClick={setStartClick} />)}
+      {startClick && (<PopupStart setStartClick={setStartClick} setIsShowing={setIsShowing}/>)}
     </>
   );
 };

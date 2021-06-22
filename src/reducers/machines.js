@@ -155,14 +155,47 @@ const reducer = (state = initialState, action = {}) => {
             quantity: action.quantity,
             reference: action.name
           }
+        ],
+        PlanningForMachine: [
+          ...state.PlanningForMachine,
+          {
+            id: action.id,
+            planning_id: action.id,
+            name: action.name,
+            start: action.start,
+            _end: action.end,
+            progress: action.progress,
+            dependencies: action.dependencies,
+            lancement: action.lancement,
+            quantity: action.quantity,
+            reference: action.name
+          }
         ]
       }
     case UPDATE_TASKS:
-      console.log(action)
       return {
         ...state,
         MachinePlanning: state.MachinePlanning.map(planning => {
           if (planning.planning_id === action.id ) {
+            return {
+              planning_id: action.id,
+              name: action.name,
+              start: action.start,
+              _end: action.end,
+              progress: action.progress,
+              dependencies: action.dependencies,
+              lancement: action.lancement,
+              quantity: action.quantity,
+              reference: action.name
+            }
+          }
+          else {
+            return planning;
+          }
+        }
+        ),
+        PlanningForMachine: state.PlanningForMachine.map(planning => {
+          if (planning.planning_id == action.id ) {
             return {
               planning_id: action.id,
               name: action.name,
@@ -189,7 +222,8 @@ const reducer = (state = initialState, action = {}) => {
       }
     case DELETE_TASKS:
       return {
-        MachinePlanning: state.MachinePlanning.filter((planning) => { return action.id !== planning.planning_id }),
+        MachinePlanning: state.MachinePlanning.filter((planning) => { return action.id != planning.planning_id }),
+        PlanningForMachine: state.PlanningForMachine.filter((planning) => { return action.id != planning.planning_id }),
         id: '',
         name: '',
         progress: 10,

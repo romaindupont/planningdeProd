@@ -61,3 +61,4 @@ export const deleteTasks = (id) => ({
   type: DELETE_TASKS,
   id
 });
+

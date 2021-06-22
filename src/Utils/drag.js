@@ -1,10 +1,11 @@
 
-export function Drag(e) {
-  const elemnt = document.getElementById('drag');
+export function Drag(e, idRef) {
+  const elemnt = document.getElementById(idRef);
   let pos1 = 0;
   let pos2 = 0;
   let pos3 = 0;
   let pos4 = 0;
+
   const dragElement = (e) => {
     pos1 = 0;
     pos2 = 0;
@@ -32,5 +33,5 @@ const elementDrag = (e) => {
 const closeDragElement = () => {
   document.onmouseup = null;
   document.onmousemove = null;
-}/*  */
+}
 };

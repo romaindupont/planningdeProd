@@ -11,6 +11,7 @@ const Thead = () => {
         <th>Fin</th>
         <th>id</th>
         <th>Quantité</th>
+        <th>Description</th>
       </tr>
     </thead>
   );

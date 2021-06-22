@@ -11,7 +11,8 @@ const Th = ({
   currentValue,
   update,
   tasks,
-  numero
+  numero,
+  PlanningForMachine
 }) => {
   const [ viewInput, setViewInput ] = useState(false);
   const [ wordSearch, setWordSearch ] = useState({
@@ -26,11 +27,16 @@ const Th = ({
   };
   const handleChange = (e) => {
     searchValue(e.target.value, e.target.name);
-    setWordSearch({ category : e.target.value , searchText : e.target.name});
+    if (e.target.value == "") {
+      setWordSearch({ category : "" , searchText : ""});
+    }
+    else {
+      setWordSearch({ category : e.target.value , searchText : e.target.name});
+    }
   };
   useEffect(() => {
-    update(tasks, wordSearch);
-  }, [handleChange]);
+    update(PlanningForMachine, wordSearch);
+  }, [wordSearch]);
   return (
     <th className="search" onClick={searchClick}>
       <span className={classNames("search-name", {"search-name--erase": viewInput})}>{searchName}</span>

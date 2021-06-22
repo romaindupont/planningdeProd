@@ -16,7 +16,8 @@ const PopupEnd = ({
   changeValue,
   currentValue,
   changePopup,
-  popupWindow
+  popupWindow,
+  setIsShowing
 }) => {
   openDate();
   const noClick = () => {
@@ -43,10 +44,12 @@ const PopupEnd = ({
       const aujourdhui = moment().format('YYYY-MM-DD HH:mm:ss');
       updatedEnd(aujourdhui);
       setEndClick(false);
+      setIsShowing(true)
     }
     if(e.target.form.datedef.checked && moment(e.target.form.dateFin.value, 'YYYY-MM-DD HH:mm:ss', true).isValid() && (!e.target.form.maintenant.checked)) {
       updatedEnd(e.target.form.dateFin.value);
       setEndClick(false);
+      setIsShowing(true)
     }
   };
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import FormReglages from '../../containers/Reglages/Form';
 import BackToMenu from '../BackToMenu';
 

@@ -12,36 +12,18 @@ import {  SAVE_PLANNING } from '../actions/launch';
 const aujourdhui = moment().format('YYYY-MM-DD HH:mm:ss');
 
 const initialState = {
-  tasks:
-  [
-    {
-      id: 'essai1',
-      name: 'lab',
-      start: '2021-04-18 12:00:00',
-      end: '2021-04-19 12:00:00',
-      progress: 100,
-      dependencies: '',
-    },
-    {
-      id: 'essai2',
-      name: 'lab1',
-      start: '2021-04-18 12:00:00',
-      end: '2021-04-19 12:00:00',
-      progress: 50,
-      dependencies: '',
-    }
-  ],
-   id: '',
-   name: '',
-   start: aujourdhui,
-   end: aujourdhui,
-   progress: 10,
-   dependencies: '',
-   task: {},
-   ModeView: '',
-   tempsOp:null,
-   lancementn:null,
-   quantity:'',
+  tasks:[],
+  id: '',
+  name: '',
+  start: aujourdhui,
+  end: aujourdhui,
+  progress: 10,
+  dependencies: '',
+  task: {},
+  ModeView: '',
+  tempsOp:null,
+  lancementn:null,
+  quantity:'',
 };
 
 const reducer = (state = initialState, action = {}) => {

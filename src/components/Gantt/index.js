@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
-import setHours from 'date-fns/setHours';
-import setMinutes from 'date-fns/setMinutes';
+import React, { useState } from 'react';
 import Field from '../../containers/Field';
 import GanttGeneral from '../../containers/GanttGeneral';
 import Popup from '../../containers/Reglages/Popup';

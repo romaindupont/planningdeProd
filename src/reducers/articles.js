@@ -150,7 +150,8 @@ const reducer = (state = initialState, action = {}) => {
                 machine_id: action.machine_id,
                 tempsop: action.operating_time,
                 description: action.description,
-                dependencies: action.dependencies
+                dependencies: action.dependencies,
+                liaison: action.dependencies
               }
             }
             else {

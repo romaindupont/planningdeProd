@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
   name: state.lancement.name,
   start: state.lancement.start,
   end: state.lancement.end,
-  quantity: state.lancement.quantity
+  quantity: state.lancement.quantity,
+  PlanningForMachine : state.machines.PlanningForMachine
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

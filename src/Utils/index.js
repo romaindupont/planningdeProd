@@ -20,3 +20,13 @@ export function generateTaskId(state){
 export function generateArticleId(state){
   return generateId(state.articles)
 }
+
+export function generateIdAdd(items) {
+  // partant d'un tableau d'objet obtenir un tableau de nombre
+  const ids = items.map((item) => item.lancement);
+  // trouver le plus grand nombre du tableau
+  const max = Math.max(...ids);
+  // ajouter 1
+  const newId = max + 1;
+  return newId;
+};

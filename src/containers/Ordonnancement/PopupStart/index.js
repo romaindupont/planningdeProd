@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PopupStart from '../../../components/Ordonnancement/PopupStart';
 import { updatedLancement, updatedQuantity } from '../../../actions/lancement';
+import { deletePlanning } from '../../../actions/launch';
 
 
 const mapStateToProps = (state) => ({
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   updatedQuantity: (quantity) => {
     dispatch(updatedQuantity(quantity));
+  },
+  deletePlanning: (id) => {
+    dispatch(deletePlanning(id));
   }
 });
 

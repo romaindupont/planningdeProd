@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import moment from 'moment';
-import momentBusinessDays from 'moment-business-days';
-import momentBusinessTime from 'moment-business-time';
 import DatePicker from '../../containers/SelectProd/DatePicker';
 import Quantity from '../../containers/SelectProd/Quantity';
 import Popup from '../../containers/Reglages/Popup';
 import Select from '../../containers/SelectProd/Select';
 import TimePicker from '../../containers/SelectProd/TimePicker';
-import { generateId } from '../../Utils';
 import { openDate } from '../../Utils/openDate';
 
 const SelectProd = ({

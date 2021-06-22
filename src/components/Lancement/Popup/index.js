@@ -4,15 +4,15 @@ import momentBusinessTime from 'moment-business-time';
 import momentBusinessDays from 'moment-business-days';
 import { openDate } from '../../../Utils/openDate';
 
-const Popup = ({ setStartClick, name, lctNumber, start, end, updatedLancement }) => {
+const Popup = ({ setStartClick, name, lctNumber, start, end, updatedLancement, setIsShowing }) => {
   openDate();
   const noClick = () => {
     setStartClick(false);
   };
   const yesClick = () => {
     setStartClick(false);
-    const debut =moment(start, 'YYYY-MM-DD HH:mm:ss');
-    const fin =moment(end, 'YYYY-MM-DD HH:mm:ss');
+    const debut = moment(start, 'YYYY-MM-DD HH:mm:ss');
+    const fin = moment(end, 'YYYY-MM-DD HH:mm:ss');
     if (fin.workingDiff(debut, 'hours',true) < 0) {
       const addHours = fin.diff(debut, 'hours', true);
       const aujourdhui = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -27,6 +27,7 @@ const Popup = ({ setStartClick, name, lctNumber, start, end, updatedLancement })
       const endDate = moment(newEndDate).format('YYYY-MM-DD HH:mm:ss');
       updatedLancement(aujourdhui, endDate);
     }
+    setIsShowing(true)
   };
   return (
     <div className="popup">

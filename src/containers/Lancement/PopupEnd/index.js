@@ -4,13 +4,13 @@ import { updatedEnd, changePopup } from '../../../actions/lancement';
 import { changeValue } from '../../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    id: state.lancement.id,
-    name: state.lancement.name,
-    start: state.lancement.start,
-    end: state.lancement.end,
-    lctNumber: state.lancement.lctNumber,
-    currentValue: state.lancement[ownProps.name],
-    popupWindow : state.lancement.popupWindow
+  id: state.lancement.id,
+  name: state.lancement.name,
+  start: state.lancement.start,
+  end: state.lancement.end,
+  lctNumber: state.lancement.lctNumber,
+  currentValue: state.lancement[ownProps.name],
+  popupWindow : state.lancement.popupWindow
 });
 
   const mapDispatchToProps = (dispatch, ownProps) => ({

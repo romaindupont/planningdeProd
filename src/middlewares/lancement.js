@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { UPDATED_LANCEMENT, UPDATED_END, UPDATED_QUANTITY } from '../actions/lancement';
 import { updateTasks } from '../actions';
+import { saveErrorMessage } from '../actions/workingDay';
 
 const lancement = (store) => (next) => (action) => {
   switch (action.type) {
@@ -26,7 +27,8 @@ const lancement = (store) => (next) => (action) => {
               '',
               state.lancement.lctNumber,
               state.lancement.quantity
-            ))
+            ));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);
@@ -54,7 +56,8 @@ const lancement = (store) => (next) => (action) => {
               '',
               state.lancement.lctNumber,
               state.lancement.quantity
-            ))
+            ));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);
@@ -80,8 +83,9 @@ const lancement = (store) => (next) => (action) => {
               state.lancement.progression,
               '',
               state.lancement.lctNumber,
-              state.lancement.quantity
-            ))
+              action.quantity
+            ));
+            store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {
             console.error('Error', error);

@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
     progression: state.lancement.progression,
     tasks: state.tasks.tasks,
     filterList: state.lancement.filterList,
-    quantity: state.lancement.quantity
+    quantity: state.lancement.quantity,
+    PlanningForMachine : state.machines.PlanningForMachine
 });
 
   const mapDispatchToProps = (dispatch, ownProps) => ({

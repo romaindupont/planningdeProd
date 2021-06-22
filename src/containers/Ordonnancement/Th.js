@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
     fin: state.lancement.fin,
     id: state.lancement.id,
     machine: state.lancement.machine,
-    progression: state.lancement.progression
+    progression: state.lancement.progression,
+    PlanningForMachine : state.machines.PlanningForMachine
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
