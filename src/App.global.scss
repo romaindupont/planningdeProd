@@ -28,7 +28,24 @@ button {
     0px 18px 88px -4px rgba(24, 39, 75, 0.14);
   transition: transform ease-in 0.1s;
 }
+.Base{
+  display: flex;
+  flex-wrap: wrap;
+}
+.button-accueil {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
 
+  & > span {
+    margin: auto;
+    font-weight: bold;
+  }
+}
+.button-accueil-img {
+  width: 50%;
+  margin: 0 auto;
+}
 button:hover {
   transform: scale(1.05);
 }

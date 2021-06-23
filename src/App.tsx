@@ -18,22 +18,40 @@ const Hello = () => {
       <h1>electron-react-boilerplate</h1>
       <div className="Base Articles">
         <Link to="/articles" rel="noreferrer">
-          <button type="button">Base Articles</button>
+          <button className="button-accueil" type="button">
+            <span>Base Articles</span>
+            <img className="button-accueil-img" src="../assets/images/articles.png" alt="Base articles" />
+          </button>
         </Link>
         <Link to="/machines" rel="noreferrer">
-          <button type="button">Base Machine</button>
+          <button className="button-accueil" type="button">
+          <span>Base Machines</span>
+            <img className="button-accueil-img" src="../assets/images/machine.png" alt="Base machines" />
+          </button>
         </Link>
         <Link to="/gantt" rel="noreferrer">
-          <button type="button">Planning Général</button>
+          <button className="button-accueil" type="button">
+          <span>Planning Général</span>
+            <img className="button-accueil-img" src="../assets/images/planning.png" alt="Planning" />
+          </button>
         </Link>
         <Link to="/lancement" rel="noreferrer">
-          <button type="button">Lancement</button>
+          <button className="button-accueil" type="button">
+            <span>Lancement</span>
+            <img className="button-accueil-img" src="../assets/images/lancement.png" alt="Lancement" />
+          </button>
         </Link>
         <Link to="/ordonnancement" rel="noreferrer">
-          <button type="button">Ordonnancement</button>
+          <button className="button-accueil" type="button">
+            <span>Ordonnancement</span>
+            <img className="button-accueil-img" src="../assets/images/ordo.png" alt="Ordonnacment" />
+          </button>
         </Link>
         <Link to="/reglages" rel="noreferrer">
-          <button type="button">Réglages Généraux</button>
+          <button className="button-accueil" type="button">
+            <span>Réglages Généraux</span>
+            <img className="button-accueil-img" src="../assets/images/reglages.png" alt="Reglages" />
+          </button>
         </Link>
       </div>
     </div>

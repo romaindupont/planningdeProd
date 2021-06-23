@@ -5,6 +5,7 @@ import ModalWindow from '../../../containers/GanttMachine/ContainerBloc/ModalWin
 import { addSpan } from '../../../Utils/addSpan';
 
 const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowModalOpen, getId, setGetId }) => {
+  const Planning = MachinePlanning.filter((task) => task.progress < 100);
   const openWindowClick = async (e) => {
     setGetId(e.target.getAttribute("data-my-id"));
     await setWindowModalOpen(!windowModalOpen);
@@ -15,11 +16,11 @@ const ContainerBloc = ({ dt, tasks, MachinePlanning, windowModalOpen, setWindowM
     }
   }
   useEffect(() => {
-    addSpan(MachinePlanning);
+    addSpan(Planning);
   }, []);
   return (
   <div className="ganttMachine-container-all">
-    {MachinePlanning.map((task,i) =>
+    {Planning.map((task,i) =>
     <form className="ganttMachine-container-bloc" key={i} id={task.id} onClick={openWindowClick}>
       <div className="ganttMachine-container-bloc--day" data-my-id={task.planning_id} >
         <span className={(DateTime.fromISO(`${task.start.substring(0,4)}-${task.start.substring(5,7)}-${task.start.substring(8,10)}`, { locale: "fr" }).toMillis()==dt.minus({days:11}).toMillis()) ? "ganttMachine-container-bloc--day--touch--start" : (DateTime.fromISO(`${task._end.substring(0,4)}-${task._end.substring(5,7)}-${task._end.substring(8,10)}`, { locale: "fr" }).toMillis()==dt.minus({days:11}).toMillis()) ? "ganttMachine-container-bloc--day--touch--end" : (DateTime.fromISO(`${task.start.substring(0,4)}-${task.start.substring(5,7)}-${task.start.substring(8,10)}`, { locale: "fr" }).toMillis()>dt.minus({days:11}).toMillis() && DateTime.fromISO(`${task._end.substring(0,4)}-${task._end.substring(5,7)}-${task._end.substring(8,10)}`, { locale: "fr" }).toMillis()<dt.minus({days:11}).toMillis()) ? "ganttMachine-container-bloc--day--touch" : "ganttMachine-container-bloc--empty" } data-my-id={task.planning_id}></span>

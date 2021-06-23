@@ -64,11 +64,11 @@ const planning = (store) => (next) => (action) => {
             baseURL: 'http://localhost:5000',
           })
           .then((response) => {
-            for(let i =0; i<response.data.planningList.length; i++ ){
-              let m =response.data.planningList[i].id.toString();
+            for(let i = 0; i < response.data.planningList.length; i++ ){
+              let m = response.data.planningList[i].planning_id.toString();
               store.dispatch(savePlanning(
                 m,
-                response.data.planningList[i].name,
+                response.data.planningList[i].reference,
                 response.data.planningList[i].start,
                 response.data.planningList[i]._end,
                 parseInt(response.data.planningList[i].progress),
@@ -137,13 +137,13 @@ const planning = (store) => (next) => (action) => {
         {
           const state = store.getState();
           const lancementCalcul = generateIdAdd(state.machines.PlanningForMachine);
-          for (let i= 0; i < state.launch.lancement.length; i++) {
+          for (let i = 0; i < state.launch.lancement.length; i++) {
             openDate();
             const calcul = state.launch.lancement[i].tempsop * parseInt(state.articles.quantity);
             const c = (state.launch.datepicker + ' ' + state.launch.start_hours);
             const a = momentBusinessTime(c, 'DD/MM/YYYY HH:mm:ss').addWorkingTime(calcul/0.4, 'minutes');
             const r = moment(a).format('YYYY-MM-DD HH:mm:ss');
-            const g = moment(c,'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+            const g = moment(c, 'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
           axios.post('/planning/add/several',
             {
               name: state.launch.lancement[i].reference,

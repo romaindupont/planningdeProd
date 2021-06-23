@@ -1,10 +1,16 @@
 import React from 'react';
 import moment from 'moment';
 
-const Tbody = ({ tasks, search, saveLct, saveIdLct, PlanningForMachine }) => {
-  let filterTasks = PlanningForMachine.filter((task) => task.lancement === parseInt(search));
+const Tbody = ({
+  tasks,
+  search,
+  saveLct,
+  saveIdLct,
+  PlanningForMachine
+}) => {
+  let filterTasks = PlanningForMachine.filter((task) => task.lancement === parseInt(search) && task.progress < 100);
   if (filterTasks.length === 0) {
-    filterTasks = PlanningForMachine;
+    filterTasks = PlanningForMachine.filter((task) => task.progress < 100);
   }
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
