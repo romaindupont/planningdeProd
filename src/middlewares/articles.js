@@ -27,7 +27,7 @@ const articles = (store) => (next) => (action) => {
           description: state.articles.description
         },
         {
-          baseURL: 'http://localhost:5000',
+          baseURL: 'https://obscure-dawn-65024.herokuapp.com',
         })
         .then((response) => {
           store.dispatch(addArticle(response.data.newArticle));
@@ -42,7 +42,7 @@ const articles = (store) => (next) => (action) => {
       {
         axios.get('/articles',
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(saveArticle(response.data.articlesList));
@@ -57,7 +57,7 @@ const articles = (store) => (next) => (action) => {
           const state = store.getState();
           axios.delete(`/delete/${state.articles.id}`,
             {
-              baseURL: 'http://localhost:5000',
+              baseURL: 'https://obscure-dawn-65024.herokuapp.com',
             })
             .then((response) => {
               store.dispatch(deleteArticle(state.articles.id));
@@ -81,7 +81,7 @@ const articles = (store) => (next) => (action) => {
               description: state.articles.description
             },
             {
-              baseURL: 'http://localhost:5000',
+              baseURL: 'https://obscure-dawn-65024.herokuapp.com',
             })
               .then((response) => {
                 store.dispatch(updateArticle(

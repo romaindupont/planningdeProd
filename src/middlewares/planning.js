@@ -37,7 +37,7 @@ const planning = (store) => (next) => (action) => {
         quantity: state.tasks.quantity
       },
         {
-          baseURL: 'http://localhost:5000',
+          baseURL: 'https://obscure-dawn-65024.herokuapp.com',
         })
         .then((response) => {
           store.dispatch(addTasks(
@@ -61,7 +61,7 @@ const planning = (store) => (next) => (action) => {
       {
         axios.get('/planning',
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             for(let i = 0; i < response.data.planningList.length; i++ ){
@@ -97,7 +97,7 @@ const planning = (store) => (next) => (action) => {
             quantity: state.tasks.quantity
           },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(updateTasks(
@@ -122,7 +122,7 @@ const planning = (store) => (next) => (action) => {
         const state = store.getState();
         axios.delete(`planning/delete/${action.id}`,
             {
-              baseURL: 'http://localhost:5000',
+              baseURL: 'https://obscure-dawn-65024.herokuapp.com',
             })
             .then((response) => {
               store.dispatch(deleteTasks(action.id));
@@ -155,7 +155,7 @@ const planning = (store) => (next) => (action) => {
               quantity: state.tasks.quantity
             },
               {
-                baseURL: 'http://localhost:5000',
+                baseURL: 'https://obscure-dawn-65024.herokuapp.com',
               })
               .then((response) => {
                 store.dispatch(addTasks(

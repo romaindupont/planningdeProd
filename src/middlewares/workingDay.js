@@ -12,7 +12,7 @@ const workingDay = (store) => (next) => (action) => {
       {
         axios.get('/reglages/all',
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(saveWorkingDayList(response.data.WorkingDayList));
@@ -35,7 +35,7 @@ const workingDay = (store) => (next) => (action) => {
             hour4: action.hour4,
           },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(saveErrorMessage(response.data.message));

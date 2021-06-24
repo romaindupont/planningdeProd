@@ -21,7 +21,7 @@ const machine = (store) => (next) => (action) => {
         const state = store.getState();
         axios.get("/machine",
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(saveMachineList(response.data.MachineList));
@@ -36,7 +36,7 @@ const machine = (store) => (next) => (action) => {
         const state = store.getState();
         axios.get("planning/machine",
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(savePlanningMachine(response.data.planningMachineList));
@@ -56,7 +56,7 @@ const machine = (store) => (next) => (action) => {
           yield_time: parseInt(state.machines.yield_time)
         },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(addMachineState(
@@ -80,7 +80,7 @@ const machine = (store) => (next) => (action) => {
           yield_time: state.machines.yield_time
         },
         {
-          baseURL: 'http://localhost:5000',
+          baseURL: 'https://obscure-dawn-65024.herokuapp.com',
         })
           .then((response) => {
             store.dispatch(updateMachineState(
@@ -100,7 +100,7 @@ const machine = (store) => (next) => (action) => {
         const state = store.getState();
         axios.delete(`/machine/delete/${state.machines.id}`,
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(deleteMachineState(state.machines.id));

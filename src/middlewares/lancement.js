@@ -15,7 +15,7 @@ const lancement = (store) => (next) => (action) => {
             progress: 50
           },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(updateTasks(
@@ -44,7 +44,7 @@ const lancement = (store) => (next) => (action) => {
             progress: 100
           },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(updateTasks(
@@ -72,7 +72,7 @@ const lancement = (store) => (next) => (action) => {
             quantity: action.quantity
           },
           {
-            baseURL: 'http://localhost:5000',
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
           })
           .then((response) => {
             store.dispatch(updateTasks(
