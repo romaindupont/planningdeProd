@@ -14,6 +14,7 @@ You must have this dependencies to start the project :
 
 ### Installation
 
+### I. `Planning David.exe`
 You just need to use the Planning David.exe for start the application.
 
 If you want use the application in local use command below :
@@ -26,7 +27,7 @@ Install the project dependencies
 Runs the app in the development mode.\
 Start by using yarn start in your windows shell.
 
-### 2. `node index.js`
+### 3. `node index.js`
 The back is now deploy on heroku
 Runs the back office.\
 Start by using node index.js in your windows shell in file name back.
