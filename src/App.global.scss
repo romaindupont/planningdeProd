@@ -15,7 +15,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 button {
   background-color: vars.$blanc;
   padding: 10px 20px;
@@ -36,7 +35,6 @@ button {
   display: flex;
   flex-direction: column;
   width: 250px;
-
   & > span {
     margin: auto;
     font-weight: bold;
@@ -52,28 +50,23 @@ button {
 button:hover {
   transform: scale(1.05);
 }
-
 li {
   list-style: none;
 }
-
 a {
   text-decoration: none;
 }
-
 a:hover {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
 }
-
 .Hello {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
 }
-
 .gantt-title {
   font-size: 2rem;
   font-weight: 900;
@@ -81,28 +74,23 @@ a:hover {
   text-align: center;
   margin: 0;
 }
-
 .gantt .bar-progress {
   fill: green;
 }
 .gantt .bar-wrapper:hover .bar-progress {
   fill: blue;
 }
-
 #root {
   width: 100%;
   height: 100%;
 }
-
 .gantt .bar-wrapper.active .bar-progress {
   fill: red;
 }
-
 .gantt-container .popup-wrapper .title {
   border-bottom: 3px solid red;
   text-align: center;
 }
-
 .gantt-container .popup-wrapper {
   background-color: vars.$blanc;
   border: 1px solid vars.$noir;
@@ -113,7 +101,6 @@ a:hover {
   height: 400px;
   border: 1px solid #c1c1c1;
 }
-
 .gantt-container .popup-wrapper {
   margin: 0px 0 0 -6px;
 }
@@ -164,7 +151,6 @@ a:hover {
     text-decoration: none;
     width: 40%;
     border: 0.5px solid vars.$noir;
-
     &:active {
       text-decoration: none;
     }
@@ -205,7 +191,6 @@ button:focus {
 .remove:hover {
   background-color: red;
 }
-
 .articlePage-list {
   display: flex;
 }
@@ -213,7 +198,6 @@ button:focus {
   color: vars.$noir;
   text-align: center;
 }
-
 table {
   color: vars.$noir;
   border-collapse: collapse;
@@ -253,7 +237,6 @@ tr:hover td {
   flex-wrap: wrap;
   height: 400px;
 }
-
 tbody,
 thead tr {
   display: block;
@@ -263,12 +246,10 @@ tbody {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 tbody td,
 thead th {
   width: 150px;
 }
-
 .gantt {
   overflow-y: scroll;
   height: 100vh;
@@ -281,7 +262,6 @@ thead th {
   border-radius: 15px;
   top: 70px;
   left: 100px;
-
 }
 .gantt-select-title {
   margin: 0;
@@ -366,12 +346,10 @@ thead th {
   right: 5px;
   font-size: 1rem;
   cursor: pointer;
-
   &:hover {
     color: vars.$blanc;
   }
 }
-
 .selectProd {
   text-align: center;
   overflow-y: scroll;
@@ -386,7 +364,6 @@ thead th {
   font-size: 0.7rem;
   text-align: center;
 }
-
 .DayPickerInput {
   margin: 1.5rem;
   font-size: 0.7rem;
@@ -403,7 +380,6 @@ thead th {
 }
 .selectProd-quantity {
   display: inline-block;
-
   &-label {
     margin-bottom: 0.4rem;
   }
@@ -430,7 +406,6 @@ thead th {
 .recalcul {
   color: vars.$noir;
   text-align: center;
-
   &-submit {
     &--button {
       &:hover {
@@ -442,7 +417,6 @@ thead th {
 }
 .lancement {
   color: vars.$noir;
-
   &-title {
     text-align: center;
     font-weight: 900;
@@ -543,7 +517,6 @@ thead th {
       font-weight: 900;
     }
   }
-
   &--oui {
     color: vars.$inputbgColor;
     font-size: 0.8rem;
@@ -614,15 +587,13 @@ thead th {
   top: 10px;
   left: -2px;
 }
-
 .search-name {
   display: block;
   padding: 0.7rem 0;
   width: 150px;
   &--erase {
     display: none;
-}
-
+  }
 }
 .search-input {
   display: none;
@@ -644,13 +615,10 @@ thead th {
   flex-wrap: wrap;
   height: 150px;
   justify-content: space-evenly;
-
   &-field-button-zones {
-
   }
 }
 .form-ordo-button {
-
   &--modif {
     box-shadow: 0px 0px 5px 2px rgba(38, 93, 125, 0.8);
     &:hover {
@@ -684,7 +652,6 @@ thead th {
       color: vars.$blanc;
     }
   }
-
 }
 .reglages {
   color: black;
@@ -693,16 +660,13 @@ thead th {
   }
 }
 .container-reglages-hour {
-
 }
 .reglages-form {
-
   &-all {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.3rem;
   }
-
   &-jour {
     width: 100px;
   }
@@ -712,7 +676,6 @@ thead th {
   &-input {
     text-align: center;
     cursor: pointer;
-
     &--null {
       background: red;
     }
@@ -729,7 +692,6 @@ thead th {
 .reglages-form-all > .reglages-form--null {
   background: rgb(255, 113, 113);
 }
-
 .reglages-form-all > select {
   background: #98ddca;
 }
@@ -760,7 +722,6 @@ thead th {
   flex-direction: column;
   width: fit-content;
 }
-
 .ganttMachine-container-date {
   display: flex;
   &--day {
@@ -793,23 +754,17 @@ thead th {
     &:nth-child(8){
       display: none;
     }
-
   }
-
-
-
 }
 .ganttMachine-container-bloc {
   display: flex;
   &--empty {
-
   }
   &--day {
     width: 85px;
     height: 30px;
     position: relative;
     border-bottom: 1px solid vars.$noir;
-
     &:nth-child(1){
       display: none;
     }
@@ -841,7 +796,6 @@ thead th {
       position: absolute;
       top: 6px;
       cursor: pointer;
-      /* box-shadow: 8px 3px 0px 2px rgba(0,0,0, .4); */
       &--start {
         border-radius: 10px 0 0 10px;
         background: #98ddca;
@@ -850,7 +804,6 @@ thead th {
         position: absolute;
         top: 6px;
         cursor: pointer;
-        /* box-shadow: 4px 3px 0px 2px rgba(0,0,0, .4); */
       }
       &--end {
         background: #98ddca;
@@ -860,9 +813,7 @@ thead th {
         top: 6px;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
-        /* box-shadow: 4px 3px 3px 2px rgba(0,0,0, .4); */
       }
-
     }
   }
 }
@@ -875,7 +826,6 @@ thead th {
   z-index: 2;
   cursor: pointer;
 }
-
 .ganttMachine-container-all {
   overflow: auto;
   height: 500px;
@@ -904,7 +854,6 @@ thead th {
 .windowModal-info {
   display: flex;
   flex-wrap: wrap;
-
   &-task {
     margin-right: 1rem;
     font-size: 0.7rem;
@@ -916,7 +865,6 @@ thead th {
     }
   }
   &-progress {
-
     &[value] {
       appearance: none;
       border: none;
@@ -924,13 +872,10 @@ thead th {
       height: 20px;
       border-radius: 5px;
       position: relative;
-
-
       &::-webkit-progress-bar {
         background-color: whitesmoke;
         box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
         border-radius: 10px;
-
       }
       &::-webkit-progress-value{
         border-radius: 10px;
@@ -951,7 +896,6 @@ thead th {
   position: relative;
   left: 500px;
 }
-
 .ganttMachine-return {
   transform: scale(0.8);
   width: 60px;
@@ -968,7 +912,6 @@ thead th {
   &:hover {
     background: vars.$blueTheadTable;
     border: 4px solid vars.$blanc;
-
   }
   &:active {
     border: 4px solid vars.$blueTheadTable;
@@ -977,7 +920,6 @@ thead th {
   &--change {
     transform: rotateZ(180deg) scale(0.8);
   }
-
   &-fleche1 {
     width: 25px;
     height: 50px;
@@ -993,7 +935,6 @@ thead th {
       background: vars.$blueTheadTable;
       border-radius: 30px;
       box-shadow: 4px -2px 4px 1px rgba(54, 48, 74, 0.5);
-
     }
     &-bas {
       width: 35px;
@@ -1002,7 +943,6 @@ thead th {
       transform: rotate3d(0, 0, 1, 33deg);
       border-radius: 30px;
       box-shadow: 4px 1px 4px 1px rgba(54, 48, 74, 0.5);
-
     }
   }
   &-fleche2 {
@@ -1032,8 +972,6 @@ thead th {
     }
   }
 }
-
-
 .ganttMachine-return:hover > .ganttMachine-return-fleche1 > .ganttMachine-return-fleche1-haut {
   background: vars.$blanc;
 }
@@ -1066,7 +1004,6 @@ thead th {
   position: absolute;
   top: 153px;
   left: 326px;
-
   &--change {
     background: vars.$jourActif;
     width: 85px;
@@ -1082,7 +1019,6 @@ thead th {
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 0px 0px 5px 2px rgba(240, 142, 142, 0.8);
-
   &:hover {
     background: vars.$rougePastel;
     color: vars.$blanc;
@@ -1092,45 +1028,39 @@ thead th {
     background:vars.$blanc;
   }
 }
-
 .ganttMachine-choice-button {
   width: 50px;
   color: vars.$inputbgColor;
   box-shadow: 0 2px 3px rgba(0,0,0,.5);
   visibility: hidden;
-
   &:hover {
     background: vars.$labelbgColor;
     box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
     color: vars.$blanc;
   }
 }
-
 .ganttMachine-choice {
   margin-top: 1rem;
 }
-
 .ganttMachine-choice-button-label > span {
     padding: 0.6rem 4rem;
     cursor: pointer;
     border: 0.5px solid vars.$labelbgColor;
     border-radius: 15px;
-  &:hover {
-    background: vars.$labelbgColor;
-    box-shadow: inset 0px 0px 3px 3px rgba(255, 255, 255, 0.55) ;
-    color: vars.$blanc;
-    font-weight: 900;
-    border-radius: 15px;
-  }
-
-  }
+    &:hover {
+      background: vars.$labelbgColor;
+      box-shadow: inset 0px 0px 3px 3px rgba(255, 255, 255, 0.55) ;
+      color: vars.$blanc;
+      font-weight: 900;
+      border-radius: 15px;
+    }
+}
   .ganttMachine-choice-button:checked + span  {
     background: vars.$labelbgColor;
     box-shadow: inset 0px 0px 3px 3px rgba(255, 255, 255, 0.55) ;
     color: vars.$blanc;
     font-weight: 900;
     border: 4px solid vars.$inputbgColor;
-
   }
 .ganttMachine-choice-button-select {
   width: 230px;
@@ -1141,7 +1071,6 @@ thead th {
 .ganttMachine-choice-form {
   display: flex;
 }
-
 .ganttMachine-choice-button-button {
   width: 200px;
   box-shadow: 0px 0px 5px 2px rgba(38,93,125, 0.8);
@@ -1156,11 +1085,9 @@ thead th {
     background: rgba(38,93,125, 0.8);
   }
 }
-
 .ganttMachine-title {
   font-size: 1.5rem;
 }
-
 .button-screenshot {
   position: absolute;
   top: 0;
@@ -1177,26 +1104,21 @@ thead th {
 .button-screenshot--img {
   width: 50px;
   height: 50px;
-
 }
 .machinesPage {
   color: vars.$noir;
-
   &-title {
     text-align: center;
     font-size: 1.5rem;
   }
 }
-
 .ganttGeneral {
   color: vars.$noir;
-
   &-title {
     text-align: center;
     font-size: 1.5rem;
   }
 }
-
 .ganttMachine-form {
   display: flex;
   width: 1100px;
@@ -1207,7 +1129,6 @@ thead th {
 .ganttGeneral-changeInfo {
   color: vars.$noir;
 }
-
 .form-field-button-zones {
   display: flex;
 }
@@ -1243,13 +1164,11 @@ thead th {
     color: white;
     font-weight: bold;
   }
-
 }
 .recalcul-submit {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   &-none {
     display: none;
   }
@@ -1271,7 +1190,6 @@ thead th {
     height: 6px;
     background: vars.$blueTheadTable;
     border-radius: 30px;
-
     &-none {
       display: none;
     }
@@ -1282,7 +1200,6 @@ thead th {
     background: vars.$blueTheadTable;
     transform: translate(0px, -16px);
     border-radius: 30px;
-
     &-none {
       transform: translate(-6px, -10px);
     }
@@ -1305,7 +1222,6 @@ thead th {
     height: 6px;
     background: vars.$blueTheadTable;
     border-radius: 30px;
-
     &-none {
       display: none;
     }
@@ -1316,7 +1232,6 @@ thead th {
     background: vars.$blueTheadTable;
     transform: translate(0px, -16px);
     border-radius: 30px;
-
     &-none {
       transform: translate(-6px, -10px);
     }
@@ -1330,5 +1245,92 @@ thead th {
   color: vars.$noir;
 }
 .selectMachineInArticlePage {
-
+}
+.Valorisation {
+  color: vars.$noir;
+  &-title {
+    text-align: center;
+  }
+}
+.Settings {
+  background: vars.$rougePastel;
+  width: 80px;
+  height: 25px;
+  display: flex;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: 4px 4px 2px 0px black;
+  top: 65px;
+  &-img {
+    width: 25%;
+    margin: auto;
+  }
+}
+.WaitMaterial {
+  background: vars.$labelbgColor;
+  width: 80px;
+  height: 25px;
+  display: flex;
+  border-radius: 10px;
+  position: absolute;
+  top: 65px;
+  left: 100px;
+  box-shadow: 4px 4px 2px 0px black;
+  &-title {
+    width: 25%;
+    margin: auto;
+    position: absolute;
+    top: -15px;
+    left: 26px;
+  }
+}
+.valorisation {
+  color: vars.$noir;
+  &-title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+  &-search {
+    border: 1px solid vars.$labelbgColor;
+    padding: 0.7rem;
+    border-radius: 5px 0px 0px 5px;
+    background: vars.$labelbgColor;
+    color: vars.$inputbgColor;
+    font-size: 0.8rem;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  }
+  &-form {
+    width: 100%;
+    text-align: center;
+    margin: 2em 0;
+    &:focus-within > span {
+      border: 2px solid vars.$inputbgColor;
+      background: vars.$inputbgColor;
+      color: vars.$labelbgColor;
+    }
+    &:focus-within > .valorisation-input {
+      border: 2px solid vars.$inputbgColor;
+    }
+  }
+  &-input {
+    padding: 0.7rem;
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid vars.$labelbgColor;
+    transition: border 0.3s ease;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.table-valo {
+  color: vars.$noir;
+  border-collapse: collapse;
+  background: vars.$blanc;
+  border-radius: 10px;
+  overflow: auto;
+  width: 100%;
+}
+.twoDatePicker-form {
+  text-align: center;
 }

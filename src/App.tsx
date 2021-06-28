@@ -8,6 +8,7 @@ import Ordonnancement from './containers/Ordonnancement';
 import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
 import MachinesPage from './components/MachinesPage';
+import Valorisation from './components/Valorisation';
 
 const Hello = () => {
   return (
@@ -53,6 +54,12 @@ const Hello = () => {
             <img className="button-accueil-img" src="../assets/images/reglages.png" alt="Reglages" />
           </button>
         </Link>
+        <Link to="/valorisation" rel="noreferrer">
+          <button className="button-accueil" type="button">
+            <span>Valorisation</span>
+            <img className="button-accueil-img" src="../assets/images/valorisation.png" alt="Valorisation" />
+          </button>
+        </Link>
       </div>
     </div>
   );
@@ -85,6 +92,7 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
         <Route path="/ordonnancement" component={Ordonnancement} />
         <Route path="/reglages" component={Reglages} />
         <Route path="/machines" component={MachinesPage} />
+        <Route path="/valorisation" component={Valorisation} />
       </Switch>
     </HashRouter>
   );
