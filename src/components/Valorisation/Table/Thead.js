@@ -8,6 +8,7 @@ const Thead = () => {
         <th>id</th>
         <th>Référence</th>
         <th>Quantité</th>
+        <th>Temps Op</th>
         <th>Date Fin</th>
         <th>Coût Matière</th>
         <th>Montant TT</th>

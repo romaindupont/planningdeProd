@@ -383,8 +383,6 @@ thead th {
   &-label {
     margin-bottom: 0.4rem;
   }
-  &-input {
-  }
 }
 .selection {
   text-align: center;
@@ -615,8 +613,6 @@ thead th {
   flex-wrap: wrap;
   height: 150px;
   justify-content: space-evenly;
-  &-field-button-zones {
-  }
 }
 .form-ordo-button {
   &--modif {
@@ -658,8 +654,6 @@ thead th {
   &-title {
     text-align: center;
   }
-}
-.container-reglages-hour {
 }
 .reglages-form {
   &-all {
@@ -758,8 +752,6 @@ thead th {
 }
 .ganttMachine-container-bloc {
   display: flex;
-  &--empty {
-  }
   &--day {
     width: 85px;
     height: 30px;
@@ -1244,8 +1236,6 @@ thead th {
 .title-selectMachineInArticlePage {
   color: vars.$noir;
 }
-.selectMachineInArticlePage {
-}
 .Valorisation {
   color: vars.$noir;
   &-title {
@@ -1264,6 +1254,7 @@ thead th {
   &-img {
     width: 25%;
     margin: auto;
+    cursor: pointer;
   }
 }
 .WaitMaterial {
@@ -1282,6 +1273,7 @@ thead th {
     position: absolute;
     top: -15px;
     left: 26px;
+    cursor: pointer;
   }
 }
 .valorisation {
@@ -1333,4 +1325,67 @@ thead th {
 }
 .twoDatePicker-form {
   text-align: center;
+}
+.Settings-submit {
+  width: 200px;
+  height: 200px;
+  background: vars.$rougePastel;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 4px 4px 2px 0px vars.$noir;
+  &-none {
+    display: none;
+  }
+}
+.Settings-label {
+  text-align: center;
+  font-weight: bold;
+}
+.Settings-horaire {
+  border: none;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+.Settings-submit--button {
+  width: 100px;
+  font-size: 0.7rem;
+  margin: 20px auto;
+  color: vars.$rougePastel;
+  box-shadow: 4px -3px 0px 3px vars.$noir;
+  &:hover {
+    color: vars.$blanc;
+    background: vars.$rougePastel;
+  }
+}
+.WaitMaterial-container {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  background: vars.$labelbgColor;
+  box-shadow: 4px 4px 2px 0px vars.$noir;
+  border-radius: 5px;
+  &-none {
+    display: none;
+  }
+}
+.WaitMaterial-table {
+  width: 650px;
+  margin: 0 50px;
+}
+.WaitMaterial-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & > button {
+    color: vars.$blueTheadTable;
+    box-shadow: 4px 4px 2px 0px vars.$noir;
+    &:hover {
+      background: vars.$inputbgColor;
+      color: vars.$blanc;
+    }
+  }
 }

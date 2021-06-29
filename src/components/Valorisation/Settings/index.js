@@ -1,45 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImagesSettings from '../../../../assets/images/settings.png'
+import classNames from 'classnames';
+import { Drag }from '../../../Utils/drag';
 
 const Settings = () => {
-  let pos1 = 0;
-  let pos2 = 0;
-  let pos3 = 0;
-  let pos4 = 0;
+  const [ settingOpen, setSettingOpen ] = useState(true)
   const dragElement = (e) => {
     e.preventDefault();
-    const IdElemnt = document.getElementById('dragSettings');
-    pos1 = 0;
-    pos2 = 0;
-    pos3 = 0;
-    pos4 = 0;
-    IdElemnt.onmousedown = dragMouseDown;
+    Drag(e, 'dragSettings')
   }
-  const dragMouseDown = (e) => {
-    e.stopPropagation();
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
+
+  const handleSubmit = () => {
+
   }
-  const elementDrag = (e) => {
-    e.preventDefault();
-    const IdElemnt = document.getElementById('dragSettings');
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    IdElemnt.style.top = (IdElemnt.offsetTop - pos2) + "px";
-    IdElemnt.style.left = (IdElemnt.offsetLeft - pos1) + "px";
-  }
-  const closeDragElement = () => {
-    document.onmouseup = null;
-    document.onmousemove = null;
+  const closeOpen = () => {
+    setSettingOpen(!settingOpen);
   }
   return (
     <div className="Settings" draggable="true" id="dragSettings" onDragStart={dragElement}>
-      <img className="Settings-img" src={ImagesSettings} alt="settings" />
-
+      <img className="Settings-img" src={ImagesSettings} alt="settings" onClick={closeOpen}/>
+      <form className={classNames("Settings-submit", {"Settings-submit-none":settingOpen})} type="submit" onSubmit={handleSubmit}>
+        <label className="Settings-label">Coût horaire
+          <input className="Settings-horaire" type="text" placeholder="Coût en €" name="date"/>
+        </label>
+        <button className="Settings-submit--button" type="submit">Modifier</button>
+      </form>
     </div>
   );
 };
