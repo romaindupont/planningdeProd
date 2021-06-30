@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { UPDATED_LANCEMENT, UPDATED_END, UPDATED_QUANTITY } from '../actions/lancement';
-import { updateTasks } from '../actions';
+import { updateTasks, deleteTasks } from '../actions';
 import { saveErrorMessage } from '../actions/workingDay';
+import { UPDATED_PROGRESS } from '../actions/valorisation';
 
 const lancement = (store) => (next) => (action) => {
   switch (action.type) {
@@ -85,6 +86,25 @@ const lancement = (store) => (next) => (action) => {
               state.lancement.lctNumber,
               action.quantity
             ));
+            store.dispatch(saveErrorMessage(response.data.message));
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          });
+        break;
+      }
+    case UPDATED_PROGRESS:
+      {
+        const state = store.getState();
+        axios.patch(`planning/progress/${action.planning_id}`,
+          {
+            progress: action.progress
+          },
+          {
+            baseURL: 'https://obscure-dawn-65024.herokuapp.com',
+          })
+          .then((response) => {
+            store.dispatch(deleteTasks(action.planning_id));
             store.dispatch(saveErrorMessage(response.data.message));
           })
           .catch((error) => {

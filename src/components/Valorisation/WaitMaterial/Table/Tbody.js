@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-const Tbody = ({ search, PlanningForMachine }) => {
+const Tbody = ({ search, PlanningForMachine, saveIdLct, saveTransfert }) => {
   let filterTasks = PlanningForMachine.filter((task) => task.progress == 100 && task.reference.includes(search));
   if (filterTasks.length === 0) {
     filterTasks = PlanningForMachine.filter((task) => task.progress == 100);
@@ -9,23 +9,20 @@ const Tbody = ({ search, PlanningForMachine }) => {
   const handleCheckBox = async (e) => {
     if (e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.add("checked");
-      /* await saveIdLct(e.target.value); */
+      await saveIdLct(e.target.value);
+      const theLancement = PlanningForMachine.find((lancement) => lancement.planning_id == e.target.value);
+      saveTransfert(
+          theLancement.planning_id,
+          theLancement.reference,
+          theLancement.tempsop,
+          theLancement._end,
+          theLancement.quantity,
+        );
     }
-     /*  const theLancement = tasks.find((lancement) => lancement.id == e.target.value);
-      saveLct(
-        theLancement.id,
-        theLancement.lancementn,
-        theLancement.name,
-        theLancement.start,
-        theLancement.end,
-        theLancement.quantity,
-        theLancement.progress
-      );
-    } */
     if (!e.target.checked) {
       document.getElementById(`${e.target.value}`).classList.remove("checked");
-    /*   saveIdLct('');
-      saveLct('','','','','','',''); */
+      saveIdLct('');
+      saveTransfert('','','','','');
     }
   }
   return (

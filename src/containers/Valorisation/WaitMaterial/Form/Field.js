@@ -3,7 +3,7 @@ import Field from '../../../../components/Valorisation/WaitMaterial/Form/Field';
 import { changeValue } from '../../../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentValue: state.lancement[ownProps.name]
+    currentValue: state.valorisation[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

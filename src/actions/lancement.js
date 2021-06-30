@@ -59,3 +59,20 @@ export const update = (list, searchWord) => {
     filterList: updateList
     });
 };
+
+export const SAVE_TRANSFERT = 'SAVE_TRANSFERT';
+export const saveTransfert = (id, reference, tempsop, _end, quantity) => ({
+  type: SAVE_TRANSFERT,
+  id,
+  reference,
+  tempsop,
+  _end,
+  quantity,
+});
+
+export const SAVE_DATE_SEARCH = 'SAVE_DATE_SEARCH';
+export const saveDateSearch = (dateOne, dateTwo) => ({
+  type: SAVE_DATE_SEARCH,
+  dateOne,
+  dateTwo,
+});

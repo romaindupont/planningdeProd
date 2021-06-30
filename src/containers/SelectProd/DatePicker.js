@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import DatePicker from '../../components/SelectProd/DatePicker';
 import { changeValue } from '../../actions';
 
+
 const mapStateToProps = (state, ownProps) => ({
     currentValue: state.launch[ownProps.name]
 });

@@ -1,47 +1,29 @@
 import React, { useState } from 'react';
+import { DateTime } from 'luxon';
 
-const Tbody = ({ search, total, setTotal, tableauValo }) => {
-  const table = document.querySelector(".table-valo");
-  const row = document.querySelectorAll(".trVal");
-  const cells = document.querySelectorAll(".trVal > td");
-  console.log(tableauValo)
-  let totalTd = 0;
-  for (let i = 0; i < row.length; i++) {
-    totalTd = totalTd + parseInt(row[i].cells[7].innerHTML);
-    setTotal(totalTd);
+const Tbody = ({ search, total, setTotal, tableauValo, dateOne, dateTwo }) => {
+  let filterList = tableauValo.filter((list) => list.reference.includes(search))
+  if (filterList.length === 0) {
+    filterList = tableauValo;
+  }
+  if (dateOne != '') {
+    let newDateOne = DateTime.fromFormat(`${dateOne.substring(6,10)}-${dateOne.substring(3,5)}-${dateOne.substring(0,2)}`, 'yyyy-MM-dd').toMillis();
+    let newDateTwo = DateTime.fromFormat(`${dateTwo.substring(6,10)}-${dateTwo.substring(3,5)}-${dateTwo.substring(0,2)}`, 'yyyy-MM-dd').toMillis();
+    filterList = tableauValo.filter((list) =>  (DateTime.fromFormat(`${list._end.substring(6,10)}-${list._end.substring(3,5)}-${list._end.substring(0,2)}`, 'yyyy-MM-dd').toMillis()) >= newDateOne && (DateTime.fromFormat(`${list._end.substring(6,10)}-${list._end.substring(3,5)}-${list._end.substring(0,2)}`, 'yyyy-MM-dd').toMillis()) <= newDateTwo && list.reference.includes(search) )
   }
   return (
     <tbody>
-      <tr className="trVal">
-        <td><input type="checkbox"></input></td>
-        <td>1</td>
-        <td>ref1</td>
-        <td>10</td>
-        <td>10</td>
-        <td>30/06/2021</td>
-        <td>10</td>
-        <td>100</td>
-      </tr>
-      <tr className="trVal">
-        <td><input type="checkbox"></input></td>
-        <td>2</td>
-        <td>ref2</td>
-        <td>10</td>
-        <td>10</td>
-        <td>30/06/2021</td>
-        <td>10</td>
-        <td>100</td>
-      </tr>
-      <tr className="trVal">
-        <td><input type="checkbox"></input></td>
-        <td>3</td>
-        <td>ref3</td>
-        <td>10</td>
-        <td>10</td>
-        <td>30/06/2021</td>
-        <td>10</td>
-        <td>100</td>
-      </tr>
+      {filterList.map((valo, i) =>
+      <tr key={i} id={valo.id} className="trVal">
+        <td><input value={valo.id} type="checkbox"></input></td>
+        <td>{valo.planning_id}</td>
+        <td>{valo.reference}</td>
+        <td>{valo.quantity}</td>
+        <td>{valo.tempsop}</td>
+        <td>{valo._end}</td>
+        <td>{valo.cout}</td>
+        <td>{valo.montant}</td>
+      </tr> )}
     </tbody>
   );
 };

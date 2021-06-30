@@ -29,6 +29,10 @@ const SelectProd = ({
   const [ isShowing, setIsShowing ] = useState(false);
   const [ wantDrag, setWantDrag ] = useState(false);
   const [ calculZone, setCalculZone ] = useState(true);
+  let pos1 = 0;
+  let pos2 = 0;
+  let pos3 = 0;
+  let pos4 = 0;
   const handleClick = (e) => {
     e.preventDefault();
     openDate();
@@ -39,7 +43,34 @@ const SelectProd = ({
   };
   const dragElement = (e) => {
     e.preventDefault();
-    Drag(e, 'dragLct')
+    const elemnt = document.getElementById('dragLct');
+    pos1 = 0;
+    pos2 = 0;
+    pos3 = 0;
+    pos4 = 0;
+    elemnt.onmousedown = dragMouseDown;
+  }
+  const dragMouseDown = (e) => {
+    e.stopPropagation();;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+
+  }
+  const elementDrag = (e) => {
+    e.preventDefault();
+    const elemnt = document.getElementById('dragLct');
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elemnt.style.top = (elemnt.offsetTop - pos2) + "px";
+    elemnt.style.left = (elemnt.offsetLeft - pos1) + "px";
+  }
+  const closeDragElement = () => {
+    document.onmouseup = null;
+    document.onmousemove = null;
   }
   const onDragOrNot = () => {
     setWantDrag(!wantDrag);

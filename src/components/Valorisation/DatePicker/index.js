@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DatePicker from '../../../containers/SelectProd/DatePicker';
 
-const TwoDatePicker = () => {
+const TwoDatePicker = ({ saveDateSearch, dateOne, dateTwo, newTotal }) => {
   const datepickerValue = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value, e.target[1].value)
+    saveDateSearch(e.target[0].value, e.target[1].value)
   }
+  useEffect(() => {
+    newTotal();
+  }, [datepickerValue]);
   return (
     <form onSubmit={datepickerValue} className="twoDatePicker-form">
         du <DatePicker /> au <DatePicker />

@@ -8,6 +8,7 @@ export function Drag(e, idRef) {
   let event = e;
 
   const dragElement = (event) => {
+    const elemnt = document.getElementById(idRef);
     pos1 = 0;
     pos2 = 0;
     pos3 = 0;
@@ -24,6 +25,7 @@ const dragMouseDown = (event) => {
 }
 const elementDrag = (event) => {
   event.preventDefault();
+  const elemnt = document.getElementById(idRef);
   pos1 = pos3 - event.clientX;
   pos2 = pos4 - event.clientY;
   pos3 = event.clientX;
