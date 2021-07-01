@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import ImagesSettings from '../../../../assets/images/settings.png'
 import classNames from 'classnames';
 import { Drag } from '../../../Utils/drag';
+import Popup from '../../../containers/Reglages/Popup';
 
-const Settings = () => {
+const Settings = ({ choraire, updateSettings, changeValue, currentValue }) => {
   const [ settingOpen, setSettingOpen ] = useState(true);
+  const [ isShowing, setIsShowing ] = useState(false);
   let pos1 = 0;
   let pos2 = 0;
   let pos3 = 0;
@@ -40,8 +42,14 @@ const Settings = () => {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateSettings(1, e.target.choraire.value)
+    setIsShowing(true)
+  }
+  const handleChange = (e) => {
+    e.preventDefault();
+    changeValue(e.target.value)
   }
   const closeOpen = () => {
     setSettingOpen(!settingOpen);
@@ -49,11 +57,12 @@ const Settings = () => {
   return (
     <div className="Settings" draggable="true" id="dragSettings" onDragStart={dragElement}>
       <img className="Settings-img" src={ImagesSettings} alt="settings" onClick={closeOpen}/>
-      <form className={classNames("Settings-submit", {"Settings-submit-none":settingOpen})} type="submit" onSubmit={handleSubmit}>
+      <form className={classNames("Settings-submit", {"Settings-submit-none":settingOpen})} onSubmit={handleSubmit}>
         <label className="Settings-label">Coût horaire
-          <input className="Settings-horaire" type="text" placeholder="Coût en €" name="date"/>
+          <input className="Settings-horaire" type="text" placeholder="Coût en €" name="choraire" value={currentValue || choraire} onChange={handleChange}/>
         </label>
         <button className="Settings-submit--button" type="submit">Modifier</button>
+        {isShowing && (<Popup setIsShowing={setIsShowing} />)}
       </form>
     </div>
   );

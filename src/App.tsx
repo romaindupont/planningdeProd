@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, HashRouter, Link } from 'react-router-dom';
-import icon from '../assets/icon.svg';
 import './App.global.scss';
 import Gantt from './containers/Gantt';
 import Lancement from './containers/Lancement';
@@ -14,9 +13,7 @@ const Hello = () => {
   return (
     <div>
       <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
       </div>
-      <h1>electron-react-boilerplate</h1>
       <div className="Base Articles">
         <Link to="/articles" rel="noreferrer">
           <button className="button-accueil" type="button">
@@ -65,7 +62,15 @@ const Hello = () => {
   );
 };
 
-export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetchMachine, fetchMachinePlanning }) {
+export default function App({
+  fetchPlanning,
+  fetchArticle,
+  fetchWorkingDay,
+  fetchMachine,
+  fetchMachinePlanning,
+  fetchSettings,
+  fetchValoList
+}) {
   useEffect(() => {
     fetchPlanning();
   }, []);
@@ -74,13 +79,18 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
   }, []);
   useEffect(() => {
     fetchWorkingDay();
-
   }, []);
   useEffect(() => {
     fetchMachine();
   }, []);
   useEffect(() => {
     fetchMachinePlanning();
+  }, []);
+  useEffect(() => {
+    fetchSettings();
+  }, []);
+  useEffect(() => {
+    fetchValoList();
   }, []);
   return (
     <HashRouter>

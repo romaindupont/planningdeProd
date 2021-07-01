@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BackToMenu from '../BackToMenu';
-import Settings from './Settings';
+import Settings from '../../containers/Valorisation/Settings';
 import WaitMaterial from './WaitMaterial';
 import TwoDatePicker from '../../containers/Valorisation/DatePicker';
 import SearchBar from './SearchBar';

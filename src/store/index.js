@@ -4,11 +4,12 @@ import planning from '../middlewares/planning';
 import lancement from '../middlewares/lancement';
 import workingDay from '../middlewares/workingDay';
 import machine from '../middlewares/machine';
+import valorisation from '../middlewares/valorisation';
 import reducer from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(
-  applyMiddleware(articles, planning, lancement, workingDay, machine),
+  applyMiddleware(articles, planning, lancement, workingDay, machine, valorisation),
 ));
 
 export default store;

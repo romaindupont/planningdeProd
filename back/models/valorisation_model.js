@@ -29,10 +29,10 @@ const dataValorisation = {
     const result = await pool.pool.query(sql, [ cout, montant, id ]);
     return result.rows;
   },
-  addValorisation: async(body) => {
-    const sql = 'INSERT INTO valorisation (id_piece, cout, montant) VALUES ($1, $2, $3) RETURNING *;';
+  addValorisation: async(body, id) => {
+    const sql = 'INSERT INTO valorisation (id, id_piece, cout, montant) VALUES ($1, $2, $3, $4) RETURNING *;';
     const { id_piece, cout, montant } = body;
-    const result = await pool.pool.query(sql, [ id_piece, cout, montant ]);
+    const result = await pool.pool.query(sql, [ id, id_piece, cout, montant ]);
     return result.rows[0];
   },
   deleteValorisation: async(id) => {

@@ -1,6 +1,6 @@
 import { SAVE_TRANSFERT, SAVE_DATE_SEARCH } from "../actions/lancement";
 import { CHANGE_VALUE } from "../actions";
-import { TRANSFERT_REF_TO_VALO } from '../actions/valorisation';
+import { TRANSFERT_REF_TO_VALO, SETTINGS_LIST, SETTINGS_UPDATE_STATE, SAVE_VALO_LIST } from '../actions/valorisation';
 
 const initialState = {
   tableauValo:
@@ -34,7 +34,8 @@ const initialState = {
   cout:'',
   montant:'',
   dateOne:'',
-  dateTwo:''
+  dateTwo:'',
+  choraire: ''
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -52,13 +53,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.newValue
-        }
+        };
     case SAVE_DATE_SEARCH:
       return {
         ...state,
         dateOne: action.dateOne,
         dateTwo: action.dateTwo
-      }
+      };
     case TRANSFERT_REF_TO_VALO:
       return {
         ...state,
@@ -67,14 +68,30 @@ const reducer = (state = initialState, action = {}) => {
           {
             id: action.id,
             reference: action.reference,
+            name: action.reference,
+            id_piece: action.id_piece,
             planning_id: action.planning_id,
             quantity : action.quantity,
-            tempsop : action.tempsop,
             _end : action._end,
             cout: action.cout,
             montant: action.montant
           }
         ]
+      };
+    case SETTINGS_LIST:
+      return {
+        ...state,
+        choraire: action.choraire
+      };
+    case SETTINGS_UPDATE_STATE:
+      return {
+        ...state,
+        choraire : action.choraire
+      }
+    case SAVE_VALO_LIST:
+      return {
+        ...state,
+        tableauValo: action.newList
       }
     default:
       return state;

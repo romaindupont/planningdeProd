@@ -7,11 +7,12 @@ const Thead = () => {
         <th>Sélection</th>
         <th>id</th>
         <th>Référence</th>
+        <th>Lancement</th>
         <th>Quantité</th>
-        <th>Temps Op</th>
         <th>Date Fin</th>
         <th>Coût Matière</th>
         <th>Montant TT</th>
+        <th>Coût Unitaire</th>
       </tr>
     </thead>
   );
