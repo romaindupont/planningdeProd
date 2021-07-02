@@ -82,6 +82,17 @@ const planningController = {
       res.status(500).send(error);
     }
   },
+  updateProgress: async(req, res) => {
+    try {
+      await planning_model.dataPlanning.updateProgressToValo(req.body, req.params.id);
+      return res.status(201).json({
+        message: "Transfert réussi !"
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  },
   find: async (req, res) => {
     try {
       const planningMachineList = await planning_model.dataPlanning.planningSpecialMachine();

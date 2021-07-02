@@ -5,6 +5,7 @@ import launch from './launch';
 import lancement from './lancement';
 import workingDay from './workingDay';
 import machines from './machines';
+import valorisation from './valorisation';
 
 const rootReducer = combineReducers({
   tasks,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   lancement,
   workingDay,
   machines,
+  valorisation
 });
 
 export default rootReducer;

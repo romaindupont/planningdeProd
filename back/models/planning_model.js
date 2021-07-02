@@ -89,6 +89,13 @@ const dataPlanning = {
     const result = await pool.pool.query(sql, [ name, start, _end, progress, dependencies, aujourdhui, lancement, quantity, id ]);
     return result.rows;
   },
+  updateProgressToValo: async (body, id) => {
+    const sql = 'UPDATE planning SET progress=$1, updated_at=$2 WHERE id=$3 RETURNING *';
+    const aujourdhui = 'now()';
+    const { progress } = body;
+    const result = await pool.pool.query(sql, [ progress, aujourdhui, id ]);
+    return result.rows;
+  },
   planningSpecialMachine: async () => {
     const sql = 'SELECT *, planning.id as planning_id, machine.id as id_machine, machine.name as machineName FROM planning INNER JOIN articles ON planning.name = articles.reference LEFT JOIN machine ON articles.machine_id = machine.id WHERE articles.machine_id IS NOT NULL ORDER BY lancement, planning.name;';
     const result = await pool.pool.query(sql);

@@ -6,6 +6,7 @@ import Popup from '../../containers/Reglages/Popup';
 import Select from '../../containers/SelectProd/Select';
 import TimePicker from '../../containers/SelectProd/TimePicker';
 import { openDate } from '../../Utils/openDate';
+import { Drag } from '../../Utils/drag';
 
 const SelectProd = ({
   reference,
@@ -50,11 +51,12 @@ const SelectProd = ({
     elemnt.onmousedown = dragMouseDown;
   }
   const dragMouseDown = (e) => {
-    e.stopPropagation();
+    e.stopPropagation();;
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
     document.onmousemove = elementDrag;
+
   }
   const elementDrag = (e) => {
     e.preventDefault();

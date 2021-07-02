@@ -8,6 +8,8 @@ const articlesRouter = require('./routers/articles');
 const planningRouter = require('./routers/planning');
 const workingDayRouter = require('./routers/workingDay');
 const machineRouter = require('./routers/machine');
+const valorisationRouter = require('./routers/valorisation');
+const settingsRouter = require('./routers/settings');
 
 app.use(express.json());
 app.use(cors());
@@ -26,6 +28,8 @@ app.use('/', articlesRouter);
 app.use('/', planningRouter);
 app.use('/', workingDayRouter);
 app.use('/', machineRouter);
+app.use('/', valorisationRouter);
+app.use('/', settingsRouter);
 
 // Error middleware
 app.use((err, req, res, next) => {

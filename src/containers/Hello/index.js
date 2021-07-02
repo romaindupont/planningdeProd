@@ -4,6 +4,7 @@ import { fetchPlanning } from '../../actions/launch';
 import { fetchArticle } from '../../actions/article';
 import { fetchWorkingDay } from '../../actions/workingDay';
 import { fetchMachine, fetchMachinePlanning } from '../../actions/machines';
+import { fetchSettings, fetchValoList } from '../../actions/valorisation';
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks.tasks,
@@ -29,6 +30,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchMachinePlanning: () => {
     dispatch(fetchMachinePlanning());
+  },
+  fetchSettings: () => {
+    dispatch(fetchSettings());
+  },
+  fetchValoList: () => {
+    dispatch(fetchValoList());
   }
 });
 

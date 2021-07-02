@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, HashRouter, Link } from 'react-router-dom';
-import icon from '../assets/icon.svg';
 import './App.global.scss';
 import Gantt from './containers/Gantt';
 import Lancement from './containers/Lancement';
@@ -8,14 +7,13 @@ import Ordonnancement from './containers/Ordonnancement';
 import ArticlesPage from './components/ArticlesPage';
 import Reglages from './components/Reglages';
 import MachinesPage from './components/MachinesPage';
+import Valorisation from './components/Valorisation';
 
 const Hello = () => {
   return (
     <div>
       <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
       </div>
-      <h1>electron-react-boilerplate</h1>
       <div className="Base Articles">
         <Link to="/articles" rel="noreferrer">
           <button className="button-accueil" type="button">
@@ -53,12 +51,26 @@ const Hello = () => {
             <img className="button-accueil-img" src="../assets/images/reglages.png" alt="Reglages" />
           </button>
         </Link>
+        <Link to="/valorisation" rel="noreferrer">
+          <button className="button-accueil" type="button">
+            <span>Valorisation</span>
+            <img className="button-accueil-img" src="../assets/images/valorisation.png" alt="Valorisation" />
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetchMachine, fetchMachinePlanning }) {
+export default function App({
+  fetchPlanning,
+  fetchArticle,
+  fetchWorkingDay,
+  fetchMachine,
+  fetchMachinePlanning,
+  fetchSettings,
+  fetchValoList
+}) {
   useEffect(() => {
     fetchPlanning();
   }, []);
@@ -67,13 +79,18 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
   }, []);
   useEffect(() => {
     fetchWorkingDay();
-
   }, []);
   useEffect(() => {
     fetchMachine();
   }, []);
   useEffect(() => {
     fetchMachinePlanning();
+  }, []);
+  useEffect(() => {
+    fetchSettings();
+  }, []);
+  useEffect(() => {
+    fetchValoList();
   }, []);
   return (
     <HashRouter>
@@ -85,6 +102,7 @@ export default function App({ fetchPlanning, fetchArticle, fetchWorkingDay, fetc
         <Route path="/ordonnancement" component={Ordonnancement} />
         <Route path="/reglages" component={Reglages} />
         <Route path="/machines" component={MachinesPage} />
+        <Route path="/valorisation" component={Valorisation} />
       </Switch>
     </HashRouter>
   );
