@@ -6,8 +6,7 @@ import { changeValue } from '../../../actions';
 
 const mapStateToProps = (state, ownProps) => ({
   choraire: state.valorisation.choraire,
-  currentValue: state.valorisation[ownProps.name],
-
+  currentValueSetting: state.valorisation[ownProps.name]
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -1251,6 +1251,7 @@ thead th {
   position: absolute;
   box-shadow: 4px 4px 2px 0px black;
   top: 65px;
+  z-index: 1;
   &-img {
     width: 25%;
     margin: auto;
@@ -1267,6 +1268,7 @@ thead th {
   top: 65px;
   left: 100px;
   box-shadow: 4px 4px 2px 0px black;
+  z-index: 1;
   &-title {
     width: 25%;
     margin: auto;
@@ -1388,4 +1390,7 @@ thead th {
       color: vars.$blanc;
     }
   }
+}
+.valorisation-footer {
+  display: flex;
 }

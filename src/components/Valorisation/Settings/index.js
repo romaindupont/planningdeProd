@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Drag } from '../../../Utils/drag';
 import Popup from '../../../containers/Reglages/Popup';
 
-const Settings = ({ choraire, updateSettings, changeValue, currentValue }) => {
+const Settings = ({ choraire, updateSettings, changeValue, currentValueSetting }) => {
   const [ settingOpen, setSettingOpen ] = useState(true);
   const [ isShowing, setIsShowing ] = useState(false);
   let pos1 = 0;
@@ -59,7 +59,7 @@ const Settings = ({ choraire, updateSettings, changeValue, currentValue }) => {
       <img className="Settings-img" src={ImagesSettings} alt="settings" onClick={closeOpen}/>
       <form className={classNames("Settings-submit", {"Settings-submit-none":settingOpen})} onSubmit={handleSubmit}>
         <label className="Settings-label">Coût horaire
-          <input className="Settings-horaire" type="text" placeholder="Coût en €" name="choraire" value={currentValue || choraire} onChange={handleChange}/>
+          <input className="Settings-horaire" type="text" placeholder="Coût en €" name="choraire" value={currentValueSetting || choraire} onChange={handleChange}/>
         </label>
         <button className="Settings-submit--button" type="submit">Modifier</button>
         {isShowing && (<Popup setIsShowing={setIsShowing} />)}

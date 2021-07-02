@@ -4,7 +4,8 @@ import Tbody from '../../../components/Valorisation/Table/Tbody';
 const mapStateToProps = (state, ownProps) => ({
   tableauValo : state.valorisation.tableauValo,
   dateOne: state.valorisation.dateOne,
-  dateTwo: state.valorisation.dateTwo
+  dateTwo: state.valorisation.dateTwo,
+  waitValo: state.valorisation.waitValo
 });
 
 const mapDispatchToProps = {};

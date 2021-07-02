@@ -46,7 +46,7 @@ const WaitMaterial = () => {
     setOpen(!open);
   }
   const changeSearch = (e) => {
-    setWaitSearch(e.target.value)
+    setWaitSearch(e.target.value.toUpperCase())
   }
   return (
     <div className="WaitMaterial" draggable="true" id="dragWait" onDragStart={dragElement}>

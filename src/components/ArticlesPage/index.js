@@ -8,7 +8,7 @@ import SearchBar from '../Lancement/SearchBar';
 const ArticlesPage = () => {
   const [ search, setSearch ] = useState('');
   const changeNumber = (e) => {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toUpperCase());
   };
   return (
     <div className="articlePage">

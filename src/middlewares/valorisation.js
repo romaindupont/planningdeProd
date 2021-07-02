@@ -28,7 +28,7 @@ const valorisation = (store) => (next) => (action) => {
         break;
       }
     case UPDATE_SETTINGS:
-{
+      {
         const state = store.getState();
         axios.put(`/settings/update/${action.id}`,
           {

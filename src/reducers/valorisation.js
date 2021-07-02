@@ -35,7 +35,8 @@ const initialState = {
   montant:'',
   dateOne:'',
   dateTwo:'',
-  choraire: ''
+  choraire: '',
+  waitValo: true
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -47,7 +48,7 @@ const reducer = (state = initialState, action = {}) => {
         reference: action.reference,
         tempsop: action.tempsop,
         _end: action._end,
-        quantity: action.quantity,
+        quantity: action.quantity
       };
     case CHANGE_VALUE:
       return {
@@ -91,7 +92,8 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_VALO_LIST:
       return {
         ...state,
-        tableauValo: action.newList
+        tableauValo: action.newList,
+        waitValo:false
       }
     default:
       return state;
