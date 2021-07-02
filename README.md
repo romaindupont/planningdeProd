@@ -14,8 +14,8 @@ You must have this dependencies to start the project :
 
 ### Installation
 
-### I. `Planning David.exe`
-You just need to use the Planning David.exe for start the application.
+### I. `PlanningV1-01.exe`
+You just need to use the PlanningV1-01.exe for start the application.
 
 If you want use the application in local use command below :
 
